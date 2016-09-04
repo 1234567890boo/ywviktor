@@ -11,6 +11,7 @@ blue=(0,0,255)
 white=(255,255,255)
 black=(0,0,0)
 boo={1:'a',2:'b',3:'c',4:'d',5:'e',6:'f',7:'g',8:'h',9:'i'}
+#this is a comint
 def box_x(x,y):
     pygame.draw.line(screen,white,(x,y),(x+100,y+100),5)
     pygame.draw.line(screen,white,(x+100,y),(x,y+100),5)
