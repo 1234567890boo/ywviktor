@@ -13,62 +13,47 @@ black=(0,0,0)
 chance=1
 boo={'1':'','2':'','3':'','4':'','5':'','6':'','7':'','8':'','9':''}
 boo2={(0,0):'1',(100,0):'2',(200,0):'3',(0,100):'4',(100,100):'5',(200,100):'6',(0,200):'7',(100,200):'8',(200,200):'9'}
-v="player1 win's"
-b="player2 win's"
+v="X win's"
+b="O win's"
 def WIN():
     pygame.display.update()
-    if boo['1']==boo['2']==boo['3']=='x':
-        print(v)
-        exit()
-    if boo['4']==boo['5']==boo['6']=='x':
-        print(v)
-        exit()
-    if boo['7']==boo['8']==boo['9']=='x':
-        print(v)
-        exit()
-    if boo['3']==boo['6']==boo['9']=='x':
-        print(v)
-        exit()
-    if boo['2']==boo['5']==boo['8']=='x':
-        print(v)
-        exit()
-    if boo['1']==boo['4']==boo['7']=='x':
-        print(v)
-        exit()
-    if boo['3']==boo['5']==boo['7']=='x':
-        print(v)
-        exit()
-    if boo['1']==boo['4']==boo['9']=='x':
-        print(v)
-    if boo['1']==boo['2']==boo['3']=='o':
+    for n in range(1,8,3):
+        m=str(n+1)
+        l=str(n+2)
+        n=str(n)
+        if boo[n]==boo[m]==boo[l]=='x':
+            print(v)
+            show_text(v,50,350,blue)
+            exit()
+        if boo[n]==boo[m]==boo[l]=='o':
+            print(b)
+            show_text(b,50,350,blue)
+            exit()
+    for n in range(1,4,1):
+        m=str(n+2)
+        l=str(n+6)
+        n=str(n)
+        if boo[n]==boo[m]==boo[l]=='x':
+            print(v)
+            show_text(v,50,350,blue)
+            exit()
+        if boo[n]==boo[m]==boo[l]=='o':
+            print(b)
+            show_text(b,50,350,blue)   
+            exit()
+    if (boo['1']==boo['5']==boo['9']=='o') or ( boo['3']==boo['5']==boo['7']=='o'):
         print(b)
+        show_text(b,50,350,blue)        
         exit()
-    if boo['4']==boo['5']==boo['6']=='o':
-        print(b)
-        exit()
-    if boo['7']==boo['8']==boo['9']=='o':
-        print(b)
-        exit()
-    if boo['3']==boo['6']==boo['9']=='o':
-        print(b)
-        exit()
-    if boo['2']==boo['5']==boo['8']=='o':
-        print(b)
-        exit()
-    if boo['1']==boo['4']==boo['7']=='o':
-        print(b)
-        exit()
-    if boo['3']==boo['5']==boo['7']=='o':
-        print(b)
-        exit()
-    if boo['1']==boo['4']==boo['9']=='o':
-        print(b)
-        exit()
-        def show_text(msg,x,y,color):
-
-            fontobj= pygame.font.SysFont("sansscript",32)
-            msgobj = fontobj.render(msg,False,color)
-            screen.blit(msgobj,(x,y))
+    if (boo['1']==boo['5']==boo['9']=='x' ) or (boo['3']==boo['5']==boo['7']=='x'):
+        print(v)
+        show_text(v,50,350,blue)        
+        exit()    
+def show_text(msg,x,y,color):
+    fontobj= pygame.font.SysFont("freesans",32)
+    msgobj = fontobj.render(msg,False,color)
+    screen.blit(msgobj,(x,y))
+    
 def box_x(x,y):
     pygame.draw.line(screen,white,(x,y),(x+100,y+100),5)
     pygame.draw.line(screen,white,(x+100,y),(x,y+100),5)
@@ -78,7 +63,7 @@ pygame.draw.line(screen,white,(100,0),(100,300),5)
 pygame.draw.line(screen,white,(200,0),(200,300),5)
 pygame.draw.line(screen,white,(0,100),(300,100),5)
 pygame.draw.line(screen,white,(0,200),(300,200),5)
-pygame.draw.line(screen.white,(0,300),(300,300),5)
+pygame.draw.line(screen,white,(0,300),(300,300),5)
 while True:
    pygame.display.update()
    for event in pygame.event.get():
