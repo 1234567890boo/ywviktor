@@ -12,26 +12,29 @@ white=(255,255,255)
 black=(0,0,0)
 chance=1
 boo={'1':'','2':'','3':'','4':'','5':'','6':'','7':'','8':'','9':''}
+tie_var=0
 boo2={(0,0):'1',(100,0):'2',(200,0):'3',(0,100):'4',(100,100):'5',(200,100):'6',(0,200):'7',(100,200):'8',(200,200):'9'}
 v="X win's"
 b="O win's"
+t="Tie"
 def WIN():
     pygame.display.update()
-    for n in range(1,8,3):S
+    for n in range(1,8,3):
         m=str(n+1)
         l=str(n+2)
         n=str(n)
         if boo[n]==boo[m]==boo[l]=='x':
             print(v)
             show_text(v,50,350,blue)
-            
+            time.sleep(1)
             exit()
         if boo[n]==boo[m]==boo[l]=='o':
             print(b)
             show_text(b,50,350,blue)
+            time.sleep(1)
             exit()
     for n in range(1,4,1):
-        m=str(n+2)
+        m=str(n+3)
         l=str(n+6)
         n=str(n)
         if boo[n]==boo[m]==boo[l]=='x':
@@ -49,11 +52,22 @@ def WIN():
     if (boo['1']==boo['5']==boo['9']=='x' ) or (boo['3']==boo['5']==boo['7']=='x'):
         print(v)
         show_text(v,50,350,blue)        
-        exit()    
+        exit()
+def tie():
+    global tie_var
+    for k in boo:
+        if boo[k]=='':
+            tie_var = 1
+    if tie_var==0:
+        print('tie')
+        show_text(t,50,350,blue)
+        quit()
+    tie_var=0     
 def show_text(msg,x,y,color):
-    fontobj= pygame.font.SysFont("freesans",32)
+    fontobj= pygame.font.SysFont("freesans",60)
     msgobj = fontobj.render(msg,False,color)
     screen.blit(msgobj,(x,y))
+    pygame.display.update()
     
 def box_x(x,y):
     pygame.draw.line(screen,white,(x,y),(x+100,y+100),5)
@@ -77,7 +91,6 @@ while True:
             number=int(x/100)+int(y/100)*3+1
             box_num=(boo2[x,y])
             if boo[box_num]=='':
-
                 if chance%2==1:
                     box_o(x,y)
                     boo[box_num]='o'
@@ -86,5 +99,4 @@ while True:
                     boo[box_num]='x'
                 chance=chance+1
                 WIN()
-                    
-        
+                tie()
