@@ -17,8 +17,8 @@ RP_U=0
 RP_D=0
 BXM=320
 BYM=240
-RX=random.randint(-2,2)
-RY=random.randint(-2,2)
+RX=random.randint(-1,1)
+RY=random.randint(-1,1)
 def BBB(RR,BXM):
     RA=random.randint(-2,2)
     if RA<0 and RR<0:
@@ -29,8 +29,8 @@ def BBB(RR,BXM):
         RR=RA
     return RA
 while RX==0:
-    RX=random.randint(-5,5)
-    RY=random.randint(-5,5)
+    RX=random.randint(-1,1)
+    RY=random.randint(-1,1)
 while True:
     pygame.display.update()
     screen.fill(white)
@@ -59,17 +59,23 @@ while True:
                 RP_U=0
             elif event.key==K_DOWN:
                 RP_D=0                
-    pygame.draw.rect(screen,blue,(10,LPY,10,100))
-    pygame.draw.rect(screen,green,(610,RPY,10,100))
+    pygame.draw.rect(screen,blue,(10,LPY,15,110))
+    pygame.draw.rect(screen,green,(600,RPY,15,110))
     pygame.draw.circle(screen,red,(BXM,BYM),10)
+    if BXM==600 and RPY<BYM<RPY+110:
+        RX=-RX
+        RY=-RY
+    if BXM==10 and LPY<BYM<LPY+110:
+        RX=-RX
+        RY=-RY    
     if LP_U==1:
-        LPY=LPY-5
+        LPY=LPY-2
     if LP_D==1:
-        LPY=LPY+5
+        LPY=LPY+2
     if RP_U==1:
-        RPY=RPY-5
+        RPY=RPY-2
     if RP_D==1:
-        RPY=RPY+5
+        RPY=RPY+2
     BXM=BXM+RX
     BYM=BYM+RY
     if BXM==640:
@@ -80,3 +86,4 @@ while True:
         RX =-RX
     if BYM==0:
         RY =-RY 
+
