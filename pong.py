@@ -2,6 +2,7 @@ import time
 import random  
 import pygame
 from pygame.locals import*
+pygame.init()
 screen=pygame.display.set_mode((640,480))
 pygame.display.set_caption("Pong!")
 red=(255,0,0)
@@ -19,6 +20,12 @@ BXM=320
 BYM=240
 RX=random.randint(-1,1)
 RY=random.randint(-1,1)
+LP=0
+RP=0
+def show_text(msg,x,y,color):
+    fontobj=pygame.font.SysFont("freesans",32)
+    msgobj=fontobj.render(msg,False,color)
+    screen.blit(msgobj,(x,y))
 def BBB(RR,BXM):
     RA=random.randint(-2,2)
     if RA<0 and RR<0:
@@ -29,8 +36,8 @@ def BBB(RR,BXM):
         RR=RA
     return RA
 while RX==0:
-    RX=random.randint(-1,1)
-    RY=random.randint(-1,1)
+    RX=random.randint(0,2)
+    RY=random.randint(0,2)
 while True:
     pygame.display.update()
     screen.fill(white)
@@ -65,7 +72,7 @@ while True:
     if BXM==600 and RPY<BYM<RPY+110:
         RX=-RX
         RY=-RY
-    if BXM==10 and LPY<BYM<LPY+110:
+    if BXM==15 and LPY<BYM<LPY+110:
         RX=-RX
         RY=-RY    
     if LP_U==1:
@@ -85,5 +92,17 @@ while True:
     if BXM==0:
         RX =-RX
     if BYM==0:
-        RY =-RY 
-
+        RY =-RY
+    if BXM==640:
+        LP=LP+1
+        print('LP=',LP)
+    if BXM==0:
+        RP=RP+1
+    if RP==10:
+        show_text("RP wins!"+str(RP),5,580,blue)
+        exit()
+    if LP==10:
+        show_text("LP wins!"+str(LP),5,20,blue)
+        exit()
+    show_text("LP points="+str(LP),5,20,blue)
+    show_text("RP points="+str(RP),5,580,blue)
