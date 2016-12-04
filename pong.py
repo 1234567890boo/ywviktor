@@ -26,6 +26,8 @@ def show_text(msg,x,y,color):
     fontobj=pygame.font.SysFont("freesans",32)
     msgobj=fontobj.render(msg,False,color)
     screen.blit(msgobj,(x,y))
+    msgobj=fontobj.render(msg,False,color)
+    screen.blit(msgobj,(x,y))
 def BBB(RR,BXM):
     RA=random.randint(-2,2)
     if RA<0 and RR<0:
@@ -86,23 +88,27 @@ while True:
     BXM=BXM+RX
     BYM=BYM+RY
     if BXM==640:
-        RX =-RX
+        RX=-RX
     if BYM==480:
-        RY =-RY
+        RY=-RY
     if BXM==0:
-        RX =-RX
+        RX=-RX
     if BYM==0:
-        RY =-RY
+        RY=-RY
     if BXM==640:
         LP=LP+1
         print('LP=',LP)
     if BXM==0:
         RP=RP+1
     if RP==10:
-        show_text("RP wins!"+str(RP),5,580,blue)
+        show_text("RP wins!"+str(RP),320,240,blue)
+        pygame.display.update()
+        time.sleep(1)
         exit()
     if LP==10:
-        show_text("LP wins!"+str(LP),5,20,blue)
+        show_text("LP wins!"+str(LP),320,240,blue)
+        pygame.display.update()
+        yime.sleep(1)
         exit()
     show_text("LP points="+str(LP),5,20,blue)
-    show_text("RP points="+str(RP),5,580,blue)
+    show_text("RP points="+str(RP),5,400,green)
