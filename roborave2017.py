@@ -5,10 +5,16 @@ Rpin1=23
 Rpin2=24
 Lpin1=25
 Lpin2=8
+RW=Rpin1,Rpin2
+LW=Lpin1,Lpin2
 GPIO.setup(Rpin1,GPIO.OUT)
 GPIO.setup(Lpin1,GPIO.OUT)
 GPIO.setup(Rpin2,GPIO.OUT)
 GPIO.setup(Lpin2,GPIO.OUT)
+def straight():
+    forward()
+    time.sleep(1)
+    
 def forward ():
     GPIO.output(Rpin1,GPIO.HIGH)
     GPIO.output(Lpin1,GPIO.LOW)
@@ -34,7 +40,6 @@ def stop():
     GPIO.output(Lpin1,GPIO.LOW)
     GPIO.output(Rpin2,GPIO.LOW)
     GPIO.output(Lpin2,GPIO.LOW)
-forward()
-time.sleep(2)
+straight()
 GPIO.cleanup()
 quit()
