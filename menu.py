@@ -2,8 +2,6 @@ import time
 import random  
 import pygame
 from pygame.locals import*
-import TicTacToe
-import Pong
 pygame.init()
 screen=pygame.display.set_mode((600,600))
 pygame.display.set_caption("menu")
@@ -45,7 +43,9 @@ while True:
             x,y=event.pos
             if x in range(200,400) and y in range(200,240):
                 screen.fill(black)
-                TicTacToe.tictactoe()
+                import pygame12
+                pygame12.pygame12()
             if x in range(200,400) and y in range(400,440):
                 screen.fill(black)
-                Pong.pong()
+                import pong
+                pong.pong()
