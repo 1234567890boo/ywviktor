@@ -52,9 +52,7 @@ while True:
     quit()
   if x==x1:
     points=points+1
-  show_text('points='+str(points),450,10,blue)
-  if points==21:
-     screen.fill(black)
-     show_text('You Win!',300,300,green) 
-     quit()
+    show_text('points='+str(points),450,10,blue)
+    show_text('You Win!',300,300,green) 
+    quit()
   pygame.display.update()
