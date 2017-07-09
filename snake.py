@@ -10,10 +10,10 @@ green=(0,255,0)
 blue=(0,0,255)
 white=(255,255,255)
 black=(0,0,0)
-foodx=(random.randint(0,640)//10)*10
-foody=(random.randint(0,480)//10)*10
-snakex=(random.randint(0,640)//10)*10
-snakey=(random.randint(0,480)//10)*10
+foodx=(random.randint(0,610)//10)*10
+foody=(random.randint(0,450)//10)*10
+snakex=(random.randint(0,630)//10)*10
+snakey=(random.randint(0,470)//10)*10
 up=0
 down=0
 left=0
@@ -27,11 +27,43 @@ def show_text(msg,x,y,color):
   screen.blit(msgobj,(x,y))
 while True:
     screen.fill(black)
+    show_text('points='+str(points),320,10,red)
+    if [snakex,snakey] in snake[1:]:
+        screen.fill(black)
+        show_text('Game over. You loose',100,240,red)
+        pygame.display.update()
+        time.sleep(1)
+        quit()
+    if snakey==0:
+      screen.fill(black)
+      show_text('Game over. You loose',100,240,red)
+      pygame.display.update()
+      time.sleep(1)
+      quit()
+    if snakey==480:
+      screen.fill(black)
+      show_text('Game over. You loose',100,240,red)
+      pygame.display.update()
+      time.sleep(1)
+      quit()
+    if snakex==0:
+      screen.fill(black)
+      show_text('Game over. You loose',100,240,red)
+      pygame.display.update()
+      time.sleep(1)
+      quit()
+    if snakex==640:
+      screen.fill(black)
+      show_text('Game over. You loose',100,240,red)
+      pygame.display.update()
+      time.sleep(1)
+      quit()
     n.tick(10)
     snake.insert(0,[snakex,snakey])
     pygame.draw.rect(screen,red,(foodx,foody,10,10))
     for segment in snake:
         pygame.draw.rect(screen,green,segment+[10,10])
+    pygame.display.update()
     snake.pop()
     for event in pygame.event.get():
         if event.type==KEYDOWN:
@@ -71,11 +103,4 @@ while True:
         foody=(random.randint(0,480)//10)*10
         snake.insert(0,[snakex,snakey])
         points=points+1
-    show_text('points='+str(points),320,10,red)
-    if [snakex,snakey] in snake[1:]:
-        screen.fill(black)
-        show_text('Game over. You loose',100,240,red)
-        pygame.display.update()
-        time.sleep(1)
-        quit()
-    pygame.display.update()
+
