@@ -15,6 +15,8 @@ x=10
 y=10
 a=0
 change=0
+runcatu=['runcatu.png']
+runcatd=['runcatd.png']
 runcatr=['runcatr1.png','runcatr2.png','runcatr3.png','runcatr4.png','runcatr5.png','runcatr6.png','runcatr7.png','runcatr8.png']
 runcat=['runcat1.png','runcat2.png','runcat3.png','runcat4.png','runcat5.png','runcat6.png','runcat7.png','runcat8.png',]
 while True:
@@ -34,6 +36,18 @@ while True:
                 change=2
         if event.type==KEYUP:
             if event.key==K_a:
+                change=0
+        if event.type==KEYDOWN:
+            if event.key==K_w:
+                change=3
+        if event.type==KEYUP:
+            if event.key==K_w:
+                change=0
+        if event.type==KEYDOWN:
+            if event.key==K_s:
+                change=4
+        if event.type==KEYUP:
+            if event.key==K_s:
                 change=0
 
     if change==1:
@@ -58,5 +72,21 @@ while True:
         screen.blit(img,(x,y))
         if x==0:
             x=1000
+    if change==3:
+        screen.fill(black)
+        y=y-10
+        img=pygame.image.load(runcatu[0])
+        time.sleep(0.05)
+        screen.blit(img,(x,y))
+        if y==0:
+            y=1000
+    if change==4:
+        screen.fill(black)
+        y=y+10
+        img=pygame.image.load(runcatd[0])
+        time.sleep(0.05)
+        screen.blit(img,(x,y))
+        if y==1000:
+            y=0
     pygame.display.update()
     
