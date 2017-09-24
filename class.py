@@ -1,9 +1,6 @@
-class zoo:
+class bank:
     def __init__(self):
-        print("Hi this is")
-zoo1=zoo()
-class zoo2:
-    def __init__(self):
-        self.zooname="california zoo"
-zoo2=zoo2()
-print(zoo2.zooname)
+        print('how much money do you want to deposit?')
+        a=int(init())
+        print(a)
+bank()

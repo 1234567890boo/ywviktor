@@ -1,0 +1,11 @@
+from object_oriented import bank
+z=bank('bob',500)
+x=bank('tom',1001)
+##a=bank('mark',2000)
+##z.display()
+##x.display()
+##a.display()
+z.deposit_money()
+z.withdraw_money()
+x.deposit_money()
+x.withdraw_money()
