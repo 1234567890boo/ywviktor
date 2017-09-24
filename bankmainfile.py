@@ -1,4 +1,4 @@
-from object_oriented import bank
+from bank import bank
 z=bank('bob',500)
 x=bank('tom',1001)
 ##a=bank('mark',2000)
