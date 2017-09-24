@@ -15,8 +15,11 @@ class bank:
         print('Your new balance is',self.balance,'dollars')
        
     def withdraw_money(self):
-        print('how mich money do you want to withdraw?')
+        print('how much money do you want to withdraw?')
         q=int(input())
-        self.balance=self.balance-q
-        print('Successfully withdrew',q,'dollars')
-        print('Your new balance is',self.balance,'dollars')
+        if self.balance <q:
+            print('You cant withdraw that amount of money.')
+        else:
+            self.balance=self.balance-q
+            print('Successfully withdrew',q,'dollars')
+            print('Your new balance is',self.balance,'dollars')
