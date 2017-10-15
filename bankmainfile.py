@@ -1,6 +1,6 @@
 from bank import bank
 z=bank('bob',500)
-x=bank('tom',1001)
+x=bank('tom',1000)
 ##a=bank('mark',2000)
 ##z.display()
 ##x.display()
