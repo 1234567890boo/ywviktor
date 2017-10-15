@@ -9,17 +9,23 @@ class bank:
         print('your balance is ',self.balance,'dollars')
     def deposit_money(self):
         print('how much money do you want to deposit?')
-        c=int(input())
+        c=float(input())
         self.balance=self.balance+c
         print('Successfully deposited',c,'dolars')
         print('Your new balance is',self.balance,'dollars')
        
     def withdraw_money(self):
         print('how much money do you want to withdraw?')
-        q=int(input())
+        q=float(input())
         if self.balance <q:
             print('You cant withdraw that amount of money.')
         else:
             self.balance=self.balance-q
             print('Successfully withdrew',q,'dollars')
             print('Your new balance is',self.balance,'dollars')
+    def transfermoney(self):
+        print('how much money do you want to transfer?')
+        t=float(input())
+        t=self.balance-t
+        print('Sucsessfully transfered money!')
+        print('your newbalance is',t)
