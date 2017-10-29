@@ -18,6 +18,8 @@ p1x=635
 p1y=240
 p1color=blue
 p1xy=20,5
+L=0
+R=0
 class ball:
     def __init__(self,x,y,color,radius):
         self.x=x
@@ -36,33 +38,48 @@ class paddle:
         self.color=color
         self.w=w
         self.h=h
-    def move(self,x):
-        self.x=self.x+xchange
-        self.x=self.x-xchange
-    def draw(self):
-        pygame.draw.rect(screen,self.color,(self.x,self.y,self.w,self.h))
-class paddle3:
-    def __init__(self,x,y,color,w,h):
-        self.x=x
-        self.y=y
-        self.color=color
-        self.w=w
-        self.h=h
-    def move(self,x):
-        self.x=self.x+xchange
-        self.x=self.x-xchange
+    def move(self,ychange):
+        self.y=self.y+ychange
     def draw(self):
         pygame.draw.rect(screen,self.color,(self.x,self.y,self.w,self.h))
 ball1=ball(320,240,blue,14)
 ball2=ball(320,240,red,14)
-paddle2=paddle3(10,240,green,20,160)
+paddle2=paddle(10,240,green,20,160)
 paddle1=paddle(610,240,blue,20,160)
 while True:
+    pygame.display.update()
     screen.fill(white)
+    for event in pygame.event.get():
+        if event.type==QUIT:
+            pygame.quit()
+            exit()
+        if event.type==QUIT:
+            pygame.quit()
+            exit()
+        if event.type==KEYDOWN:
+            if event.key==K_w:          
+                L=-1
+            elif event.key==K_s:               
+                L=1
+            if event.key==K_UP:
+                R=-1
+            elif event.key==K_DOWN:
+                R=1               
+        elif event.type==KEYUP:
+            if event.key==K_w:
+                L=0
+            elif event.key==K_s:
+                L=0
+            if event.key==K_UP:
+                R=0
+            elif event.key==K_DOWN:
+                R=0    
     ball1.draw()
     ball1.move(xc,yc)
     paddle1.draw()
     paddle2.draw()
+    paddle1.move(R)
+    paddle2.move(L)
     if ball1.x>639:
         xc=-xc
     if ball1.y>479:
@@ -86,11 +103,11 @@ while True:
         yc=-yc
         xc2=-xc2
         yx2=-yc2
-    for event in pygame.event.get():
-        if event.type==QUIT:
-            pygame.quit()
-            exit()
-        if event==KEYDOWN:
-            if event.key==K_w:
-                p2x=p2x+5
-    pygame.display.update()
+    if ball1.x>=paddle1.x and paddle1.y<ball1.y<paddle1.y+160:
+        xc=-xc
+    if ball2.x>=paddle1.x and paddle1.y<ball2.y<paddle1.y+160:
+        xc2=-xc2
+    if ball2.x<=paddle2.x+30 and paddle2.y<ball2.y<paddle2.y+160:
+        xc2=-xc2
+    if ball1.x<=paddle2.x+30 and paddle2.y<ball1.y<paddle2.y+160:
+        xc=-xc
