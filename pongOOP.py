@@ -20,6 +20,8 @@ p1color=blue
 p1xy=20,5
 L=0
 R=0
+LPP=0
+RPP=0
 class ball:
     def __init__(self,x,y,color,radius):
         self.x=x
@@ -46,6 +48,12 @@ ball1=ball(320,240,blue,14)
 ball2=ball(320,240,red,14)
 paddle2=paddle(10,240,green,20,160)
 paddle1=paddle(610,240,blue,20,160)
+def show_text(msg,x,y,color):
+    fontobj=pygame.font.SysFont("freesans",32)
+    msgobj=fontobj.render(msg,False,color)
+    screen.blit(msgobj,(x,y))
+    msgobj=fontobj.render(msg,False,color)
+    screen.blit(msgobj,(x,y))
 while True:
     pygame.display.update()
     screen.fill(white)
@@ -111,3 +119,23 @@ while True:
         xc2=-xc2
     if ball1.x<=paddle2.x+30 and paddle2.y<ball1.y<paddle2.y+160:
         xc=-xc
+    if ball1.x==635:
+        RPP=RPP+1
+    if ball1.x==5:
+        LPP=LPP+1
+    if ball2.x==635:
+        RPP=RPP+1
+    if ball2.x==5:
+        LPP=LPP+1
+    if LPP==10:
+        show_text("LP wins!",320,240,blue)
+        pygame.display.update()
+        time.sleep(0.5)
+        quit()
+    if RPP==10:
+        show_text("LP wins!",320,240,blue)
+        pygame.display.update()
+        time.sleep(0.1)
+        quit()
+    show_text("LP points="+str(LPP),5,20,blue)
+    show_text("RP points="+str(RPP),5,400,green)
