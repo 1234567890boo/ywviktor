@@ -1,0 +1,18 @@
+from tkinter import*
+master=Tk()
+master.title("UR MOM!!!!")
+##l1=Label(master,text="First name").grid(row=0)
+##b1=Button(master,text="UR MOM").grid(row=1,column=0)
+##e1=Entry(master)
+##e1.grid(row=0,column=1)
+##def print_text():
+##    print("Name: %s"% e1.get())
+##print_text()
+##e1.insert(END,"Enter your name here")
+##e1.delete(0,END)
+e1=Entry(master)
+e1=Label(master,text="First Name").grid(row=0)
+e1=Label(master,text="Last Name").grid(row=1)
+e1=Label(master,text="Address").grid(row=2)
+e1=Label(master,text="Phone Number").grid(row=3)
+mainloop()
