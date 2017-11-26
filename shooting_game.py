@@ -51,10 +51,7 @@ while True:
         if event.type==QUIT:
             pygame.quit()
             exit()
-        elif event.type==pygame.MOUSEMOTION:
-            print('')
         elif event.type==pygame.MOUSEBUTTONDOWN:
-            print('')
             bullet=Bullet()
             bullet.rect.x=player.rect.x
             bullet.rect.y=player.rect.y
@@ -69,5 +66,6 @@ while True:
             if bullet.rect.y<=0:
                 bullet_list.remove(bullet)
                 player_list.remove(bullet)
+    screen.fill(red)
     player_list.draw(screen)
     pygame.display.update()
