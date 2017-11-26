@@ -5,12 +5,19 @@ from pygame.locals import*
 pygame.init()
 screen=pygame.display.set_mode((800,800))
 pygame.display.set_caption("Shooting Game")
+def show_text(msg,x,y,color):
+    fontobj=pygame.font.SysFont("freesans",32)
+    msgobj=fontobj.render(msg,False,color)
+    screen.blit(msgobj,(x,y))
+    msgobj=fontobj.render(msg,False,color)
+    screen.blit(msgobj,(x,y))
 red=(255,0,0)
 green=(0,255,0)
 blue=(0,0,255)
 white=(255,255,255)
 black=(0,0,0)
 screen.fill(red)
+p=0
 class Block(pygame.sprite.Sprite):
     def __init__(self,color):
         super().__init__()
@@ -63,9 +70,11 @@ while True:
             for block in hit_list:
                 bullet_list.remove(bullet)
                 player_list.remove(bullet)
+                p=p+1
             if bullet.rect.y<=0:
                 bullet_list.remove(bullet)
                 player_list.remove(bullet)
     screen.fill(red)
+    show_text("Points:"+str(p),100,100,green)
     player_list.draw(screen)
     pygame.display.update()
