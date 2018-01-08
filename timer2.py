@@ -19,7 +19,9 @@ def start():
         if MMM>=60:
             HHH=HHH+1
             MMM=0
-        show='{0:02d}:{1:02d}:{3:02d}'.format
+        show='{0:02d}:{1:02d}:{3:02d}'.format(HHH,MMM,SSS)
+        timetext.configure(text=show)
+        master.update()
 def start1():
     state=True
 def reset():
@@ -34,3 +36,4 @@ def pause():
 b1=Button(master,text="start",command=start1).grid(row=1,column=0)
 b1=Button(master,text="pause",command=pause).grid(row=1,column=2)
 b1=Button(master,text="reset",command=reset).grid(row=1,column=3)
+l1.Label(master,text=
