@@ -97,7 +97,6 @@ while True:
         RY=-RY
     if BXM==640:
         LP=LP+1
-        print('LP=',LP)
     if BXM==0:
         RP=RP+1
     if RP==10:
