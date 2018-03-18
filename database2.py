@@ -12,7 +12,7 @@ from tkinter import *
 import sqlite3
 root=Tk()
 root.title("simple exersize using pack")
-root.geometry("600x400")
+root.geometry("300x200")
 conn=sqlite3.connect('phone_book.db')
 c=conn.cursor()
 
@@ -29,12 +29,10 @@ def insert():
     email=email.get()
     phone_number=phonenumber.get()
     c.execute('insert into phone_book(first_name,last_name,email,phone_number)values(?,?,?,?)',(first_name,lats_name,email,phone_number))
-conn.commit()
-insert()
 
 def read_from_db():
     listbox=Listbox(root,width=40)
-    listbox.grid(row=7,column=1,ctickey=W)
+    listbox.grid(row=7,column=1,stickey=W)
     c.execute('select * from phone_book')
     for row in c.fechall():
         listbox.insert(END,row)
@@ -50,20 +48,37 @@ def del_record():
         listbox.insert(END,row)
 
 def update_record():
-    first=f_name.get()
-    last=l_name.get()
+    first=first_name.get()
+    last=last_name.get()
     email=email.get()
-    phone_number=phone_number.get()
+    phone_number.get()
     c.execute('update phone_book set first_name=?,last_name=?,email=?,phone_number=?\ where first_name=?',(first,last,email,phone_number,first,))
     conn.commit()
 
 
 def clear():
-    f_name.delete(0,END)
-    l_name.delete(0,END)
+    first_name.delete(0,END)
+    last_name.delete(0,END)
     email_address.delete(0,END)
     phone_number.delete(0,END)
 
-#Create f_name_label,l_name_label,email_label,and phone_number_label
+#Create f_name_label,l_name_label,email_label, and phonenumber_label
+f_name=Label(root,text="First name")
+f_name.grid(row=1,column=1)
+f_name=Entry(root)
+f_name.grid(row=1,column=2)
 
+l_name=Label(root,text="Last name")
+l_name.grid(row=2,column=1)
+l_name=Entry(root)
+l_name.grid(row=2,column=2)
 
+email_name=Label(root,text="Email")
+email_name.grid(row=3,column=1)
+email_name=Entry(root)
+email_name.grid(row=3,column=2)
+
+phone_number_name=Label(root,text="Phone number")
+phone_number_name.grid(row=4,column=1)
+phone_number_name=Entry(root)
+phone_number_name.grid(row=4,column=2)
