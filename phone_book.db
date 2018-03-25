@@ -1,0 +1,8 @@
+import sqlite3
+conn=sqlit3.connect('phonebook.db')
+conn.cursor()
+c.execute('drop tables if exists phone_book')
+c.execute('create table phone_book(first_name varchar(20),last_name,varchar(20),email varchar(30), phone_number varchar(10))')
+conn.commit()
+c.close
+print('phone_book.db created')
