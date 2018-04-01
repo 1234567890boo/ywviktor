@@ -12,8 +12,8 @@ from tkinter import *
 import sqlite3
 root=Tk()
 root.title("simple exersize using pack")
-root.geometry("300x200")
-conn=sqlite3.connect('phone_book.db')
+root.geometry("350x300")
+conn=sqlite3.connect('phonebook.db')
 c=conn.cursor()
 
 
@@ -29,7 +29,8 @@ def insert():
     email1=email.get()
     phone_number=phonenumber.get()
     c.execute('insert into phone_book(first_name,last_name,email,phone_number)values(?,?,?,?)',(first_name,last_name,email1,phone_number))
-
+    conn.commit()
+    print("First,Last,email, and Phone number entered into database")
 def read_from_db():
     listbox=Listbox(root,width=40)
     listbox.grid(row=7,column=1,stickey=W)
@@ -39,49 +40,65 @@ def read_from_db():
 
 def del_record():
     first=f_name.get()
-    e.execute('delete from phone_book where firts_name=?',(first,))
+    c.execute('delete from phone_book where first_name=?',(first,))
     conn.commit()
     listbox=Listbox(root)
-    istbox.grid(row=7,column=2)
+    listbox.grid(row=7,column=2)
     c.execute('select * from phone_book')
-    for row in c.fechall():
+    for row in c.fetchall():
         listbox.insert(END,row)
-
+    print('deleted')
 def update_record():
     first=first_name.get()
     last=last_name.get()
-    email=email.get()
-    phone_number.get()
-    c.execute('update phone_book set first_name=?,last_name=?,email=?,phone_number=?\ where first_name=?',(first,last,email,phone_number,first,))
+    email1=email.get()
+    phone_number=phonenumber.get()
+    c.execute('update phone_book set first_name=?,last_name=?,email=?,phone_number=?, first_name=?',(first,last,email1,phone_number,first,))
     conn.commit()
+    listbox=Listbox(root)
+    listbox.grid(row=8,column=2)
+    c.execute('select * from phone_book')
+    for row in c.fetchall():
+        listbox.insert(END,row)
+    print('updated')
 
 
+def read_all():
+    listbox=Listbox(root)
+    listbox.grid(row=8,column=2)
+    c.execute('select *from phone_book')
+    for row in c.fetchall():
+        listbox.insert(END,row)
 def clear():
-    first_name.pop(0,END)
-    last_name.pop(0,END)
-    email_address.pop(0,END)
-    phone_number.pop(0,END)
+    f_name.delete(0,END)
+    l_name.delete(0,END)
+    email.delete(0,END)
+    phonenumber.delete(0,END)
+    print('cleared')
 
 #Create f_name_label,l_name_label,email_label, and phonenumber_label
 f_name=Label(root,text="First name")
 f_name.grid(row=1,column=1)
 f_name=Entry(root)
-f_name.grid(row=1,column=2,columnspan=4)
+f_name.grid(row=1,column=2,)
 
 l_name=Label(root,text="Last name")
 l_name.grid(row=2,column=1)
 l_name=Entry(root)
-l_name.grid(row=2,column=2,columnspan=4)
+l_name.grid(row=2,column=2,)
 
-email_name=Label(root,text="Email")
-email_name.grid(row=3,column=1)
-email_name=Entry(root)
-email_name.grid(row=3,column=2,columnspan=4)
+email=Label(root,text="Email")
+email.grid(row=3,column=1)
+email=Entry(root)
+email.grid(row=3,column=2,)
 
 phonenumber=Label(root,text="Phone number")
 phonenumber.grid(row=4,column=1)
 phonenumber=Entry(root)
-phonenumber.grid(row=4,column=2,columnspan=4)
+phonenumber.grid(row=4,column=2,)
 
-b1=Button(root,text='Clear',command=clear).grid(row=5,column=2)
-b1=Button(root,text='Enter',command=insert).grid(row=5,column=3)
+b1=Button(root,text='Clear',command=clear).grid(row=1,column=3)
+b1=Button(root,text='Enter',command=insert).grid(row=2,column=3)
+b1=Button(root,text='Delete',command=del_record).grid(row=3,column=3)
+b1=Button(root,text='Update',command=update_record).grid(row=4,column=3)
+b1=Button(root,text='Read all',command=read_all).grid(row=5,column=3)
