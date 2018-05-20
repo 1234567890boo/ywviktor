@@ -1,5 +1,5 @@
 import sqlite3
-conn=sqlite3.connect('database.db')
+conn=sqlite3.connect('database101.db')
 c=conn.cursor()
 
 
@@ -7,7 +7,7 @@ c.execute('CREATE TABLE Students (StudentID INTEGER NOT NULL PRIMARY KEY AUTOINC
 c.execute('CREATE TABLE Teachers (TeacherID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,TeacherName NVARCHAR(255),Phone NVARCHAR(255),city NVARCHAR(255),country NVARCHAR(255) )')
 c.execute('CREATE TABLE Classes (ClassID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,ClassName NVARCHAR(255),StudentID INT,TeacherID INT,CreditUnits INT)')
 conn.commit()
-c.close()
+
 print('These tables have been created successfully')
 c.execute('INSERT INTO Students (StudentName,ParentName, City,Country  , GPA, dateStarted) VALUES ("Tanya Anand","Amit Anand","Delhi","India",3.31,"2015-01-12")');
 c.execute('INSERT INTO Students (StudentName,ParentName, City,Country  , GPA ,  dateStarted) VALUES ("Ishita Reddy","Aditya Reddy","Bangalore","India",3.12,"2013-10-23")');
@@ -43,7 +43,19 @@ c.execute('INSERT INTO Students (StudentName,ParentName, City ,Country  , GPA , 
 c.execute('INSERT INTO Students (StudentName,ParentName, City ,Country  , GPA , dateStarted) VALUES ("Sophie Brown","Sue Brown","San Francisco","USA",4.32,"2013-09-05")');
 c.execute('INSERT INTO Students (StudentName,ParentName, City ,Country  , GPA , dateStarted) VALUES ("Bob Smith","Susan Smith","San Jose","USA",3.34,"2016-07-05")');
 conn.commit()
-c.close()
+
+
+c.execute('INSERT INTO Teachers (TeacherName,Phone,  city ,country) VALUES ("Suchin","91-80-1231232","Bangalore", "India")');
+c.execute('INSERT INTO Teachers (TeacherName,Phone,  city,country ) VALUES ("Leo","510-123-9099","Fremont CA","USA")');
+c.execute('INSERT INTO Teachers (TeacherName,Phone,  city ,country) VALUES ("Vishal","91-93-1231211","Delha","India")');
+c.execute('INSERT INTO Teachers (TeacherName,Phone,  city ,country) VALUES ("Steve","510-220-6522","Fremont CA","USA")');
+c.execute('INSERT INTO Teachers (TeacherName,Phone,  city ,country) VALUES ("Amad","408-543-7822","San Jose CA","USA")');
+c.execute('INSERT INTO Teachers (TeacherName,Phone,  city ,country) VALUES ("Cristal","510-543-9902","San Jose CA","USA")');
+c.execute('INSERT INTO Teachers (TeacherName,Phone, city , country) VALUES ("Rcihard","86-010-4202323","Beijing","China")');
+c.execute('INSERT INTO Teachers (TeacherName,Phone,  city ,country) VALUES ("Jing","86-651-4233202","Hong Kong","China")');
+c.execute('INSERT INTO Teachers (TeacherName,Phone,  city ,country) VALUES ("Tridi","91-11-1421122","Bangalore","India")');
+c.execute('INSERT INTO Teachers (TeacherName,Phone, city , country) VALUES ("Rumesh","91-80-7601222","Bangalore","India")');
+conn.commit()
 
 
 c.execute('INSERT INTO Classes (ClassName,StudentID,TeacherID,CreditUnits) VALUES ("Scrach", 5,1,1)')
@@ -78,7 +90,8 @@ c.execute('INSERT INTO Classes (ClassName,StudentID,TeacherID,CreditUnits) VALUE
 c.execute('INSERT INTO Classes (ClassName,StudentID,TeacherID,CreditUnits) VALUES ("Flask", 24,5,53 )')
 c.execute('INSERT INTO Classes (ClassName,StudentID,TeacherID,CreditUnits) VALUES ("GPIO stepper motor", 29,5,54 )')
 c.execute('INSERT INTO Classes (ClassName,StudentID,TeacherID,CreditUnits) VALUES ("GPIO camera", 27,5,55) ')
-
+conn.commit()
+c.close()
 c.execute('SELECT studentid from Students')
 
 
