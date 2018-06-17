@@ -9,14 +9,14 @@ class myThread(threading.Thread):
         self.counter=counter
     def run(self):
         print("Starting"+self.name)
-        print_time(self.name,5,self.counter)
+        print_time(self.name,999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999*999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999,self.counter)
         print("Exiting"+self.name)
 def print_time(threadName,counter,delay):
     while counter:
-        if exitFlag:
-            threadName.exit()
+##        if exitFlag:
+##            threadName.exit()
         time.sleep(delay)
-        print("%s: %s:"%(threadName,time.ctime(time.time)))
+        print("%s: %s:" % (threadName,time.ctime(time.time())))
         counter-=1
 thread1=myThread(1,"Thread-1",1)
 thread2=myThread(2,"Thread-2",2)
