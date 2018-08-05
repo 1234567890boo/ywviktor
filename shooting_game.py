@@ -22,16 +22,20 @@ img=pygame.image.load('monster.png')
 img=pygame.transform.scale(img,[30,30])
 img2=pygame.image.load('fire.png')
 img2=pygame.transform.scale(img2,[15,30])
+img3=pygame.image.load('tf.png')
+img4=pygame.image.load('e.png')
 class Block(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
         self.image=img
         self.rect=self.image.get_rect()
+    def update(self):
+        self.rect.y+=1
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
         self.image=pygame.Surface([25,25])
-        self.image.fill(blue)
+        self.image=img3
         self.rect=self.image.get_rect()
     def update(self):
         pos=pygame.mouse.get_pos()
@@ -46,15 +50,15 @@ class Bullet(pygame.sprite.Sprite):
 player_list=pygame.sprite.Group()
 block_list=pygame.sprite.Group()
 bullet_list=pygame.sprite.Group()
-for i in range(100):
+for i in range(500):
     block=Block()
     block.rect.x=random.randrange(750)
-    block.rect.y=random.randrange(750)
+    block.rect.y=random.randrange(150)
     block_list.add(block)
     player_list.add(block)
 player=Player()
 player_list.add(player)
-player.rect.y=750
+player.rect.y=770
 while True:
     for event in pygame.event.get():
         if event.type==QUIT:
@@ -70,13 +74,21 @@ while True:
     for bullet in bullet_list:
         hit_list=pygame.sprite.spritecollide(bullet,block_list,True)
         for block in hit_list:
+            screen.blit(img4,(bullet.rect.x,bullet.rect.y))
+            pygame.display.update()
+            time.sleep(0.1)
             bullet_list.remove(bullet)
             player_list.remove(bullet)
-            p=p+1
+            p=p+0.2
         if bullet.rect.y<=0:
             bullet_list.remove(bullet)
             player_list.remove(bullet)
-    screen.fill(red)
-    show_text("Points:"+str(p),100,100,green)
-    player_list.draw(screen)
-    pygame.display.update()
+    if p==100:
+        screen.fill(blue)
+        show_text("u Win You Win You Win You Win You Win You Win You Win You Win You Win You Win You Win You Win You Win You Win You Win You Win You Win You Win You Win You Win You Win You Win You!!",1,1,green)        
+        pygame.display.update()
+    if p!=100:
+        screen.fill(red)
+        show_text("Points:"+str(p),100,100,green)
+        player_list.draw(screen)
+        pygame.display.update()
