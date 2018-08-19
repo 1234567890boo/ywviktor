@@ -24,6 +24,7 @@ img2=pygame.image.load('fire.png')
 img2=pygame.transform.scale(img2,[15,30])
 img3=pygame.image.load('tf.png')
 img4=pygame.image.load('e.png')
+
 class Block(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
@@ -46,11 +47,11 @@ class Bullet(pygame.sprite.Sprite):
         self.image=img2
         self.rect=self.image.get_rect()
     def update(self):
-        self.rect.y-=5
+        self.rect.y-=5  
 player_list=pygame.sprite.Group()
 block_list=pygame.sprite.Group()
 bullet_list=pygame.sprite.Group()
-for i in range(500):
+for i in range(250):
     block=Block()
     block.rect.x=random.randrange(750)
     block.rect.y=random.randrange(150)
@@ -79,7 +80,7 @@ while True:
             time.sleep(0.1)
             bullet_list.remove(bullet)
             player_list.remove(bullet)
-            p=p+0.2
+            p=p+0.4
         if bullet.rect.y<=0:
             bullet_list.remove(bullet)
             player_list.remove(bullet)
