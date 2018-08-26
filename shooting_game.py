@@ -47,7 +47,7 @@ class Bullet(pygame.sprite.Sprite):
         self.image=img2
         self.rect=self.image.get_rect()
     def update(self):
-        self.rect.y-=5  
+        self.rect.y-=50
 player_list=pygame.sprite.Group()
 block_list=pygame.sprite.Group()
 bullet_list=pygame.sprite.Group()
@@ -77,18 +77,18 @@ while True:
         for block in hit_list:
             screen.blit(img4,(bullet.rect.x,bullet.rect.y))
             pygame.display.update()
-            time.sleep(0.1)
+            time.sleep(0.05)
             bullet_list.remove(bullet)
             player_list.remove(bullet)
             p=p+0.4
         if bullet.rect.y<=0:
             bullet_list.remove(bullet)
             player_list.remove(bullet)
-    if p==100:
+    if p>=100:
         screen.fill(blue)
         show_text("u Win You Win You Win You Win You Win You Win You Win You Win You Win You Win You Win You Win You Win You Win You Win You Win You Win You Win You Win You Win You Win You Win You!!",1,1,green)        
         pygame.display.update()
-    if p!=100:
+    if p<100:
         screen.fill(red)
         show_text("Points:"+str(p),100,100,green)
         player_list.draw(screen)
