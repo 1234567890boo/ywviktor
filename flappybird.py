@@ -23,6 +23,7 @@ def show_text(msg,x,y,color):
   screen.blit(msgobj,(x,y))
 while True:
   screen.fill(white)
+  show_text('points='+str(points),450,10,blue)
   pygame.draw.circle(screen,blue,(x,y,),20)
   y=y+ychange 
   for event in pygame.event.get():
@@ -31,28 +32,29 @@ while True:
       exit() 
     if event.type==KEYDOWN:
       if event.key==K_SPACE:
-        ychange=-1
+        ychange=-2
     if event.type==KEYUP:
       if event.key==K_SPACE:
-        ychange=1
+        ychange=2
   if y==600:
     quit()
   if y==0:
     quit() 
   pygame.draw.rect(screen,red,(x1,0,50,y1))
   pygame.draw.rect(screen,red,(x1,y1+150,50,600))
-  x1=x1-1
+  x1=x1-2
   if x1==0:
     x1=600
-    x1=x1-1
+    x1=x1-2
     y1=random.randint(50,450)
   if x1==x and 0<y<y1:
     quit()
   if x1==x and y1+150<y<y1+600:
     quit()
-  if x==x1:
+  if x==y:
     points=points+1
     show_text('points='+str(points),450,10,blue)
-    show_text('You Win!',300,300,green) 
-    quit()
+  if points==5:
+    screen.fill(white)
+    show_text('You Win!!'+str(points),300,300,blue)
   pygame.display.update()

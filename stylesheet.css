@@ -1,0 +1,15 @@
+h1{
+	background-color:turquoise;
+	font-family:Veranda;
+	color:#36648b;
+	text-align:center;
+}
+p{
+	color:red;
+	font-family:Ariel;
+	font-size:12px;
+}
+span{
+	color:blue;
+	font-size:12px;
+}
