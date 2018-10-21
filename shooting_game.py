@@ -51,7 +51,7 @@ class Bullet(pygame.sprite.Sprite):
 player_list=pygame.sprite.Group()
 block_list=pygame.sprite.Group()
 bullet_list=pygame.sprite.Group()
-for i in range(250):
+for i in range(245):
     block=Block()
     block.rect.x=random.randrange(750)
     block.rect.y=random.randrange(150)
@@ -80,7 +80,7 @@ while True:
             time.sleep(0.05)
             bullet_list.remove(bullet)
             player_list.remove(bullet)
-            p=p+0.4
+            p=p+0.45
         if bullet.rect.y<=0:
             bullet_list.remove(bullet)
             player_list.remove(bullet)
