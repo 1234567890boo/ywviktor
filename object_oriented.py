@@ -1,9 +1,9 @@
 class bank:
-    name=""
+    name="Viktor"
     balance=0
-    def __init__(self,a,b):
-        self.name=a
-        self.balance=b
+    def __init__(self):
+        self.name="Viktor"
+        self.balance=0
     def display(self):
         print('hello',self.name)
         print('your balance is ',self.balance,'dollars')
@@ -23,3 +23,4 @@ class bank:
             self.balance=self.balance-q
             print('Successfully withdrew',q,'dollars')
             print('Your new balance is',self.balance,'dollars')
+bank()
