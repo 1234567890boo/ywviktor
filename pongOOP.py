@@ -127,12 +127,12 @@ while True:
         RPP=RPP+1
     if ball2.x==5:
         LPP=LPP+1
-    if LPP==10:
+    if LPP==20:
         show_text("LP wins!",320,240,blue)
         pygame.display.update()
         time.sleep(0.5)
         quit()
-    if RPP==10:
+    if RPP==20:
         show_text("LP wins!",320,240,blue)
         pygame.display.update()
         time.sleep(0.1)
