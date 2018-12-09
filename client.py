@@ -1,9 +1,11 @@
 import socket
-host='192.168.1.95'
+host='127.0.0.1'
 port=6920
 s=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.connect((host,port))
 while True:
-    print('Receved data from server',repr(data))
-    message=input('Say something to server:')
-    s.send()
-    s.close()
+    data=s.recv(1024)
+    print('receved from server', repr(data))
+    client=input('say something to server:')
+    s.sent(client.encode())
+s.close()
