@@ -1,6 +1,6 @@
 import socket
-host='127.0.0.1'
-port=6920
+host='192.168.1.79'
+port=12345
 s=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((host,port))
 while True:

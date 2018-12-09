@@ -1,6 +1,6 @@
 import socket
 host=''
-port=6920
+port=12345
 s=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 print('socket binded to', port)
 s.listen(2)
