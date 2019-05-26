@@ -80,7 +80,7 @@ while True:
             time.sleep(0.05)
             bullet_list.remove(bullet)
             player_list.remove(bullet)
-            p=p+0.4
+            p=p+0.41
         if bullet.rect.y<=0:
             bullet_list.remove(bullet)
             player_list.remove(bullet)
