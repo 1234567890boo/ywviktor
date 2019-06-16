@@ -68,7 +68,7 @@ print(s)
 
 #Different code
 '''
-score={'math':17,'history':99,'science':79,'art':100,'ELA':72}
+score={'math':100,'history':68,'science':21,'art':79,'ELA':30}
 for s in score:
    print('subject=',s)
 total=0
@@ -76,4 +76,16 @@ for x in score:
    total=total+score[x]
    print('score=',score[x])
 average=total/5
-
+print('average=',average)
+averageGPA=''
+if average<15:
+   averageGPA='F'
+elif average<30 and average>15:
+   averageGPA='D'
+elif average<50 and average>30:
+   averageGPA='C'
+elif average<70 and average>50:
+   averageGPA='B'
+elif average>90:
+   averageGPA='A'
+print(averageGPA)
