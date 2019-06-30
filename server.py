@@ -31,7 +31,7 @@ while True:
      print("Browser connected at address: {}".format(browser_address))
      ch=None
      message=""
-     while message[len(message)-2:]!='\r\n':
+     while message[len(message)-1='\n':
           ch=browser.recv(1).decode('utf-8')
           message=message+ch
           print("Message from browser: "+message)
