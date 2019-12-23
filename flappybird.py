@@ -32,26 +32,26 @@ while True:
       exit() 
     if event.type==KEYDOWN:
       if event.key==K_SPACE:
-        ychange=-1.5
+        ychange=-1
     if event.type==KEYUP:
       if event.key==K_SPACE:
-        ychange=1.5
+        ychange=1
         if y==600:
           quit()
   if y==0:
     quit() 
   pygame.draw.rect(screen,red,(x1,0,50,y1))
   pygame.draw.rect(screen,red,(x1,y1+150,50,600))
-  x1=x1-1.5
+  x1=x1-1
   if x1==0:
     x1=601
-    x1=x1-1.5
+    x1=x1-1
     y1=random.randint(50,450)
   if x1==x and 0<y<y1:
     quit()
   if x1==x and y1+150<y<y1+600:
     quit()
-  if x==y+1 and x1==x and y1+150<y<y1+600:
+  if x1==x and y1<y:
     points=points+1
     show_text('points='+str(points),450,10,blue)
   if points==5:
