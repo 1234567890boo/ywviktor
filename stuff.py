@@ -36,9 +36,8 @@ e1.grid(row=0,column=1)
 e2.grid(row=1,column=1)
 e3.grid(row=2,column=1)
 e4.grid(row=3,column=1)
-<<<<<<< HEAD
-=======
+
 b1=Button(master,text="Save",command=save).grid(row=4,column=1)
 b2=Button(master,text="Show",command=show).grid(row=5,column=1)
->>>>>>> 463ca9ea03950edd869dbb0168d3eee8e0155231
+
 mainloop()
