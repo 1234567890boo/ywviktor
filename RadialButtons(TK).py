@@ -1,4 +1,4 @@
-iport tkinter
+import tkinter
 from tkinter import messagebox
 window=tkinter.Tk()
 window.title('Button')
@@ -38,15 +38,16 @@ def select():
 
 b=tkinter.Radiobutton(window,text='Find prime',value=1,variable=select1)
 b2=tkinter.Radiobutton(window,text='Find Even',value=2,variable=select1)
-b3=tkinter.radiobutton(window,text='Find Factorial',value=3,variable=select1)
+b3=tkinter.Radiobutton(window,text='Find Factorial',value=3,variable=select1)
 
 a=tkinter.Entry(window)
-b3=tkinter.Button(window,text='Do the Calculate!!:D',command=select)
-l=tkinter.Label(window,text='')
+b4=tkinter.Button(window,text='Do the Calculate!!:D',command=select)
+l=tkinter.Label(window,text='Question 1')
 
 a.pack()
 b.pack()
 b2.pack()
 b3.pack()
+b4.pack()
 l.pack()
 
