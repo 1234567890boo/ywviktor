@@ -61,9 +61,6 @@ while True:
         if event.type==QUIT:
             pygame.quit()
             exit()
-        if event.type==QUIT:
-            pygame.quit()
-            exit()
         if event.type==KEYDOWN:
             if event.key==K_w:          
                 L=-1
