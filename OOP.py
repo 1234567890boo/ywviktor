@@ -32,6 +32,7 @@ class Food:
       self.height=20
     def draw(self):
       pygame.draw.rect(screen,red,(self.x,self.y,self.width,self.height))
+      
     def randomize(self):
       self.x=(random.randint(30,870)//20)*20
       self.y=(random.randint(30,870)//20)*20
@@ -49,8 +50,13 @@ class Snake:
       self.down=False
       self.left=False
       self.right=False
+      self.snak=[]
+      
     def draw(self):
-      pygame.draw.rect(screen,green,(self.x,self.y,self.width,self.height))
+      for n in self.snak:
+        for s in range(0,len(self.snak)+1,1):
+          pygame.draw.rect(screen,green,(self.x,self.y,self.width,self.height))
+        
     def move(self):
       if self.up==True:
         self.y-=self.vel
@@ -60,12 +66,15 @@ class Snake:
         self.x-=self.vel
       elif self.right==True:
         self.x+=self.vel
+        
     def food_collide(self,Food):
       if self.x==food.x and self.y==food.y:
         self.points+=1
+        snake.snak.append((snake.x,snake.y))
         return True
       else:
         return False
+
     def wall_collide(self):
       if self.x<0:
         self.x=1000
@@ -75,6 +84,7 @@ class Snake:
         self.y=1000
       if self.y>1000:
         self.y=0
+        
     def set_direction(self,direction):
       self.up=False
       self.down=False
@@ -101,13 +111,15 @@ def grid():
 snake=Snake()
 food=Food()
 
+snake.snak.append((snake.x,snake.y))
+
 while True:
     screen.fill(black)
     show_text('points='+str(snake.points),900,20,green)
     food.draw()
     grid()
     snake.draw()
-    clock.tick(10)
+    clock.tick(7)
     pygame.display.update()
     for event in pygame.event.get():
         if event.type==QUIT:
@@ -126,12 +138,12 @@ while True:
     snake.move()
     if snake.food_collide(food)==True:
       food.randomize()
+      for n in snake.snak:
+        for s in range(0,len(snake.snak)+1,1):
+          pygame.draw.rect(screen,green,(snake.x,snake.y,snake.width,snake.height))
     snake.wall_collide()
-    pygame.display.update()
     
-#Homework: Make snake grow
-
-
+#Homework: Make snake grow and fid difference of append and difference
 
 
 
