@@ -54,8 +54,7 @@ class Snake:
       
     def draw(self):
       for n in self.snak:
-        for s in range(0,len(self.snak)+1,1):
-          pygame.draw.rect(screen,green,(self.x,self.y,self.width,self.height))
+        pygame.draw.rect(screen,green,(n[0],n[1],self.width,self.height))
         
     def move(self):
       if self.up==True:
@@ -98,6 +97,16 @@ class Snake:
         self.left=True
       elif direction=='right':
         self.right=True
+
+    def is_game_over(self):
+      if (self.x,self.y) in self.snak[1:]:
+        screen.fill(black)
+        show_text('Game over. You loose',500,450,red)
+        print('collision')
+        pygame.display.update()
+        time.sleep(1)
+        quit()
+        
         
 def grid():
     x=20
@@ -111,16 +120,17 @@ def grid():
 snake=Snake()
 food=Food()
 
-snake.snak.append((snake.x,snake.y))
-
 while True:
+    snake.snak.insert(0,(snake.x,snake.y))
     screen.fill(black)
     show_text('points='+str(snake.points),900,20,green)
     food.draw()
     grid()
     snake.draw()
-    clock.tick(7)
+    snake.snak.pop()
+    clock.tick(10)
     pygame.display.update()
+    snake.is_game_over()
     for event in pygame.event.get():
         if event.type==QUIT:
             pygame.quit()
@@ -138,12 +148,10 @@ while True:
     snake.move()
     if snake.food_collide(food)==True:
       food.randomize()
-      for n in snake.snak:
-        for s in range(0,len(snake.snak)+1,1):
-          pygame.draw.rect(screen,green,(snake.x,snake.y,snake.width,snake.height))
     snake.wall_collide()
     
-#Homework: Make snake grow and fid difference of append and difference
+#Homework: Make snake grow and find difference of append and insert
+    
 
 
 
