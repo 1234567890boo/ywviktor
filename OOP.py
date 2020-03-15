@@ -1,4 +1,4 @@
-import pygame,random
+import pygame,random,time
 from pygame.locals import*
 
 pygame.init()
@@ -39,14 +39,15 @@ class Food:
         
 
 class Snake:
-    def __init__(self):
-      self.x=500
-      self.y=500
+    def __init__(self,color,x,y):
+      self.x=x
+      self.y=y
       self.width=20
       self.height=20
       self.vel=20
       self.points=0
-      self.up=False
+      self.color=color
+      self.up=True
       self.down=False
       self.left=False
       self.right=False
@@ -54,9 +55,11 @@ class Snake:
       
     def draw(self):
       for n in self.snak:
-        pygame.draw.rect(screen,green,(n[0],n[1],self.width,self.height))
+        pygame.draw.rect(screen,self.color,(n[0],n[1],self.width,self.height))
         
     def move(self):
+      self.snak.insert(0,(self.x,self.y))
+      self.draw()
       if self.up==True:
         self.y-=self.vel
       elif self.down==True:
@@ -65,11 +68,12 @@ class Snake:
         self.x-=self.vel
       elif self.right==True:
         self.x+=self.vel
+      self.snak.pop()
         
     def food_collide(self,Food):
       if self.x==food.x and self.y==food.y:
         self.points+=1
-        snake.snak.append((snake.x,snake.y))
+        self.snak.append((self.x,self.y))
         return True
       else:
         return False
@@ -117,20 +121,26 @@ def grid():
         x+=20
         y+=20
     
-snake=Snake()
+snake=Snake(blue,0,0)
+snake2=Snake(green,100,90)
 food=Food()
 
-while True:
-    snake.snak.insert(0,(snake.x,snake.y))
+
+while True:    
     screen.fill(black)
-    show_text('points='+str(snake.points),900,20,green)
+    
+    show_text('p1 points= '+str(snake.points),800,20,green)
+    show_text('p2 points= '+str(snake2.points),0,20,green)
+    
     food.draw()
+    
     grid()
-    snake.draw()
-    snake.snak.pop()
+    
     clock.tick(10)
-    pygame.display.update()
+    
     snake.is_game_over()
+    snake2.is_game_over()
+    
     for event in pygame.event.get():
         if event.type==QUIT:
             pygame.quit()
@@ -144,16 +154,26 @@ while True:
               snake.set_direction('left')
             elif event.key==K_d and snake.left==False:
               snake.set_direction('right')
+
+            if event.key==K_UP and snake2.down==False:
+              snake2.set_direction('up')
+            elif event.key==K_DOWN and snake2.up==False:
+              snake2.set_direction('down')
+            elif event.key==K_LEFT and snake2.right==False:
+              snake2.set_direction('left')
+            elif event.key==K_RIGHT and snake2.left==False:
+              snake2.set_direction('right')
                 
     snake.move()
+    snake2.move()
+    
     if snake.food_collide(food)==True:
       food.randomize()
+      
+    if snake2.food_collide(food)==True:
+      food.randomize()
+
     snake.wall_collide()
-    
-#Homework: Make snake grow and find difference of append and insert
-    
-
-
-
-
-
+    snake2.wall_collide()
+    pygame.display.update()
+#Homework: make player 2 and do sqlite commands
