@@ -38,6 +38,7 @@ def show_text(msg,x,y,color):
             if event.pos[0]>=550 and event.pos[0]<=850 and event.pos[1]>=20 and event.pos[1]<=100:
                 OOP.player(num=2)
     pygame.display.update()'''
+
 num=1
 while True:
     screen.fill(black)
