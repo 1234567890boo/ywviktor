@@ -1,18 +1,17 @@
 import random,time
 
-def num(n):
+def num(n=[]):
     n.append(random.randint(0,50))
     if len(n)>=10:
+        print(n)
         return n
     num(n)
 
-def ownsort():
+def ownsort(num):
     n.sort()
     return n
-
-num([])
-ownsort()
-
+num()
+ownsort(num(n))
 
 
 '''
