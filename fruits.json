@@ -1,0 +1,32 @@
+{
+  "apple" : {
+    "column" : 0,
+    "price" : 1.32,
+    "row" : 0
+  },
+  "banana" : {
+    "column" : 1,
+    "price" : 0.24,
+    "row" : 0
+  },
+  "grape" : {
+    "column" : 1,
+    "price" : 0.05,
+    "row" : 1
+  },
+  "mango" : {
+    "column" : 0,
+    "price" : 3,
+    "row" : 1
+  },
+  "orange" : {
+    "column" : 2,
+    "price" : 2.5,
+    "row" : 0
+  },
+  "peach" : {
+    "column" : 2,
+    "price" : 1.63,
+    "row" : 1
+  }
+}
