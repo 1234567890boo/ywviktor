@@ -114,19 +114,19 @@ def MovePlayer(shift_x, shift_y):
 while True:
     drawMap()
     clock.tick(10)
-##    for f in foes:
-##        f.fmove()
-##    for event in pygame.event.get():
-##        if event.type==QUIT:
-##            pygame.quit()
-##            exit()
-##        if event.type==KEYDOWN:
-##            if event.key==K_w or event.key==K_UP:
-##                MovePlayer(0,-1)
-##            if event.key==K_s or event.key==K_DOWN:
-##                MovePlayer(0,1)
-##            if event.key==K_a or event.key==K_LEFT:
-##                MovePlayer(-1,0)
-##            if event.key==K_d or event.key==K_RIGHT:
-##                MovePlayer(1,0)
+    for f in foes:
+        f.fmove()
+    for event in pygame.event.get():
+        if event.type==QUIT:
+            pygame.quit()
+            exit()
+        if event.type==KEYDOWN:
+            if event.key==K_w or event.key==K_UP:
+                MovePlayer(0,-1)
+            if event.key==K_s or event.key==K_DOWN:
+                MovePlayer(0,1)
+            if event.key==K_a or event.key==K_LEFT:
+                MovePlayer(-1,0)
+            if event.key==K_d or event.key==K_RIGHT:
+                MovePlayer(1,0)
     pygame.display.update()
