@@ -1,14 +1,11 @@
 import pygame,random,time
 from pygame.locals import*
 
+width=450
+height=300
+
 pygame.init()
-
-width=100
-height=100
-
-screen=pygame.display.set_mode((width,height))
-
-pygame.display.set_caption("Maze Game")
+screen = pygame.display.set_mode((width, height))
 
 red=(255,0,0)
 green=(0,255,0)
@@ -16,15 +13,84 @@ blue=(0,0,255)
 white=(255,255,255)
 black=(0,0,0)
 
+class View:
+    pass
+
+class Empty:
+    def draw(self,x,y,width,height):
+        pass
+
+class PlayerView: #Extends View
+    def __init__(self,color,keys):
+        self.color=color
+        
+        self.keys=keys
+    def draw(self,x,y,width,height):
+        pygame.draw.rect(screen,self.color,(x,y,width,height))
+    def handleKey(self,key):
+         command=self.keys.get(key,'')
+         if command=='up':
+             self.y-=10
+         if command=='down':
+             self.y+=10
+         if command=='left':
+             self.x-=10
+         if command=='right':
+             self.x+=10
+            
+
+
+class MapView:
+    def __init__(self,gridwidth,gridheight):
+        self.grid=[]
+        self.gridwidth=gridwidth
+        self.gridheight=gridheight
+        for x in range(0,gridwidth,1):
+            column=[]
+            for y in range(0,gridheight,1):
+                column.append(Empty())
+            self.grid.append(column)
+    def putobj(self,x,y,obj):
+        self.grid[x][y]=obj
+    def draw(self,x,y,width,height):
+        cellwidth=int(width/self.gridwidth)
+        cellheight=int(height/self.gridheight)
+        for xgrid in range(0,self.gridwidth,1):
+            for ygrid in range(0,self.gridheight,1):
+                gobject=self.grid[xgrid][ygrid]
+                self.grid[xgrid][ygrid].draw(x+xgrid*cellwidth,y+ygrid*cellheight,cellwidth,cellheight)
+            
 clock=pygame.time.Clock()
 
+players=[PlayerView(green,{pygame.K_w:'up',pygame.K_s:'down',pygame.K_a:'left',pygame.K_d:'right'}),
+         PlayerView(blue,{pygame.K_UP:'up',pygame.K_DOWN:'down',pygame.K_LEFT:'left',pygame.K_RIGHT:'right'})]
 
+mainmap=MapView(30,30)
+mainmap.putobj(2,2,players[0])
+mainmap.putobj(4,4,players[1])
+
+while True:
+        for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    exit()
+                if event.type == pygame.KEYDOWN:
+                    key = event.key
+                    for p in players:
+                        p.handleKey(key)
+                       
+        screen.fill((white))
+        mainmap.draw(0,0,300,300)
+        clock.tick(60)
+        pygame.display.flip()
+
+    
+'''
 class Empty:
     def __init__(self, width, height):
         self.width=width
         self.height=height
 
-    def draw(self, x , y):
+    def draw(self, x , y):  
         pygame.draw.rect(screen,white,(x*self.height, y*self.width, self.width, self.height))
 
 class Player:
@@ -129,4 +195,4 @@ while True:
                 MovePlayer(-1,0)
             if event.key==K_d or event.key==K_RIGHT:
                 MovePlayer(1,0)
-    pygame.display.update()
+    pygame.display.update()'''
