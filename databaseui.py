@@ -13,13 +13,11 @@ print('5=look at data')
 
 r=int(input())
 
-if r==1:
+def maketable():
     pk=False
     print('what is the table name?')
-    
     a=input()
     table=table+a+'('
-
     print('how many columns do you want?')
     c=int(input())
     for q in range(0,c,1):
@@ -42,15 +40,41 @@ if r==1:
     table=table+')'
     print('Table Created')
     cursor.execute(table)
-if r==2:
+def insertinto():
     print('what table would you like to insert into?')
     i=input()
-    cursor.execute(''' SELECT count(name) FROM sqlite_master WHERE type='table' AND name='{}' '''.format(i))
-    if cursor.fetchone()[0]==1:
-        print('Table exists.')
-    else:
+    cursor.execute("SELECT count(name) FROM sqlite_master WHERE type='table' AND name='{}' ".format(i))
+    if cursor.fetchone()[0]==0:
         print('Table Does not exist. Please make one.')
+    else:
+        insert=('INSERT into {} VALUES('.format(i))
+        cursor.execute('SELECT * FROM {}'.format(i))
+        for c in cursor.description:
+            print('What do you want to insert into {}?'.format(c[0]))
+            q=input()
+            if c[0]!='id':
+                insert=insert+"'"+q+"'"+", "
+            else:
+                insert=insert+q+', '
+        insert=insert.strip(', ')
+        insert=insert+')'
+        print(insert)
+        cursor.execute(insert)
+#menu based program
+print('what do you want to do?')
+print('1=make table')
+print('2=insert into table')
+print('3=delete from table')
+print('4=update table entries')
+print('5=look at data')
+
+r=int(input())
+
+if r==5:
+    print('what table do you want to see?')
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
+    print(cursor.fetchall())
 connect.commit()
 connect.close()
 
-#HOMEWORK: find what the columns are and ask for data. once done, use inser query
+#HOMEWORK: move code into functions
