@@ -14,33 +14,38 @@ white=(255,255,255)
 black=(0,0,0)
 
 class View:
-    pass
+    def canReplace(self,obj):
+        return False
 
-class Empty:
+class Empty(View):
     def draw(self,x,y,width,height):
         pass
-
-class PlayerView: #Extends View
+    def handleKey(self,key,pview,x,y):
+        pass
+    def canReplace(self,obj):
+        return True
+    
+class PlayerView(View): #Extends View
     def __init__(self,color,keys):
         self.color=color
-        
         self.keys=keys
     def draw(self,x,y,width,height):
         pygame.draw.rect(screen,self.color,(x,y,width,height))
-    def handleKey(self,key):
+    def handleKey(self,key,pview,x,y):
          command=self.keys.get(key,'')
          if command=='up':
-             self.y-=10
+             pview.moveobj(x,y,x,y-1)
          if command=='down':
-             self.y+=10
+             pview.moveobj(x,y,x,y+1)
          if command=='left':
-             self.x-=10
+             pview.moveobj(x,y,x-1,y)
          if command=='right':
-             self.x+=10
+             pview.moveobj(x,y,x+1,y)
+         if command!='':
+             return True
+         return False
             
-
-
-class MapView:
+class MapView(View):
     def __init__(self,gridwidth,gridheight):
         self.grid=[]
         self.gridwidth=gridwidth
@@ -50,33 +55,58 @@ class MapView:
             for y in range(0,gridheight,1):
                 column.append(Empty())
             self.grid.append(column)
+    def handleKey(self,key,pview,x,y):
+        res=False
+        for xgrid in range(0,self.gridwidth,1):
+            if res: break
+            for ygrid in range(0,self.gridheight,1):
+                gobj=self.getobj(xgrid,ygrid)
+                res=gobj.handleKey(key,self,xgrid,ygrid)
+                if res: break
     def putobj(self,x,y,obj):
         self.grid[x][y]=obj
+    def getobj(self,x,y):
+        return self.grid[x][y]
+    def moveobj(self,sx,sy,dx,dy):
+        sobj=self.getobj(sx,sy)
+        dobj=self.getobj(dx,dy)
+        if dobj.canReplace(sobj):
+            self.putobj(dx,dy,sobj)
+            self.putobj(sx,sy,Empty())
     def draw(self,x,y,width,height):
         cellwidth=int(width/self.gridwidth)
         cellheight=int(height/self.gridheight)
         for xgrid in range(0,self.gridwidth,1):
             for ygrid in range(0,self.gridheight,1):
-                gobject=self.grid[xgrid][ygrid]
-                self.grid[xgrid][ygrid].draw(x+xgrid*cellwidth,y+ygrid*cellheight,cellwidth,cellheight)
-            
+                self.getobj(xgrid,ygrid).draw(x+xgrid*cellwidth,y+ygrid*cellheight,cellwidth,cellheight)
+
+class Wall(View):
+    def draw(self,x,y,width,height):
+        pygame.draw.rect(screen,black,(x,y,width,height))
+    def handleKey(self,key,pview,x,y):
+        pass
+        
 clock=pygame.time.Clock()
 
 players=[PlayerView(green,{pygame.K_w:'up',pygame.K_s:'down',pygame.K_a:'left',pygame.K_d:'right'}),
          PlayerView(blue,{pygame.K_UP:'up',pygame.K_DOWN:'down',pygame.K_LEFT:'left',pygame.K_RIGHT:'right'})]
 
 mainmap=MapView(30,30)
-mainmap.putobj(2,2,players[0])
-mainmap.putobj(4,4,players[1])
+for w in range(0,30,1):
+    mainmap.putobj(w,0,Wall())
+    mainmap.putobj(w,29,Wall())
+    mainmap.putobj(0,w,Wall())
+    mainmap.putobj(29,w,Wall())
+mainmap.putobj(14,14,players[0])
+mainmap.putobj(10,10,players[1])
 
 while True:
         for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     exit()
                 if event.type == pygame.KEYDOWN:
-                    key = event.key
-                    for p in players:
-                        p.handleKey(key)
+                    key=event.key
+                    mainmap.handleKey(key,None,0,0)
                        
         screen.fill((white))
         mainmap.draw(0,0,300,300)
