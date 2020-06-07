@@ -16,7 +16,9 @@ black=(0,0,0)
 class View:
     def canReplace(self,obj):
         return False
-
+    def handleCycle(self,pview,x,y):
+        pass
+    
 class Empty(View):
     def draw(self,x,y,width,height):
         pass
@@ -44,7 +46,26 @@ class PlayerView(View): #Extends View
          if command!='':
              return True
          return False
-            
+        
+class EnemyView(View):
+    def __init__(self):
+        pass
+    def draw(self,x,y,width,height):
+        pygame.draw.rect(screen,red,(x,y,width,height))
+    def handleKey(self,key,pview,x,y):
+        return False
+    def canReplace(self,obj):
+        return False
+    def handleCycle(self,pview,x,y):
+        movements={0:(-1,0),
+                   1:(1,0),
+                   2:(0,-1),
+                   3:(0,1)}
+        r=movements[random.randint(0,3)]
+        newx=x+r[0]
+        newy=y+r[1]
+        pview.moveobj(x,y,newx,newy)
+    
 class MapView(View):
     def __init__(self,gridwidth,gridheight):
         self.grid=[]
@@ -63,6 +84,12 @@ class MapView(View):
                 gobj=self.getobj(xgrid,ygrid)
                 res=gobj.handleKey(key,self,xgrid,ygrid)
                 if res: break
+    def handleCycle(self,pview,x,y):
+        for xgrid in range(0,self.gridwidth,1):
+            for ygrid in range(0,self.gridheight,1):
+                gobj=self.getobj(xgrid,ygrid)
+                res=gobj.handleCycle(self,xgrid,ygrid)
+                
     def putobj(self,x,y,obj):
         self.grid[x][y]=obj
     def getobj(self,x,y):
@@ -88,17 +115,16 @@ class Wall(View):
         
 clock=pygame.time.Clock()
 
-players=[PlayerView(green,{pygame.K_w:'up',pygame.K_s:'down',pygame.K_a:'left',pygame.K_d:'right'}),
-         PlayerView(blue,{pygame.K_UP:'up',pygame.K_DOWN:'down',pygame.K_LEFT:'left',pygame.K_RIGHT:'right'})]
-
 mainmap=MapView(30,30)
 for w in range(0,30,1):
     mainmap.putobj(w,0,Wall())
     mainmap.putobj(w,29,Wall())
     mainmap.putobj(0,w,Wall())
     mainmap.putobj(29,w,Wall())
-mainmap.putobj(14,14,players[0])
-mainmap.putobj(10,10,players[1])
+mainmap.putobj(2,1,PlayerView(green,{pygame.K_w:'up',pygame.K_s:'down',pygame.K_a:'left',pygame.K_d:'right'}))
+mainmap.putobj(1,1,PlayerView(blue,{pygame.K_UP:'up',pygame.K_DOWN:'down',pygame.K_LEFT:'left',pygame.K_RIGHT:'right'}))
+for n in range(1,10):
+    mainmap.putobj(random.randint(2,28),random.randint(2,28),EnemyView())
 
 while True:
         for event in pygame.event.get():
@@ -107,10 +133,10 @@ while True:
                 if event.type == pygame.KEYDOWN:
                     key=event.key
                     mainmap.handleKey(key,None,0,0)
-                       
+        mainmap.handleCycle(None,0,0)
         screen.fill((white))
         mainmap.draw(0,0,300,300)
-        clock.tick(60)
+        clock.tick(10)
         pygame.display.flip()
 
     
