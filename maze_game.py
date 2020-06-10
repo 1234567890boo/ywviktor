@@ -14,12 +14,16 @@ white=(255,255,255)
 black=(0,0,0)
 
 class View:
+    def kind(self):
+        return "View"
     def canReplace(self,obj):
         return False
     def handleCycle(self,pview,x,y):
         pass
     
 class Empty(View):
+    def kind(self):
+        return "Empty"
     def draw(self,x,y,width,height):
         pass
     def handleKey(self,key,pview,x,y):
@@ -28,6 +32,8 @@ class Empty(View):
         return True
     
 class PlayerView(View): #Extends View
+    def kind(self):
+        return "Player"
     def __init__(self,color,keys):
         self.color=color
         self.keys=keys
@@ -48,6 +54,8 @@ class PlayerView(View): #Extends View
          return False
         
 class EnemyView(View):
+    def kind(self):
+        return "Enemy"
     def __init__(self):
         pass
     def draw(self,x,y,width,height):
@@ -61,12 +69,28 @@ class EnemyView(View):
                    1:(1,0),
                    2:(0,-1),
                    3:(0,1)}
-        r=movements[random.randint(0,3)]
-        newx=x+r[0]
-        newy=y+r[1]
+        players=pview.get_items("Player")
+        closests=players[0]
+        for player in players:
+            if player[1]==x:
+                if player[2]<y:
+                    shift=(0,-1)
+                else:
+                    shift=(0,1)
+            elif player[2]==y:
+                if player[1]<x:
+                    shift=(-1,0)
+                else:
+                    shift=(1,0)
+            else:
+                shift=movements[random.randint(0,3)]
+        newx=x+shift[0]
+        newy=y+shift[1]
         pview.moveobj(x,y,newx,newy)
     
 class MapView(View):
+    def kind(self):
+        return "Map_View"
     def __init__(self,gridwidth,gridheight):
         self.grid=[]
         self.gridwidth=gridwidth
@@ -106,25 +130,45 @@ class MapView(View):
         for xgrid in range(0,self.gridwidth,1):
             for ygrid in range(0,self.gridheight,1):
                 self.getobj(xgrid,ygrid).draw(x+xgrid*cellwidth,y+ygrid*cellheight,cellwidth,cellheight)
+    def get_items(self,kind):
+        items=[]
+        for xgrid in range(0,self.gridwidth,1):
+            for ygrid in range(0,self.gridheight,1):
+                gobj=self.getobj(xgrid,ygrid)
+                if gobj.kind()==kind:
+                    items.append((kind,xgrid,ygrid))
+        return items
 
 class Wall(View):
+    def kind(self):
+        return "Wall"
     def draw(self,x,y,width,height):
         pygame.draw.rect(screen,black,(x,y,width,height))
     def handleKey(self,key,pview,x,y):
         pass
-        
+def wallplacey(x,spos,epos):
+    for y in range(spos,epos+1):
+        mainmap.putobj(x,y,Wall())
+def wallplacex(y,spos,epos):
+    for x in range(spos,epos+1):
+        mainmap.putobj(x,y,Wall())
 clock=pygame.time.Clock()
 
 mainmap=MapView(30,30)
-for w in range(0,30,1):
-    mainmap.putobj(w,0,Wall())
-    mainmap.putobj(w,29,Wall())
-    mainmap.putobj(0,w,Wall())
-    mainmap.putobj(29,w,Wall())
-mainmap.putobj(2,1,PlayerView(green,{pygame.K_w:'up',pygame.K_s:'down',pygame.K_a:'left',pygame.K_d:'right'}))
-mainmap.putobj(1,1,PlayerView(blue,{pygame.K_UP:'up',pygame.K_DOWN:'down',pygame.K_LEFT:'left',pygame.K_RIGHT:'right'}))
-for n in range(1,10):
-    mainmap.putobj(random.randint(2,28),random.randint(2,28),EnemyView())
+
+wallplacex(0,0,29)
+wallplacex(29,0,29)
+wallplacey(0,0,29)
+wallplacey(29,0,29)
+
+wallplacex(6,1,15)
+wallplacex(24,5,23) 
+wallplacey(11,1,1)
+
+mainmap.putobj(random.randint(1,28),1,PlayerView(green,{pygame.K_w:'up',pygame.K_s:'down',pygame.K_a:'left',pygame.K_d:'right'}))
+mainmap.putobj(random.randint(1,28),1,PlayerView(blue,{pygame.K_UP:'up',pygame.K_DOWN:'down',pygame.K_LEFT:'left',pygame.K_RIGHT:'right'}))
+for n in range(1,20):
+        mainmap.putobj(random.randint(2,28),random.randint(2,28),EnemyView())
 
 while True:
         for event in pygame.event.get():
@@ -136,7 +180,7 @@ while True:
         mainmap.handleCycle(None,0,0)
         screen.fill((white))
         mainmap.draw(0,0,300,300)
-        clock.tick(10)
+        clock.tick(7)
         pygame.display.flip()
 
     
