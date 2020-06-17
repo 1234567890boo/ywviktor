@@ -5,3 +5,5 @@ class View:
         return False
     def handleCycle(self,pview,x,y):
         pass
+    def handleKey(self,event,pview,x,y):
+        pass

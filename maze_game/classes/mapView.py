@@ -14,13 +14,10 @@ class MapView(View):
                 column.append(Empty())
             self.grid.append(column)
     def handleKey(self,key,pview,x,y):
-        res=False
         for xgrid in range(0,self.gridwidth,1):
-            if res: break
             for ygrid in range(0,self.gridheight,1):
                 gobj=self.getobj(xgrid,ygrid)
-                res=gobj.handleKey(key,self,xgrid,ygrid)
-                if res: break
+                gobj.handleKey(key,self,xgrid,ygrid)
     def handleCycle(self,pview,x,y):
         for xgrid in range(0,self.gridwidth,1):
             for ygrid in range(0,self.gridheight,1):

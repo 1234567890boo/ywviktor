@@ -9,8 +9,6 @@ class EnemyView(View):
         pass
     def draw(self,screen, x,y,width,height):
         pygame.draw.rect(screen,red,(x,y,width,height))
-    def handleKey(self,key,pview,x,y):
-        return False
     def canReplace(self,obj):
         return False
     def handleCycle(self,pview,x,y):
