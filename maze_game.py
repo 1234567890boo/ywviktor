@@ -13,6 +13,8 @@ blue=(0,0,255)
 white=(255,255,255)
 black=(0,0,0)
 
+import utils
+
 class View:
     def kind(self):
         return "View"
@@ -69,21 +71,34 @@ class EnemyView(View):
                    1:(1,0),
                    2:(0,-1),
                    3:(0,1)}
+        # get all players 
         players=pview.get_items("Player")
-        closests=players[0]
+        
+        # leave only visible players [(player, x, y)]
+        playersVisible=[]
+        ecoord=(x,y)
         for player in players:
-            if player[1]==x:
-                if player[2]<y:
-                    shift=(0,-1)
-                else:
-                    shift=(0,1)
-            elif player[2]==y:
-                if player[1]<x:
-                    shift=(-1,0)
-                else:
-                    shift=(1,0)
-            else:
-                shift=movements[random.randint(0,3)]
+            pcoords=(player[1],player[2])
+            if pview.hasPath(ecoord,pcoords):
+                playersVisible.append(player)
+        
+        if len(playersVisible)>0:
+            # pick closest from visible
+            closestVisibleCoords=(playersVisible[0][1],playersVisible[0][2])
+            closestDist=len(utils.get_line(ecoord,closestVisibleCoords))
+            for player in playersVisible:
+                pcoords=(player[1],player[2])
+                dist=len(utils.get_line(ecoord,pcoords))
+                if dist<closestDist:
+                    closestDist=dist
+                    closestVisibleCoords=pcoords
+                
+            # get direction
+            shift=pview.giveShift(ecoord,closestVisibleCoords)
+        else:
+            #nothing was visible. move random
+            shift=movements[random.randint(0,3)]
+        # Move enemy
         newx=x+shift[0]
         newy=y+shift[1]
         pview.moveobj(x,y,newx,newy)
@@ -113,7 +128,20 @@ class MapView(View):
             for ygrid in range(0,self.gridheight,1):
                 gobj=self.getobj(xgrid,ygrid)
                 res=gobj.handleCycle(self,xgrid,ygrid)
-                
+    def hasPath(self,p1,p2):
+        path=utils.get_line(p1,p2)
+        path.pop(0)
+        path.pop(len(path)-1)
+        for p in path:
+            kind=self.getobj(p[0],p[1]).kind()
+            if kind!="Empty" and kind!="Enemy":
+                return False
+        return True
+    def giveShift(self,source,dest):
+        path=utils.get_line(source,dest)
+        nextPoint=path[1]
+        shift=(nextPoint[0]-source[0],nextPoint[1]-source[1])
+        return shift
     def putobj(self,x,y,obj):
         self.grid[x][y]=obj
     def getobj(self,x,y):
@@ -165,10 +193,18 @@ wallplacex(6,1,15)
 wallplacex(24,5,23) 
 wallplacey(11,1,1)
 
-mainmap.putobj(random.randint(1,28),1,PlayerView(green,{pygame.K_w:'up',pygame.K_s:'down',pygame.K_a:'left',pygame.K_d:'right'}))
-mainmap.putobj(random.randint(1,28),1,PlayerView(blue,{pygame.K_UP:'up',pygame.K_DOWN:'down',pygame.K_LEFT:'left',pygame.K_RIGHT:'right'}))
+def placeRandom(pview,obj):
+    randomx=random.randint(1,28)
+    randomy=random.randint(1,28)
+    while pview.getobj(randomx,randomy).kind()!="Empty":
+        randomx=random.randint(1,28)
+        randomy=random.randint(1,28)
+    pview.putobj(randomx,randomy,obj)
+    
+placeRandom(mainmap,PlayerView(green,{pygame.K_w:'up',pygame.K_s:'down',pygame.K_a:'left',pygame.K_d:'right'}))
+placeRandom(mainmap,PlayerView(blue,{pygame.K_i:'up',pygame.K_k:'down',pygame.K_j:'left',pygame.K_l:'right'}))
 for n in range(1,20):
-        mainmap.putobj(random.randint(2,28),random.randint(2,28),EnemyView())
+        placeRandom(mainmap,EnemyView())
 
 while True:
         for event in pygame.event.get():
