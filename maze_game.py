@@ -180,6 +180,7 @@ def wallplacey(x,spos,epos):
 def wallplacex(y,spos,epos):
     for x in range(spos,epos+1):
         mainmap.putobj(x,y,Wall())
+
 clock=pygame.time.Clock()
 
 mainmap=MapView(30,30)
