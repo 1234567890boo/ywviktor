@@ -10,7 +10,7 @@ from classes.mapView import *
 from classes.wall import *
 from classes.sideView import *
 
-width=500
+width=550
 height=300
 
 red=(255,0,0)
@@ -69,6 +69,6 @@ while True:
         mainmap.handleCycle(None,0,0)
         screen.fill((white))
         mainmap.draw(screen,0,0,300,300)
-        sideView.draw(screen,300,0,500,500)
+        sideView.draw(screen,300,0,300,550)
         clock.tick(7)
         pygame.display.flip()
