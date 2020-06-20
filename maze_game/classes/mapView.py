@@ -22,7 +22,15 @@ class MapView(View):
         for xgrid in range(0,self.gridwidth,1):
             for ygrid in range(0,self.gridheight,1):
                 gobj=self.getobj(xgrid,ygrid)
-                res=gobj.handleCycle(self,xgrid,ygrid)
+                gobj.setShouldBeHandled(True)
+                
+        for xgrid in range(0,self.gridwidth,1):
+            for ygrid in range(0,self.gridheight,1):
+                gobj=self.getobj(xgrid,ygrid)
+                if gobj.getShouldBeHandled():
+                    res=gobj.handleCycle(self,xgrid,ygrid)
+                    gobj.setShouldBeHandled(False)
+                    
     def hasPath(self,p1,p2):
         path=get_line(p1,p2)
         path.pop(0)

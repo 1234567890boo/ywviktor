@@ -18,10 +18,10 @@ class PlayerView(View): #Extends View
     def handleCycle(self,pview,x,y):
         if self.activeCommand == 'up':
             pview.moveobj(x, y, x, y - 1)
-        if self.activeCommand == 'down':
+        elif self.activeCommand == 'down':
             pview.moveobj(x, y, x, y + 1)
-        if self.activeCommand == 'left':
+        elif self.activeCommand == 'left':
             pview.moveobj(x, y, x - 1, y)
-        if self.activeCommand == 'right':
+        elif self.activeCommand == 'right':
             pview.moveobj(x, y, x + 1, y)
 

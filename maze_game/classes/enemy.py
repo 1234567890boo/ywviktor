@@ -6,12 +6,17 @@ class EnemyView(View):
     def kind(self):
         return "Enemy"
     def __init__(self):
-        pass
+        self.skipCounter=0
     def draw(self,screen, x,y,width,height):
         pygame.draw.rect(screen,red,(x,y,width,height))
     def canReplace(self,obj):
         return False
     def handleCycle(self,pview,x,y):
+        self.skipCounter+=1
+        if self.skipCounter>1 :
+            self.skipCounter=0
+            return
+        
         movements={0:(-1,0),
                    1:(1,0),
                    2:(0,-1),

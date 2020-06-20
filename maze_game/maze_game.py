@@ -8,9 +8,9 @@ from classes.enemy import *
 from classes.utils import *
 from classes.mapView import *
 from classes.wall import *
+from classes.sideView import *
 
-
-width=450
+width=500
 height=300
 
 red=(255,0,0)
@@ -24,6 +24,7 @@ black=(0,0,0)
 clock=pygame.time.Clock()
 
 mainmap=MapView(30,30)
+sideView=SideView()
 
 def wallplacey(x,spos,epos):
     for y in range(spos,epos+1):
@@ -52,6 +53,7 @@ def placeRandom(pview,obj):
     
 placeRandom(mainmap,PlayerView(green,{pygame.K_w:'up',pygame.K_s:'down',pygame.K_a:'left',pygame.K_d:'right'}))
 placeRandom(mainmap,PlayerView(blue,{pygame.K_i:'up',pygame.K_k:'down',pygame.K_j:'left',pygame.K_l:'right'}))
+
 for n in range(1,20):
         placeRandom(mainmap,EnemyView())
 
@@ -63,12 +65,10 @@ while True:
                 if event.type == pygame.QUIT:
                     exit()
                 if event.type == pygame.KEYDOWN or event.type == pygame.KEYUP:
-                    # key=event.key
                     mainmap.handleKey(event, None,0,0)
-                # elif event.type == pygame.KEYUP:
-                #     mainmap.handleKey(event, None, 0, 0)
         mainmap.handleCycle(None,0,0)
         screen.fill((white))
         mainmap.draw(screen,0,0,300,300)
+        sideView.draw(screen,300,0,500,500)
         clock.tick(7)
         pygame.display.flip()
