@@ -1,6 +1,7 @@
 from classes.empty import *
 from classes.view import *
 from classes.utils import *
+
 class MapView(View):
     def kind(self):
         return "Map_View"

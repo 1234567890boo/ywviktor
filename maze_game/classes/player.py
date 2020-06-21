@@ -1,5 +1,4 @@
 import pygame
-from classes.view import *
 from classes.empty import *
 
 
@@ -38,7 +37,7 @@ class PlayerView(View): #Extends View
             for yshift in range(-1,2,1):
                 if pview.getobj(x+xshift,y+yshift).kind() == "Enemy":
                     self.health -= 0.5
-                
+
 
         if self.health<0:
             pview.putobj(x,y,Empty())

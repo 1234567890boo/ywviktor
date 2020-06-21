@@ -1,5 +1,3 @@
-import pygame
-from classes.view import *
 from classes.playerSideView import *
 
 

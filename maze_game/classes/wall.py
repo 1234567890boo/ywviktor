@@ -1,5 +1,4 @@
 import pygame
-from classes.mapView import *
 from classes.view import *
 black=(0,0,0)
 class Wall(View):

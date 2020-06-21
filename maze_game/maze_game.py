@@ -1,15 +1,8 @@
-import pygame,random,time
-from pygame.locals import*
-
-from classes.view import *
-from classes.empty import *
-from classes.player import *
 from classes.enemy import *
-from classes.utils import *
-from classes.mapView import *
 from classes.wall import *
 from classes.sideView import *
 from classes.playerSideView import *
+from classes.mapView import *
 
 width=520
 height=300
@@ -78,6 +71,5 @@ while True:
         screen.fill((white))
         mainmap.draw(screen,0,0,300,300)
         sideView.draw(screen,300,0,300,550)
-        # testView.draw(screen,300,0,200,20)
         clock.tick(7)
         pygame.display.flip()

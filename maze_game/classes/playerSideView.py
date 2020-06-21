@@ -1,5 +1,3 @@
-import pygame
-from classes.view import *
 from classes.player import *
 
 lightGray=(220,220,220)
