@@ -9,8 +9,9 @@ from classes.utils import *
 from classes.mapView import *
 from classes.wall import *
 from classes.sideView import *
+from classes.playerSideView import *
 
-width=550
+width=520
 height=300
 
 red=(255,0,0)
@@ -24,7 +25,6 @@ black=(0,0,0)
 clock=pygame.time.Clock()
 
 mainmap=MapView(30,30)
-sideView=SideView()
 
 def wallplacey(x,spos,epos):
     for y in range(spos,epos+1):
@@ -51,8 +51,16 @@ def placeRandom(pview,obj):
         randomy=random.randint(1,28)
     pview.putobj(randomx,randomy,obj)
     
-placeRandom(mainmap,PlayerView(green,{pygame.K_w:'up',pygame.K_s:'down',pygame.K_a:'left',pygame.K_d:'right'}))
-placeRandom(mainmap,PlayerView(blue,{pygame.K_i:'up',pygame.K_k:'down',pygame.K_j:'left',pygame.K_l:'right'}))
+placeRandom(mainmap,PlayerView(green,{pygame.K_w:'up',pygame.K_s:'down',pygame.K_a:'left',pygame.K_d:'right'},100,100))
+placeRandom(mainmap,PlayerView(blue,{pygame.K_i:'up',pygame.K_k:'down',pygame.K_j:'left',pygame.K_l:'right'},100,100))
+
+playerDesc=mainmap.get_items("Player")
+players=[]
+for p in playerDesc:
+    players.append(p[0])
+
+sideView=SideView(players)
+# testView=PlayerSideView(playerDesc[0][0])
 
 for n in range(1,20):
         placeRandom(mainmap,EnemyView())
@@ -70,5 +78,6 @@ while True:
         screen.fill((white))
         mainmap.draw(screen,0,0,300,300)
         sideView.draw(screen,300,0,300,550)
+        # testView.draw(screen,300,0,200,20)
         clock.tick(7)
         pygame.display.flip()

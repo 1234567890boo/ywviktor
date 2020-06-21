@@ -67,6 +67,6 @@ class MapView(View):
             for ygrid in range(0,self.gridheight,1):
                 gobj=self.getobj(xgrid,ygrid)
                 if gobj.kind()==kind:
-                    items.append((kind,xgrid,ygrid))
+                    items.append((gobj,xgrid,ygrid))
         return items
 
