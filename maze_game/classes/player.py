@@ -36,8 +36,10 @@ class PlayerView(View): #Extends View
         for xshift in range(-1,2,1):
             for yshift in range(-1,2,1):
                 if pview.getobj(x+xshift,y+yshift).kind() == "Enemy":
-                    self.health -= 0.5
-
+                    self.health -= 0.50
+        if self.health>=100:
+            self.health=100
+        self.health+=0.25
 
         if self.health<0:
             pview.putobj(x,y,Empty())

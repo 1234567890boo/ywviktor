@@ -3,6 +3,7 @@ from classes.wall import *
 from classes.sideView import *
 from classes.playerSideView import *
 from classes.mapView import *
+from classes.context import *
 
 width=520
 height=300
@@ -52,13 +53,15 @@ players=[]
 for p in playerDesc:
     players.append(p[0])
 
-sideView=SideView(players)
+gameContext=Context()
+
+sideView=SideView(players,gameContext)
 # testView=PlayerSideView(playerDesc[0][0])
 
-for n in range(1,20):
+for n in range(1,7):
         placeRandom(mainmap,EnemyView())
 
-pygame.init()
+
 screen = pygame.display.set_mode((width, height))
 
 while True:

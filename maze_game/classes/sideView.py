@@ -6,12 +6,12 @@ lightGray=(220,220,220)
 sHeight=100
 
 class SideView(View):
-    def __init__(self,players):
+    def __init__(self,players,context):
         self.playerViews=[]
         for player in players:
-            playerView=PlayerSideView(player)
+            playerView=PlayerSideView(player,context)
             self.playerViews.append(playerView)
-
+        self.context=context
 
     def draw(self,screen,x,y,width,height):
         pygame.draw.rect(screen,lightGray,(x,y,width,height))
