@@ -14,6 +14,9 @@ class PlayerView(View): #Extends View
         self.health=health
         self.energy=energy
         self.lastcommand=''
+        self.inventory = ['Teleporter', 'Energy Drink', 'Gun', 'Mine']
+        self.inventoryNum=0
+
     def draw(self,screen,x,y,width,height):
         pygame.draw.rect(screen,self.color,(x,y,width,height))
 
@@ -27,7 +30,6 @@ class PlayerView(View): #Extends View
                 self.activeCommand=""
 
     def handleCycle(self,pview,x,y):
-
         if self.energy>0:
             if self.activeCommand == 'up':
                 pview.moveobj(x, y, x, y - 1)
@@ -44,6 +46,11 @@ class PlayerView(View): #Extends View
             elif self.activeCommand == 'right':
                 pview.moveobj(x, y, x + 1, y)
                 self.lastcommand = 'right'
+
+            if self.activeCommand == 'shift':
+                self.inventoryNum += 1
+            if self.inventoryNum>=len(self.inventory):
+                self.inventoryNum=0
 
 
         for xshift in range(-1,2,1):
@@ -83,3 +90,6 @@ class PlayerView(View): #Extends View
 
     def getEnergy(self):
         return self.energy
+
+    def getInventory(self):
+        return self.inventory[self.inventoryNum]

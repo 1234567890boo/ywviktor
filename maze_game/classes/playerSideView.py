@@ -6,10 +6,11 @@ blue=(0,0,255)
 black=(0,0,0)
 
 class PlayerSideView(View):
-
+    n=0
     def __init__(self,player,context):
         self.player=player
         self.context=context
+
     def draw(self,screen,x,y,width,height):
         health=self.player.getHealth()
         energy=self.player.getEnergy()
@@ -27,8 +28,12 @@ class PlayerSideView(View):
         pHealth = self.context.getBarFont().render("Health", True, black)
         pEnergy = self.context.getBarFont().render("Energy", True, black)
 
+        currentInventory = self.context.getBigFont().render(self.player.getInventory(), True, black)
+
         pygame.draw.rect(screen,color,(x+5,y+10,realHealthWidth,10))
         pygame.draw.rect(screen, color, (x+5,y+25,realEnergyWidth,10))
 
         screen.blit(pHealth,(x+5,y+10))
         screen.blit(pEnergy,(x+5,y+25))
+        screen.blit(currentInventory,(x+5,y+40))
+

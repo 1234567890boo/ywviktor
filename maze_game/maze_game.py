@@ -46,12 +46,13 @@ def placeRandom(pview,obj):
         randomy=random.randint(1,28)
     pview.putobj(randomx,randomy,obj)
     
-placeRandom(mainmap,PlayerView(green,{pygame.K_w:'up',pygame.K_s:'down',pygame.K_a:'left',pygame.K_d:'right',pygame.K_q:'teleport'},100,100))
-placeRandom(mainmap,PlayerView(blue,{pygame.K_i:'up',pygame.K_k:'down',pygame.K_j:'left',pygame.K_l:'right',pygame.K_o:'teleport'},100,100))
+placeRandom(mainmap,PlayerView(green,{pygame.K_w:'up',pygame.K_s:'down',pygame.K_a:'left',pygame.K_d:'right',pygame.K_q:'shift'},100,100))
+placeRandom(mainmap,PlayerView(blue,{pygame.K_i:'up',pygame.K_k:'down',pygame.K_j:'left',pygame.K_l:'right',pygame.K_o:'shift'},100,100))
 
 playerDesc=mainmap.get_items("Player")
 players=[]
 c = 1
+
 for p in playerDesc:
     p[0].setName("Player "+str(c))
     players.append(p[0])
@@ -72,6 +73,7 @@ while True:
                     exit()
                 if event.type == pygame.KEYDOWN or event.type == pygame.KEYUP:
                     mainmap.handleKey(event, None,0,0)
+                    mainmap.handleKey(event, None, 0, 0)
         mainmap.handleCycle(None,0,0)
         screen.fill((white))
         mainmap.draw(screen,0,0,300,300)
