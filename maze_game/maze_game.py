@@ -20,6 +20,7 @@ clock=pygame.time.Clock()
 
 mainmap=MapView(30,30)
 
+
 def wallplacey(x,spos,epos):
     for y in range(spos,epos+1):
         mainmap.putobj(x,y,Wall())
@@ -50,9 +51,11 @@ placeRandom(mainmap,PlayerView(blue,{pygame.K_i:'up',pygame.K_k:'down',pygame.K_
 
 playerDesc=mainmap.get_items("Player")
 players=[]
+c = 1
 for p in playerDesc:
+    p[0].setName("Player "+str(c))
     players.append(p[0])
-
+    c+=1
 gameContext=Context()
 
 sideView=SideView(players,gameContext)

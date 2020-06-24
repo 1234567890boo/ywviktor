@@ -16,6 +16,6 @@ class PlayerSideView(View):
         maxWidth=width-20
         hRatio=health/140
         realWidth=hRatio*maxWidth
-        img=self.context.getFont().render("Player {}:{}", True, blue)
-        screen.blit(img,(5,5))
+        img=self.context.getFont().render(self.player.getName(),True, black)
+        screen.blit(img,(x+5,y-5))
         pygame.draw.rect(screen,color,(x+5,y+10,realWidth,10))

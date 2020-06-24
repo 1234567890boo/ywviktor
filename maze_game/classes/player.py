@@ -45,6 +45,12 @@ class PlayerView(View): #Extends View
             pview.putobj(x,y,Empty())
             self.health=0
 
+    def setName(self,name):
+        self.name=name
+
+    def getName(self):
+        return self.name
+
     def getColor(self):
         return self.color
 
