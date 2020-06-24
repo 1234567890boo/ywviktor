@@ -23,7 +23,7 @@ class EnemyView(View):
                    3:(0,1)}
         # get all players 
         players=pview.get_items("Player")
-        
+
         # leave only visible players [(player, x, y)]
         playersVisible=[]
         ecoord=(x,y)
@@ -31,7 +31,7 @@ class EnemyView(View):
             pcoords=(player[1],player[2])
             if pview.hasPath(ecoord,pcoords):
                 playersVisible.append(player)
-        
+
         if len(playersVisible)>0:
             # pick closest from visible
             closestVisibleCoords=(playersVisible[0][1],playersVisible[0][2])

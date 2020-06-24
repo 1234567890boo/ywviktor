@@ -2,6 +2,7 @@ import pygame
 from classes.empty import *
 
 
+
 class PlayerView(View): #Extends View
     def kind(self):
         return "Player"
@@ -12,37 +13,47 @@ class PlayerView(View): #Extends View
         self.activeCommand = ""
         self.health=health
         self.energy=energy
+        self.lastcommand=''
     def draw(self,screen,x,y,width,height):
         pygame.draw.rect(screen,self.color,(x,y,width,height))
 
     def handleKey(self,event,pview,x,y):
 
         command=self.keys.get(event.key,'')
-        if event.type == pygame.KEYDOWN and command!="":
-            self.activeCommand=command
-        if event.type==pygame.KEYUP and command!="":
-            self.activeCommand=""
+        if command!="":
+            if event.type == pygame.KEYDOWN:
+                self.activeCommand=command
+            if event.type==pygame.KEYUP:
+                self.activeCommand=""
 
     def handleCycle(self,pview,x,y):
+
         if self.energy>0:
             if self.activeCommand == 'up':
                 pview.moveobj(x, y, x, y - 1)
+                self.lastcommand='up'
+
             elif self.activeCommand == 'down':
                 pview.moveobj(x, y, x, y + 1)
+                self.lastcommand = 'down'
+
             elif self.activeCommand == 'left':
                 pview.moveobj(x, y, x - 1, y)
+                self.lastcommand = 'left'
+
             elif self.activeCommand == 'right':
                 pview.moveobj(x, y, x + 1, y)
-            if self.activeCommand!="":
-                self.energy-=1
+                self.lastcommand = 'right'
+
 
         for xshift in range(-1,2,1):
             for yshift in range(-1,2,1):
                 if pview.getobj(x+xshift,y+yshift).kind() == "Enemy":
                     self.health -= 0.50
 
-        self.health += 0.25
-        self.energy += 0.25
+        if self.activeCommand=="":
+            self.health += 0.25
+            self.energy += 1
 
         if self.health>=100:
             self.health=100

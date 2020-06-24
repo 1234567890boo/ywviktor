@@ -46,8 +46,8 @@ def placeRandom(pview,obj):
         randomy=random.randint(1,28)
     pview.putobj(randomx,randomy,obj)
     
-placeRandom(mainmap,PlayerView(green,{pygame.K_w:'up',pygame.K_s:'down',pygame.K_a:'left',pygame.K_d:'right'},100,100))
-placeRandom(mainmap,PlayerView(blue,{pygame.K_i:'up',pygame.K_k:'down',pygame.K_j:'left',pygame.K_l:'right'},100,100))
+placeRandom(mainmap,PlayerView(green,{pygame.K_w:'up',pygame.K_s:'down',pygame.K_a:'left',pygame.K_d:'right',pygame.K_q:'teleport'},100,100))
+placeRandom(mainmap,PlayerView(blue,{pygame.K_i:'up',pygame.K_k:'down',pygame.K_j:'left',pygame.K_l:'right',pygame.K_o:'teleport'},100,100))
 
 playerDesc=mainmap.get_items("Player")
 players=[]
@@ -59,7 +59,6 @@ for p in playerDesc:
 gameContext=Context()
 
 sideView=SideView(players,gameContext)
-# testView=PlayerSideView(playerDesc[0][0])
 
 for n in range(1,20):
         placeRandom(mainmap,EnemyView())

@@ -51,8 +51,12 @@ class MapView(View):
     def getobj(self,x,y):
         return self.grid[x][y]
     def moveobj(self,sx,sy,dx,dy):
+        if dx<0 or dx>self.gridwidth-1 or dy<0 or dy>self.gridheight-1:
+            return
+
         sobj=self.getobj(sx,sy)
         dobj=self.getobj(dx,dy)
+        
         if dobj.canReplace(sobj):
             self.putobj(dx,dy,sobj)
             self.putobj(sx,sy,Empty())
