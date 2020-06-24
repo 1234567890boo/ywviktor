@@ -24,26 +24,39 @@ class PlayerView(View): #Extends View
             self.activeCommand=""
 
     def handleCycle(self,pview,x,y):
-        if self.activeCommand == 'up':
-            pview.moveobj(x, y, x, y - 1)
-        elif self.activeCommand == 'down':
-            pview.moveobj(x, y, x, y + 1)
-        elif self.activeCommand == 'left':
-            pview.moveobj(x, y, x - 1, y)
-        elif self.activeCommand == 'right':
-            pview.moveobj(x, y, x + 1, y)
+        if self.energy>0:
+            if self.activeCommand == 'up':
+                pview.moveobj(x, y, x, y - 1)
+            elif self.activeCommand == 'down':
+                pview.moveobj(x, y, x, y + 1)
+            elif self.activeCommand == 'left':
+                pview.moveobj(x, y, x - 1, y)
+            elif self.activeCommand == 'right':
+                pview.moveobj(x, y, x + 1, y)
+            if self.activeCommand!="":
+                self.energy-=1
 
         for xshift in range(-1,2,1):
             for yshift in range(-1,2,1):
                 if pview.getobj(x+xshift,y+yshift).kind() == "Enemy":
                     self.health -= 0.50
+
+        self.health += 0.25
+        self.energy += 0.25
+
         if self.health>=100:
             self.health=100
-        self.health+=0.25
+
+        if self.energy>=100:
+            self.energy=100
 
         if self.health<0:
             pview.putobj(x,y,Empty())
             self.health=0
+            self.energy=0
+
+        if self.energy<0:
+            self.energy=0
 
     def setName(self,name):
         self.name=name
@@ -56,3 +69,6 @@ class PlayerView(View): #Extends View
 
     def getHealth(self):
         return self.health
+
+    def getEnergy(self):
+        return self.energy
