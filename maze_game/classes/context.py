@@ -14,3 +14,4 @@ class Context:
 
     def getBigFont(self):
         return self.bigFont
+
