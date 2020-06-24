@@ -4,7 +4,7 @@ from classes.player import *
 
 class inventory(player):
     def teleport(self,x,y,pview):
-        if self.activeCommand == 'teleport':
+        if self.activeCommand == 'teleport': 
             if self.lastcommand == 'up':
                 pview.moveobj(x, y, x, y - 3)
 
