@@ -46,8 +46,8 @@ def placeRandom(pview,obj):
         randomy=random.randint(1,28)
     pview.putobj(randomx,randomy,obj)
     
-placeRandom(mainmap,PlayerView(green,{pygame.K_w:'up',pygame.K_s:'down',pygame.K_a:'left',pygame.K_d:'right',pygame.K_q:'shift',pygame.K_e:'activation'},100,100))
-placeRandom(mainmap,PlayerView(blue,{pygame.K_i:'up',pygame.K_k:'down',pygame.K_j:'left',pygame.K_l:'right',pygame.K_o:'shift',pygame.K_u:'activation'},100,100))
+placeRandom(mainmap,PlayerView(green,{pygame.K_w:'up',pygame.K_s:'down',pygame.K_a:'left',pygame.K_d:'right',pygame.K_q:'shift',pygame.K_e:'activate'},100,100))
+placeRandom(mainmap,PlayerView(blue,{pygame.K_i:'up',pygame.K_k:'down',pygame.K_j:'left',pygame.K_l:'right',pygame.K_o:'shift',pygame.K_u:'activate'},100,100))
 
 playerDesc=mainmap.get_items("Player")
 players=[]

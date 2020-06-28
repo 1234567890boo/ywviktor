@@ -28,12 +28,13 @@ class PlayerSideView(View):
         pHealth = self.context.getBarFont().render("Health", True, black)
         pEnergy = self.context.getBarFont().render("Energy", True, black)
 
-        currentInventory = self.context.getBigFont().render(self.player.getInventory(), True, black)
+        activeInventory = self.player.getActiveInventory()
+        activeInventoryName = self.context.getBigFont().render(activeInventory.getName(), True, black)
 
         pygame.draw.rect(screen,color,(x+5,y+10,realHealthWidth,10))
         pygame.draw.rect(screen, color, (x+5,y+25,realEnergyWidth,10))
 
         screen.blit(pHealth,(x+5,y+10))
         screen.blit(pEnergy,(x+5,y+25))
-        screen.blit(currentInventory,(x+5,y+40))
+        screen.blit(activeInventoryName,(x+5,y+40))
 

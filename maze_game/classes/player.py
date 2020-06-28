@@ -1,4 +1,5 @@
 import pygame
+from classes.inventory import *
 from classes.empty import *
 
 
@@ -14,7 +15,7 @@ class PlayerView(View): #Extends View
         self.health=health
         self.energy=energy
         self.lastcommand=''
-        self.inventory = ['Teleporter', 'Energy Drink', 'Gun', 'Mine']
+        self.inventory = [Teleport()]
         self.inventoryNum=0
 
     def draw(self,screen,x,y,width,height):
@@ -52,6 +53,8 @@ class PlayerView(View): #Extends View
             if self.inventoryNum>=len(self.inventory):
                 self.inventoryNum=0
 
+            if self.activeCommand=='activate':
+                self.getActiveInventory().action(pview,x,y)
 
         for xshift in range(-1,2,1):
             for yshift in range(-1,2,1):
@@ -91,5 +94,8 @@ class PlayerView(View): #Extends View
     def getEnergy(self):
         return self.energy
 
-    def getInventory(self):
+    def setEnergy(self,energy):
+        self.energy=energy
+
+    def getActiveInventory(self):
         return self.inventory[self.inventoryNum]
