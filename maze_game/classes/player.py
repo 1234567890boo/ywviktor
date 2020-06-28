@@ -15,7 +15,7 @@ class PlayerView(View): #Extends View
         self.health=health
         self.energy=energy
         self.lastcommand=''
-        self.inventory = [Teleport()]
+        self.inventory = [Teleport(),EnergyDrink()]
         self.inventoryNum=0
 
     def draw(self,screen,x,y,width,height):
@@ -34,18 +34,22 @@ class PlayerView(View): #Extends View
         if self.energy>0:
             if self.activeCommand == 'up':
                 pview.moveobj(x, y, x, y - 1)
+                self.energy-=0.5
                 self.lastcommand='up'
 
             elif self.activeCommand == 'down':
                 pview.moveobj(x, y, x, y + 1)
+                self.energy -= 0.5
                 self.lastcommand = 'down'
 
             elif self.activeCommand == 'left':
                 pview.moveobj(x, y, x - 1, y)
+                self.energy -= 0.5
                 self.lastcommand = 'left'
 
             elif self.activeCommand == 'right':
                 pview.moveobj(x, y, x + 1, y)
+                self.energy -= 0.5
                 self.lastcommand = 'right'
 
             if self.activeCommand == 'shift':
@@ -78,6 +82,7 @@ class PlayerView(View): #Extends View
 
         if self.energy<0:
             self.energy=0
+
 
     def setName(self,name):
         self.name=name

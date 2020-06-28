@@ -32,3 +32,17 @@ class Teleport(Inventory):
             if lastCommand=='right':
                 pview.moveobj(x,y,x+3,y)
                 player.setEnergy(player.getEnergy()-10)
+
+class EnergyDrink(Inventory):
+    def __init__(self):
+        self.numOfUses=1
+    def getName(self):
+        return 'Energy Drink'
+
+    def action(self,pview,x,y):
+        player = pview.getobj(x, y)
+        if player.getActiveInventory().getName():
+            player.setEnergy(player.getEnergy()+10)
+            self.numOfUses-=1
+        if self.numOfUses==0:
+            player.inventory[player.inventoryNum].pop()
