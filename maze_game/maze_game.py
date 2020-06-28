@@ -61,7 +61,7 @@ gameContext=Context()
 
 sideView=SideView(players,gameContext)
 
-for n in range(1,2):
+for n in range(1,40):
         placeRandom(mainmap,EnemyView())
 
 

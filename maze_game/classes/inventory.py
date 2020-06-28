@@ -44,5 +44,3 @@ class EnergyDrink(Inventory):
         if player.getActiveInventory().getName():
             player.setEnergy(player.getEnergy()+10)
             self.numOfUses-=1
-        if self.numOfUses==0:
-            player.inventory[player.inventoryNum].pop()
