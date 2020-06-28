@@ -33,6 +33,7 @@ class Teleport(Inventory):
                 pview.moveobj(x,y,x+3,y)
                 player.setEnergy(player.getEnergy()-10)
 
+        return True
 class EnergyDrink(Inventory):
     def __init__(self):
         self.numOfUses=1
@@ -43,4 +44,25 @@ class EnergyDrink(Inventory):
         player = pview.getobj(x, y)
         if player.getActiveInventory().getName():
             player.setEnergy(player.getEnergy()+10)
+        return False
+
+class HealthPotion(Inventory):
+    def __init__(self):
+        self.numOfUses=3
+
+    def getName(self):
+        return 'Health Potion'
+
+    def action(self,pview,x,y):
+
+        player = pview.getobj(x, y)
+        if player.getActiveInventory().getName():
+            player.setHealth(player.getHealth()+15)
             self.numOfUses-=1
+
+        if self.numOfUses<=0:
+            return False
+
+        else:
+            return True
+

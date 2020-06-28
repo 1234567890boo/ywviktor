@@ -15,7 +15,7 @@ class PlayerView(View): #Extends View
         self.health=health
         self.energy=energy
         self.lastcommand=''
-        self.inventory = [Teleport(),EnergyDrink()]
+        self.inventory = [Teleport(),EnergyDrink(),HealthPotion()]
         self.inventoryNum=0
 
     def draw(self,screen,x,y,width,height):
@@ -58,7 +58,8 @@ class PlayerView(View): #Extends View
                 self.inventoryNum=0
 
             if self.activeCommand=='activate':
-                self.getActiveInventory().action(pview,x,y)
+               if not self.getActiveInventory().action(pview,x,y):
+                   self.deleteActiveInventory()
 
         for xshift in range(-1,2,1):
             for yshift in range(-1,2,1):
@@ -84,6 +85,8 @@ class PlayerView(View): #Extends View
             self.energy=0
 
 
+
+
     def setName(self,name):
         self.name=name
 
@@ -96,6 +99,9 @@ class PlayerView(View): #Extends View
     def getHealth(self):
         return self.health
 
+    def setHealth(self,health):
+        self.health=health
+
     def getEnergy(self):
         return self.energy
 
@@ -104,3 +110,8 @@ class PlayerView(View): #Extends View
 
     def getActiveInventory(self):
         return self.inventory[self.inventoryNum]
+
+    def deleteActiveInventory(self):
+        del self.inventory[self.inventoryNum]
+        if len(self.inventory)<=self.inventoryNum:
+            self.inventoryNum=len(self.inventory)-1
