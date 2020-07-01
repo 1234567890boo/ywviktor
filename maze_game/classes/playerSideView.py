@@ -1,4 +1,5 @@
 from classes.player import *
+from classes.inventory import *
 
 lightGray=(220,220,220)
 green=(0,255,0)
@@ -22,11 +23,11 @@ class PlayerSideView(View):
         eRatio=energy/140
         realEnergyWidth=eRatio*maxWidth
 
-        img=self.context.getPlayerFont().render(self.player.getName(), True, black)
-        screen.blit(img,(x+5,y-5))
+        playerName=self.context.getPlayerFont().render(self.player.getName(), True, black)
+        screen.blit(playerName,(x+5,y-5))
 
-        pHealth = self.context.getBarFont().render("Health", True, black)
-        pEnergy = self.context.getBarFont().render("Energy", True, black)
+        pHealth = self.context.getBarFont().render("Health"+str(HealthPotion(self.context).numOfUses), True, black)
+        pEnergy = self.context.getBarFont().render("Energy" +str(HealthPotion(self.context).numOfUses), True, black)
 
         activeInventory = self.player.getActiveInventory()
         activeInventoryName = self.context.getBigFont().render(activeInventory.getName(), True, black)

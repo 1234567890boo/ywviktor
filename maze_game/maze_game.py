@@ -4,6 +4,7 @@ from classes.sideView import *
 from classes.playerSideView import *
 from classes.mapView import *
 from classes.context import *
+from classes.inventory import *
 
 width=520
 height=300
@@ -45,9 +46,23 @@ def placeRandom(pview,obj):
         randomx=random.randint(1,28)
         randomy=random.randint(1,28)
     pview.putobj(randomx,randomy,obj)
-    
-placeRandom(mainmap,PlayerView(green,{pygame.K_w:'up',pygame.K_s:'down',pygame.K_a:'left',pygame.K_d:'right',pygame.K_q:'shift',pygame.K_e:'activate'},100,100))
-placeRandom(mainmap,PlayerView(blue,{pygame.K_i:'up',pygame.K_k:'down',pygame.K_j:'left',pygame.K_l:'right',pygame.K_o:'shift',pygame.K_u:'activate'},100,100))
+
+gameContext=Context()
+
+def initAndPlace(mainmap, p):
+    p.addInventory(Teleport(gameContext))
+    p.addInventory(EnergyDrink(gameContext))
+    p.addInventory(HealthPotion(gameContext))
+    p.addInventory(Mine(gameContext))
+    placeRandom(mainmap, p)
+
+
+initAndPlace(mainmap,PlayerView(green,{pygame.K_w:'up',pygame.K_s:'down',pygame.K_a:'left',pygame.K_d:'right',pygame.K_q:'shift',pygame.K_e:'activate'},100,100) )
+initAndPlace(mainmap,PlayerView(blue,{pygame.K_i:'up',pygame.K_k:'down',pygame.K_j:'left',pygame.K_l:'right',pygame.K_o:'shift',pygame.K_u:'activate'},100,100))
+
+placeRandom(mainmap,EnergyDrink(gameContext))
+placeRandom(mainmap,HealthPotion(gameContext))
+placeRandom(mainmap, Mine(gameContext))
 
 playerDesc=mainmap.get_items("Player")
 players=[]
@@ -57,23 +72,31 @@ for p in playerDesc:
     p[0].setName("Player "+str(c))
     players.append(p[0])
     c+=1
-gameContext=Context()
 
 sideView=SideView(players,gameContext)
 
-for n in range(1,40):
+for n in range(1,1):
         placeRandom(mainmap,EnemyView())
 
 
 screen = pygame.display.set_mode((width, height))
-
+n=0
 while True:
+
+        n+=1
+        if n>400:
+            placeRandom(mainmap, EnergyDrink(gameContext))
+            placeRandom(mainmap, HealthPotion(gameContext))
+            placeRandom(mainmap, Mine(gameContext))
+            n=0
+
         for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     exit()
                 if event.type == pygame.KEYDOWN or event.type == pygame.KEYUP:
                     mainmap.handleKey(event, None,0,0)
                     mainmap.handleKey(event, None, 0, 0)
+
         mainmap.handleCycle(None,0,0)
         screen.fill((white))
         mainmap.draw(screen,0,0,300,300)

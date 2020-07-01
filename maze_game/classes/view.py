@@ -1,6 +1,7 @@
 class View:
     def setShouldBeHandled(self,state):
         self.state=state
+        return self
     def getShouldBeHandled(self):
         return self.state
     def kind(self):
@@ -13,3 +14,5 @@ class View:
         pass
     def handleKey(self,event,pview,x,y):
         pass
+    def isInventory(self):
+        return False

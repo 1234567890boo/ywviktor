@@ -15,7 +15,7 @@ class PlayerView(View): #Extends View
         self.health=health
         self.energy=energy
         self.lastcommand=''
-        self.inventory = [Teleport(),EnergyDrink(),HealthPotion()]
+        self.inventory = []
         self.inventoryNum=0
 
     def draw(self,screen,x,y,width,height):
@@ -33,21 +33,50 @@ class PlayerView(View): #Extends View
     def handleCycle(self,pview,x,y):
         if self.energy>0:
             if self.activeCommand == 'up':
+
+                destObj=pview.getobj(x,y-1)
+                if destObj.isInventory():
+                    self.addInventory(destObj)
+                    empty=Empty().setShouldBeHandled(True)
+                    pview.putobj(x,y-1,empty)
+
+
                 pview.moveobj(x, y, x, y - 1)
                 self.energy-=0.5
                 self.lastcommand='up'
 
             elif self.activeCommand == 'down':
+
+                destObj = pview.getobj(x, y - 1)
+                if destObj.isInventory():
+                    self.addInventory(destObj)
+                    empty = Empty().setShouldBeHandled(True)
+                    pview.putobj(x, y + 1, empty)
+
                 pview.moveobj(x, y, x, y + 1)
                 self.energy -= 0.5
                 self.lastcommand = 'down'
 
             elif self.activeCommand == 'left':
+
+                destObj = pview.getobj(x-1, y)
+                if destObj.isInventory():
+                    self.addInventory(destObj)
+                    empty = Empty().setShouldBeHandled(True)
+                    pview.putobj(x-1, y, empty)
+
                 pview.moveobj(x, y, x - 1, y)
                 self.energy -= 0.5
                 self.lastcommand = 'left'
 
             elif self.activeCommand == 'right':
+
+                destObj = pview.getobj(x+1, y)
+                if destObj.isInventory():
+                    self.addInventory(destObj)
+                    empty = Empty().setShouldBeHandled(True)
+                    pview.putobj(x+1, y, empty)
+
                 pview.moveobj(x, y, x + 1, y)
                 self.energy -= 0.5
                 self.lastcommand = 'right'
@@ -115,3 +144,6 @@ class PlayerView(View): #Extends View
         del self.inventory[self.inventoryNum]
         if len(self.inventory)<=self.inventoryNum:
             self.inventoryNum=len(self.inventory)-1
+
+    def addInventory(self,inventory):
+        self.inventory.append(inventory)
