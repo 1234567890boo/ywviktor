@@ -107,20 +107,29 @@ class Mine(Inventory):
     def action(self, pview, x, y):
         player = pview.getobj(x, y)
         lastCommand = player.lastcommand
+        if self.numOfUses>=1:
 
-        if lastCommand=='up':
-            pass
+            if lastCommand=='up':
+                pass
 
-        if lastCommand=='down':
-            pass
+            if lastCommand=='down':
+                pass
 
-        if lastCommand=='left':
-            pass
+            if lastCommand=='left':
+                pass
 
-        if lastCommand=='right':
-            pass
+            if lastCommand=='right':
+                pass
 
-        return True
+            return True
+
+        self.numOfUses -= 1
+
+        if self.numOfUses<=0:
+            return False
+
+
+
 
 
     def draw(self,screen,x,y,width,height):
