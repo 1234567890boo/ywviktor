@@ -20,3 +20,8 @@ class Context:
     def getMapFont(self):
         return self.mapFont
 
+    def setScreen(self,screen):
+        self.screen=screen
+
+    def getScreen(self):
+        return self.screen

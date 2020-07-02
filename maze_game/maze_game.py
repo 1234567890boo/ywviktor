@@ -48,6 +48,8 @@ def placeRandom(pview,obj):
     pview.putobj(randomx,randomy,obj)
 
 gameContext=Context()
+gameContext.setScreen(pygame.display.set_mode((width, height)))
+screen=gameContext.getScreen()
 
 def initAndPlace(mainmap, p):
     p.addInventory(Teleport(gameContext))
@@ -75,11 +77,10 @@ for p in playerDesc:
 
 sideView=SideView(players,gameContext)
 
-for n in range(1,1):
+for n in range(1,31):
         placeRandom(mainmap,EnemyView())
 
 
-screen = pygame.display.set_mode((width, height))
 n=0
 while True:
 

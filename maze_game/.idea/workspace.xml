@@ -33,14 +33,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2502b77-745b-4c47-be02-0cb5522fee77" name="Default" comment="weee">
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/context.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/context.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/inventory.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/inventory.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/player.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/playerSideView.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/playerSideView.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/view.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/view.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maze_game.py" beforeDir="false" afterPath="$PROJECT_DIR$/maze_game.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,22 +156,22 @@
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="448" y="175" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.797@0.23.1440.797" timestamp="1593485329086" />
-    <state width="1399" height="197" key="GridCell.Tab.0.bottom" timestamp="1593567235682">
+    <state width="1399" height="197" key="GridCell.Tab.0.bottom" timestamp="1593665627469">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1399" height="197" key="GridCell.Tab.0.bottom/0.23.1440.797@0.23.1440.797" timestamp="1593567235682" />
-    <state width="1399" height="197" key="GridCell.Tab.0.center" timestamp="1593567235681">
+    <state width="1399" height="197" key="GridCell.Tab.0.bottom/0.23.1440.797@0.23.1440.797" timestamp="1593665627469" />
+    <state width="1399" height="197" key="GridCell.Tab.0.center" timestamp="1593665627468">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1399" height="197" key="GridCell.Tab.0.center/0.23.1440.797@0.23.1440.797" timestamp="1593567235681" />
-    <state width="1399" height="197" key="GridCell.Tab.0.left" timestamp="1593567235680">
+    <state width="1399" height="197" key="GridCell.Tab.0.center/0.23.1440.797@0.23.1440.797" timestamp="1593665627468" />
+    <state width="1399" height="197" key="GridCell.Tab.0.left" timestamp="1593665627467">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1399" height="197" key="GridCell.Tab.0.left/0.23.1440.797@0.23.1440.797" timestamp="1593567235680" />
-    <state width="1399" height="197" key="GridCell.Tab.0.right" timestamp="1593567235681">
+    <state width="1399" height="197" key="GridCell.Tab.0.left/0.23.1440.797@0.23.1440.797" timestamp="1593665627467" />
+    <state width="1399" height="197" key="GridCell.Tab.0.right" timestamp="1593665627468">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1399" height="197" key="GridCell.Tab.0.right/0.23.1440.797@0.23.1440.797" timestamp="1593567235681" />
+    <state width="1399" height="197" key="GridCell.Tab.0.right/0.23.1440.797@0.23.1440.797" timestamp="1593665627468" />
     <state width="1399" height="252" key="GridCell.Tab.1.bottom" timestamp="1593487129517">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
@@ -203,5 +196,16 @@
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="310" y="161" key="Vcs.Push.Dialog.v2/0.23.1440.797@0.23.1440.797" timestamp="1593386371202" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/maze_game.py</url>
+          <line>59</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

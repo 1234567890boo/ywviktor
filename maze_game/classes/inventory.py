@@ -25,7 +25,7 @@ class Teleport(Inventory):
 
     def action(self,pview,x,y):
         player=pview.getobj(x,y)
-        lastCommand=player.lastcommand
+        lastCommand = player.lastcommand
         if player.getEnergy()>10:
 
             if lastCommand=='up':
@@ -106,6 +106,22 @@ class Mine(Inventory):
 
     def action(self, pview, x, y):
         player = pview.getobj(x, y)
+        lastCommand = player.lastcommand
+
+        if lastCommand=='up':
+            pass
+
+        if lastCommand=='down':
+            pass
+
+        if lastCommand=='left':
+            pass
+
+        if lastCommand=='right':
+            pass
+
+        return True
+
 
     def draw(self,screen,x,y,width,height):
         mapInventory=self.context.getMapFont().render("M", True, black)
