@@ -33,7 +33,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2502b77-745b-4c47-be02-0cb5522fee77" name="Default" comment="weee">
+      <change afterPath="$PROJECT_DIR$/classes/gridobj.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/empty.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/empty.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/enemy.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/enemy.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/inventory.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/inventory.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/mapView.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/mapView.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/player.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/view.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/wall.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/wall.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,6 +143,16 @@
     <option name="localTasksCounter" value="3" />
     <servers />
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -156,38 +174,38 @@
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="448" y="175" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.797@0.23.1440.797" timestamp="1593485329086" />
-    <state width="1399" height="197" key="GridCell.Tab.0.bottom" timestamp="1593708708576">
+    <state width="1419" height="197" key="GridCell.Tab.0.bottom" timestamp="1593719608159">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1399" height="197" key="GridCell.Tab.0.bottom/0.23.1440.797@0.23.1440.797" timestamp="1593708708576" />
-    <state width="1399" height="197" key="GridCell.Tab.0.center" timestamp="1593708708575">
+    <state width="1419" height="197" key="GridCell.Tab.0.bottom/0.23.1440.797@0.23.1440.797" timestamp="1593719608159" />
+    <state width="1419" height="197" key="GridCell.Tab.0.center" timestamp="1593719608158">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1399" height="197" key="GridCell.Tab.0.center/0.23.1440.797@0.23.1440.797" timestamp="1593708708575" />
-    <state width="1399" height="197" key="GridCell.Tab.0.left" timestamp="1593708708574">
+    <state width="1419" height="197" key="GridCell.Tab.0.center/0.23.1440.797@0.23.1440.797" timestamp="1593719608158" />
+    <state width="1419" height="197" key="GridCell.Tab.0.left" timestamp="1593719608157">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1399" height="197" key="GridCell.Tab.0.left/0.23.1440.797@0.23.1440.797" timestamp="1593708708574" />
-    <state width="1399" height="197" key="GridCell.Tab.0.right" timestamp="1593708708575">
+    <state width="1419" height="197" key="GridCell.Tab.0.left/0.23.1440.797@0.23.1440.797" timestamp="1593719608157" />
+    <state width="1419" height="197" key="GridCell.Tab.0.right" timestamp="1593719608159">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1399" height="197" key="GridCell.Tab.0.right/0.23.1440.797@0.23.1440.797" timestamp="1593708708575" />
-    <state width="1399" height="252" key="GridCell.Tab.1.bottom" timestamp="1593487129517">
+    <state width="1419" height="197" key="GridCell.Tab.0.right/0.23.1440.797@0.23.1440.797" timestamp="1593719608159" />
+    <state width="1419" height="252" key="GridCell.Tab.1.bottom" timestamp="1593718789477">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1399" height="252" key="GridCell.Tab.1.bottom/0.23.1440.797@0.23.1440.797" timestamp="1593487129517" />
-    <state width="1399" height="252" key="GridCell.Tab.1.center" timestamp="1593487129516">
+    <state width="1419" height="252" key="GridCell.Tab.1.bottom/0.23.1440.797@0.23.1440.797" timestamp="1593718789477" />
+    <state width="1419" height="252" key="GridCell.Tab.1.center" timestamp="1593718789476">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1399" height="252" key="GridCell.Tab.1.center/0.23.1440.797@0.23.1440.797" timestamp="1593487129516" />
-    <state width="1399" height="252" key="GridCell.Tab.1.left" timestamp="1593487129516">
+    <state width="1419" height="252" key="GridCell.Tab.1.center/0.23.1440.797@0.23.1440.797" timestamp="1593718789476" />
+    <state width="1419" height="252" key="GridCell.Tab.1.left" timestamp="1593718789475">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1399" height="252" key="GridCell.Tab.1.left/0.23.1440.797@0.23.1440.797" timestamp="1593487129516" />
-    <state width="1399" height="252" key="GridCell.Tab.1.right" timestamp="1593487129517">
+    <state width="1419" height="252" key="GridCell.Tab.1.left/0.23.1440.797@0.23.1440.797" timestamp="1593718789475" />
+    <state width="1419" height="252" key="GridCell.Tab.1.right" timestamp="1593718789476">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1399" height="252" key="GridCell.Tab.1.right/0.23.1440.797@0.23.1440.797" timestamp="1593487129517" />
+    <state width="1419" height="252" key="GridCell.Tab.1.right/0.23.1440.797@0.23.1440.797" timestamp="1593718789476" />
     <state x="534" y="140" key="RollbackChangesDialog" timestamp="1593367792300">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
@@ -196,16 +214,5 @@
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="310" y="161" key="Vcs.Push.Dialog.v2/0.23.1440.797@0.23.1440.797" timestamp="1593386371202" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/maze_game.py</url>
-          <line>59</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

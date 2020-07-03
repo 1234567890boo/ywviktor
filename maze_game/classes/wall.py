@@ -1,7 +1,7 @@
 import pygame
-from classes.view import *
+from classes.gridobj import *
 black=(0,0,0)
-class Wall(View):
+class Wall(GridObj):
     def kind(self):
         return "Wall"
     def draw(self,screen,x,y,width,height):

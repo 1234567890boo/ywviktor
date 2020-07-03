@@ -1,8 +1,9 @@
-from classes.view import *
-class Empty(View):
+from classes.gridobj import *
+
+class Empty(GridObj):
     def kind(self):
         return "Empty"
     def draw(self,screen,x,y,width,height):
         pass
-    def canReplace(self,obj):
+    def canMoveInto(self, obj):
         return True

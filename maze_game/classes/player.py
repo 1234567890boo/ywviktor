@@ -1,14 +1,15 @@
 import pygame
 from classes.inventory import *
 from classes.empty import *
+from classes.gridobj import *
 
 
-
-class PlayerView(View): #Extends View
+class PlayerView(GridObj): #Extends View
     def kind(self):
         return "Player"
 
     def __init__(self,color,keys,health,energy):
+        super().__init__()
         self.color=color
         self.keys=keys
         self.activeCommand = ""
@@ -17,6 +18,7 @@ class PlayerView(View): #Extends View
         self.lastcommand=''
         self.inventory = []
         self.inventoryNum=0
+
 
     def draw(self,screen,x,y,width,height):
         pygame.draw.rect(screen,self.color,(x,y,width,height))
@@ -34,24 +36,11 @@ class PlayerView(View): #Extends View
         if self.energy>0:
             if self.activeCommand == 'up':
 
-                destObj=pview.getobj(x,y-1)
-                if destObj.isInventory():
-                    self.addInventory(destObj)
-                    empty=Empty().setShouldBeHandled(True)
-                    pview.putobj(x,y-1,empty)
-
-
                 pview.moveobj(x, y, x, y - 1)
                 self.energy-=0.5
                 self.lastcommand='up'
 
             elif self.activeCommand == 'down':
-
-                destObj = pview.getobj(x, y - 1)
-                if destObj.isInventory():
-                    self.addInventory(destObj)
-                    empty = Empty().setShouldBeHandled(True)
-                    pview.putobj(x, y + 1, empty)
 
                 pview.moveobj(x, y, x, y + 1)
                 self.energy -= 0.5
@@ -59,23 +48,11 @@ class PlayerView(View): #Extends View
 
             elif self.activeCommand == 'left':
 
-                destObj = pview.getobj(x-1, y)
-                if destObj.isInventory():
-                    self.addInventory(destObj)
-                    empty = Empty().setShouldBeHandled(True)
-                    pview.putobj(x-1, y, empty)
-
                 pview.moveobj(x, y, x - 1, y)
                 self.energy -= 0.5
                 self.lastcommand = 'left'
 
             elif self.activeCommand == 'right':
-
-                destObj = pview.getobj(x+1, y)
-                if destObj.isInventory():
-                    self.addInventory(destObj)
-                    empty = Empty().setShouldBeHandled(True)
-                    pview.putobj(x+1, y, empty)
 
                 pview.moveobj(x, y, x + 1, y)
                 self.energy -= 0.5
@@ -85,6 +62,15 @@ class PlayerView(View): #Extends View
                 self.inventoryNum += 1
             if self.inventoryNum>=len(self.inventory):
                 self.inventoryNum=0
+
+            pocket=self.getGridPocket()
+
+            if pocket ==None:
+                pocket=Empty()
+
+            if pocket.isInventory():
+                self.addInventory(pocket)
+                self.setGridPocket(Empty())
 
             if self.activeCommand=='activate':
                if not self.getActiveInventory().action(pview,x,y):

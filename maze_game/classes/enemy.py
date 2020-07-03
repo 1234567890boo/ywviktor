@@ -1,16 +1,23 @@
 import random,pygame
 from classes.utils import *
-from classes.view import *
+from classes.gridobj import *
+
 red=(255,0,0)
-class EnemyView(View):
+
+class EnemyView(GridObj):
+    def __init__(self):
+        super().__init__()
+        self.skipCounter=0
+
     def kind(self):
         return "Enemy"
-    def __init__(self):
-        self.skipCounter=0
+
     def draw(self,screen, x,y,width,height):
         pygame.draw.rect(screen,red,(x,y,width,height))
-    def canReplace(self,obj):
+
+    def canMoveInto(self, obj):
         return False
+
     def handleCycle(self,pview,x,y):
         self.skipCounter+=1
         if self.skipCounter>1 :

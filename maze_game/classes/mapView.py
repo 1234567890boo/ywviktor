@@ -1,10 +1,12 @@
 from classes.empty import *
 from classes.view import *
 from classes.utils import *
+from classes.gridobj import *
 
 class MapView(View):
     def kind(self):
         return "Map_View"
+
     def __init__(self,gridwidth,gridheight):
         self.grid=[]
         self.gridwidth=gridwidth
@@ -50,6 +52,7 @@ class MapView(View):
         self.grid[x][y]=obj
     def getobj(self,x,y):
         return self.grid[x][y]
+
     def moveobj(self,sx,sy,dx,dy):
         if dx<0 or dx>self.gridwidth-1 or dy<0 or dy>self.gridheight-1:
             return
@@ -57,15 +60,22 @@ class MapView(View):
         sobj=self.getobj(sx,sy)
         dobj=self.getobj(dx,dy)
         
-        if dobj.canReplace(sobj):
+        if dobj.canMoveInto(sobj):
             self.putobj(dx,dy,sobj)
-            self.putobj(sx,sy,Empty())
+            pockettoRestore=sobj.getGridPocket()
+            if pockettoRestore is None:
+                pockettoRestore =Empty()
+
+            self.putobj(sx,sy,pockettoRestore)
+            sobj.setGridPocket(dobj)
+
     def draw(self,screen, x,y,width,height):
         cellwidth=int(width/self.gridwidth)
         cellheight=int(height/self.gridheight)
         for xgrid in range(0,self.gridwidth,1):
             for ygrid in range(0,self.gridheight,1):
                 self.getobj(xgrid,ygrid).draw(screen,x+xgrid*cellwidth,y+ygrid*cellheight,cellwidth,cellheight)
+
     def get_items(self,kind):
         items=[]
         for xgrid in range(0,self.gridwidth,1):

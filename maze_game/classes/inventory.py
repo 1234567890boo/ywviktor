@@ -1,18 +1,26 @@
 import pygame
-from classes.view import *
+from classes.gridobj import *
 
 black=(0,0,0)
 
-class Inventory(View):
+class Inventory(GridObj):
     def __init__(self,context):
+        super(GridObj, self).__init__()
         self.context=context
+
+    def kind(self):
+        return "Inventory"
 
     def getName(self):
         pass
+
     def action(self):
         pass
 
     def isInventory(self):
+        return True
+
+    def canMoveInto(self, obj):
         return True
 
 class Teleport(Inventory):
@@ -99,7 +107,7 @@ class HealthPotion(Inventory):
 class Mine(Inventory):
     def __init__(self,context):
         Inventory.__init__(self, context)
-        self.numOfUses = 1
+        self.numOfUses = 2
 
     def getName(self):
         return 'Mine-' + str(self.numOfUses)
@@ -107,26 +115,26 @@ class Mine(Inventory):
     def action(self, pview, x, y):
         player = pview.getobj(x, y)
         lastCommand = player.lastcommand
+
         if self.numOfUses>=1:
 
             if lastCommand=='up':
-                pass
+                self.numOfUses -= 1
 
             if lastCommand=='down':
-                pass
+                self.numOfUses -= 1
 
             if lastCommand=='left':
-                pass
+                self.numOfUses -= 1
 
             if lastCommand=='right':
-                pass
-
-            return True
-
-        self.numOfUses -= 1
+                self.numOfUses -= 1
 
         if self.numOfUses<=0:
             return False
+
+        else:
+            return True
 
 
 
