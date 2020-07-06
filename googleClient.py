@@ -1,7 +1,7 @@
 import socket
 
 s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-s.connect(("https://www.bing.com",80))
+s.connect(("google.com",80))
 print("Connection established")
 
 s.send("GET / HTTP/1.1\r\r\r\n".encode("utf-8"))
