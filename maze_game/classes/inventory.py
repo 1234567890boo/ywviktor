@@ -136,10 +136,8 @@ class Mine(Inventory):
         else:
             return True
 
-
-
-
-
+    def activeDraw(self,scree,x,y,width,height):
+        pygame.draw.rect()
     def draw(self,screen,x,y,width,height):
         mapInventory=self.context.getMapFont().render("M", True, black)
         screen.blit(mapInventory,(x,y))

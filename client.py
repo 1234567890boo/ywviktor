@@ -7,7 +7,7 @@ print("Connection established")
 
 while True:
     msg=s.recv(1024).decode("utf-8")
-    print(msg)
+    print('client said:',msg)
 
     
 

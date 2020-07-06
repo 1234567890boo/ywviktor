@@ -32,11 +32,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="43673420-802e-452e-b72a-1e56917803c1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/sort.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/googleClient.py" beforeDir="false" afterPath="$PROJECT_DIR$/googleClient.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maze_game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/maze_game/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="43673420-802e-452e-b72a-1e56917803c1" name="Default Changelist" comment="weee">
+      <change beforePath="$PROJECT_DIR$/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/client.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +60,28 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Python.sort">
+  <component name="RunManager" selected="Python.client">
+    <configuration name="client" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="ywviktor" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/client.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="googleClient" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="ywviktor" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -77,6 +95,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/googleClient.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="server" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="ywviktor" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/server.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -108,8 +147,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.sort" />
+        <item itemvalue="Python.client" />
+        <item itemvalue="Python.server" />
         <item itemvalue="Python.googleClient" />
+        <item itemvalue="Python.sort" />
       </list>
     </recent_temporary>
   </component>
@@ -124,6 +165,14 @@
       <option name="presentableId" value="Default" />
       <updated>1592778023345</updated>
     </task>
+    <task id="LOCAL-00001" summary="weee">
+      <created>1593999453599</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1593999453599</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -138,43 +187,47 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="weee" />
+    <option name="LAST_COMMIT_MESSAGE" value="weee" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="174" y="83" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593389113522">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="174" y="83" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.797@0.23.1440.797" timestamp="1593389113522" />
-    <state width="1399" height="147" key="GridCell.Tab.0.bottom" timestamp="1593999433114">
+    <state width="1399" height="253" key="GridCell.Tab.0.bottom" timestamp="1593999562994">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1399" height="147" key="GridCell.Tab.0.bottom/0.23.1440.797@0.23.1440.797" timestamp="1593999433114" />
-    <state width="1399" height="147" key="GridCell.Tab.0.center" timestamp="1593999433113">
+    <state width="1399" height="253" key="GridCell.Tab.0.bottom/0.23.1440.797@0.23.1440.797" timestamp="1593999562994" />
+    <state width="1399" height="253" key="GridCell.Tab.0.center" timestamp="1593999562993">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1399" height="147" key="GridCell.Tab.0.center/0.23.1440.797@0.23.1440.797" timestamp="1593999433113" />
-    <state width="1399" height="147" key="GridCell.Tab.0.left" timestamp="1593999433113">
+    <state width="1399" height="253" key="GridCell.Tab.0.center/0.23.1440.797@0.23.1440.797" timestamp="1593999562993" />
+    <state width="1399" height="253" key="GridCell.Tab.0.left" timestamp="1593999562992">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1399" height="147" key="GridCell.Tab.0.left/0.23.1440.797@0.23.1440.797" timestamp="1593999433113" />
-    <state width="1399" height="147" key="GridCell.Tab.0.right" timestamp="1593999433114">
+    <state width="1399" height="253" key="GridCell.Tab.0.left/0.23.1440.797@0.23.1440.797" timestamp="1593999562992" />
+    <state width="1399" height="253" key="GridCell.Tab.0.right" timestamp="1593999562993">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1399" height="147" key="GridCell.Tab.0.right/0.23.1440.797@0.23.1440.797" timestamp="1593999433114" />
-    <state width="1399" height="253" key="GridCell.Tab.1.bottom" timestamp="1593998305896">
+    <state width="1399" height="253" key="GridCell.Tab.0.right/0.23.1440.797@0.23.1440.797" timestamp="1593999562993" />
+    <state width="1399" height="253" key="GridCell.Tab.1.bottom" timestamp="1593999562996">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1399" height="253" key="GridCell.Tab.1.bottom/0.23.1440.797@0.23.1440.797" timestamp="1593998305896" />
-    <state width="1399" height="253" key="GridCell.Tab.1.center" timestamp="1593998305895">
+    <state width="1399" height="253" key="GridCell.Tab.1.bottom/0.23.1440.797@0.23.1440.797" timestamp="1593999562996" />
+    <state width="1399" height="253" key="GridCell.Tab.1.center" timestamp="1593999562995">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1399" height="253" key="GridCell.Tab.1.center/0.23.1440.797@0.23.1440.797" timestamp="1593998305895" />
-    <state width="1399" height="253" key="GridCell.Tab.1.left" timestamp="1593998305895">
+    <state width="1399" height="253" key="GridCell.Tab.1.center/0.23.1440.797@0.23.1440.797" timestamp="1593999562995" />
+    <state width="1399" height="253" key="GridCell.Tab.1.left" timestamp="1593999562995">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1399" height="253" key="GridCell.Tab.1.left/0.23.1440.797@0.23.1440.797" timestamp="1593998305895" />
-    <state width="1399" height="253" key="GridCell.Tab.1.right" timestamp="1593998305895">
+    <state width="1399" height="253" key="GridCell.Tab.1.left/0.23.1440.797@0.23.1440.797" timestamp="1593999562995" />
+    <state width="1399" height="253" key="GridCell.Tab.1.right" timestamp="1593999562996">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1399" height="253" key="GridCell.Tab.1.right/0.23.1440.797@0.23.1440.797" timestamp="1593998305895" />
+    <state width="1399" height="253" key="GridCell.Tab.1.right/0.23.1440.797@0.23.1440.797" timestamp="1593999562996" />
     <state x="501" y="342" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1593387221322">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
