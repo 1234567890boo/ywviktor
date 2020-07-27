@@ -1,8 +1,3 @@
-Python 3.5.3 (default, Sep 27 2018, 17:25:39) 
-[GCC 6.3.0 20170516] on linux
-Type "copyright", "credits" or "license()" for more information.
->>> import random
-import time
 #import this
 '''num=random.randint(0,100)
 while True:

@@ -1,0 +1,21 @@
+Are you sure you want to continue with this quiz?
+no
+yes
+maybe
+perhaps
+answer: yes
+
+What is my favorite color?
+red
+blue
+green
+black
+answer: black
+
+Who am I?
+a human
+an interdimentional demon
+a space monkey
+a time traveler
+answer: an interdimentional demon
+

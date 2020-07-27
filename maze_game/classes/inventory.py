@@ -2,6 +2,7 @@ import pygame
 from classes.gridobj import *
 
 black=(0,0,0)
+yellow=(255,255,100)
 
 class Inventory(GridObj):
     def __init__(self,context):
@@ -23,12 +24,21 @@ class Inventory(GridObj):
     def canMoveInto(self, obj):
         return True
 
+    def subtype(self):
+        pass
+
+    def pickupable(self):
+        return True
+
 class Teleport(Inventory):
 
     def __init__(self,context):
         Inventory.__init__(self,context)
 
     def getName(self):
+        return 'Teleport'
+
+    def subtype(self):
         return 'Teleport'
 
     def action(self,pview,x,y):
@@ -61,8 +71,12 @@ class EnergyDrink(Inventory):
     def __init__(self,context):
         Inventory.__init__(self, context)
         self.numOfUses=2
+
     def getName(self):
         return 'Energy Drink-'+str(self.numOfUses)
+
+    def subtype(self):
+        return 'Energy Drink'
 
     def action(self,pview,x,y):
         player = pview.getobj(x, y)
@@ -87,6 +101,9 @@ class HealthPotion(Inventory):
     def getName(self):
         return 'Health Potion-'+str(self.numOfUses)
 
+    def subtype(self):
+        return 'Health Potion'
+
     def action(self,pview,x,y):
 
         player = pview.getobj(x, y)
@@ -108,27 +125,25 @@ class Mine(Inventory):
     def __init__(self,context):
         Inventory.__init__(self, context)
         self.numOfUses = 2
+        self.armed=False
 
     def getName(self):
         return 'Mine-' + str(self.numOfUses)
 
+    def subtype(self):
+        return 'Mine'
+
+    def pickupable(self):
+        return not self.armed
+
     def action(self, pview, x, y):
         player = pview.getobj(x, y)
-        lastCommand = player.lastcommand
 
         if self.numOfUses>=1:
-
-            if lastCommand=='up':
-                self.numOfUses -= 1
-
-            if lastCommand=='down':
-                self.numOfUses -= 1
-
-            if lastCommand=='left':
-                self.numOfUses -= 1
-
-            if lastCommand=='right':
-                self.numOfUses -= 1
+            newMine=Mine(self.context)
+            newMine.armed=True
+            player.setGridPocket(newMine)
+            self.numOfUses-=1
 
         if self.numOfUses<=0:
             return False
@@ -139,5 +154,10 @@ class Mine(Inventory):
     def activeDraw(self,scree,x,y,width,height):
         pygame.draw.rect()
     def draw(self,screen,x,y,width,height):
-        mapInventory=self.context.getMapFont().render("M", True, black)
-        screen.blit(mapInventory,(x,y))
+        if self.armed:
+            pygame.draw.rect(screen,yellow,(x,y,10,10))
+        else:
+            mapInventory=self.context.getMapFont().render("M", True, black)
+            screen.blit(mapInventory,(x,y))
+
+

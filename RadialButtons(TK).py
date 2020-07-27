@@ -50,4 +50,4 @@ b2.pack()
 b3.pack()
 b4.pack()
 l.pack()
-
+window.mainloop()

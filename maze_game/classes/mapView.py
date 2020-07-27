@@ -57,6 +57,7 @@ class MapView(View):
         if dx<0 or dx>self.gridwidth-1 or dy<0 or dy>self.gridheight-1:
             return
 
+
         sobj=self.getobj(sx,sy)
         dobj=self.getobj(dx,dy)
         
@@ -68,6 +69,10 @@ class MapView(View):
 
             self.putobj(sx,sy,pockettoRestore)
             sobj.setGridPocket(dobj)
+
+            if dobj.isInventory() and dobj.pickupable():
+                dobj.addInventory(dobj)
+                dobj.setGridPocket(Empty())
 
     def draw(self,screen, x,y,width,height):
         cellwidth=int(width/self.gridwidth)

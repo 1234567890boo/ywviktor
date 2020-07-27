@@ -1,0 +1,4 @@
+apple 1.50
+banana 0.47
+grape 0.01
+peach 2.00
