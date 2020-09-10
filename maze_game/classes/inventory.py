@@ -125,6 +125,7 @@ class Mine(Inventory):
     def __init__(self,context):
         Inventory.__init__(self, context)
         self.numOfUses = 2
+
         self.armed=False
 
     def getName(self):
@@ -153,6 +154,7 @@ class Mine(Inventory):
 
     def activeDraw(self,scree,x,y,width,height):
         pygame.draw.rect()
+
     def draw(self,screen,x,y,width,height):
         if self.armed:
             pygame.draw.rect(screen,yellow,(x,y,10,10))

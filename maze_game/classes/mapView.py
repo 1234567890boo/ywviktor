@@ -89,4 +89,3 @@ class MapView(View):
                 if gobj.kind()==kind:
                     items.append((gobj,xgrid,ygrid))
         return items
-

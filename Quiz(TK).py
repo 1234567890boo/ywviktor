@@ -1,6 +1,6 @@
 import tkinter
 window=tkinter.Tk()
-window.title('Thw Quiz Of The Wrong')
+window.title('The Quiz Of The Wrong')
 f1=tkinter.Frame(window)
 f2=tkinter.Frame(window)
 f3=tkinter.Frame(window)

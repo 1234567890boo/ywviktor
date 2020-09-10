@@ -15,40 +15,25 @@
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:pip" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
     </expand>
     <select />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43673420-802e-452e-b72a-1e56917803c1" name="Default Changelist" comment="weee">
-      <change afterPath="$PROJECT_DIR$/advancedQuiz.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fileGet.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fileGetFrom.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/quizQuestions.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AdvancedQuizScoreBoard.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LittleRunmo/classes/Ground.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LittleRunmo/classes/player.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LittleRunmo/little_runmo_main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RadialButtons(TK).py" beforeDir="false" afterPath="$PROJECT_DIR$/RadialButtons(TK).py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/funcions.py" beforeDir="false" afterPath="$PROJECT_DIR$/funcions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/games.py" beforeDir="false" afterPath="$PROJECT_DIR$/games.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/masze_game.py" beforeDir="false" afterPath="$PROJECT_DIR$/old_maze_game.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Quiz(TK).py" beforeDir="false" afterPath="$PROJECT_DIR$/Quiz(TK).py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/advancedQuiz.py" beforeDir="false" afterPath="$PROJECT_DIR$/advancedQuiz.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maze_game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/maze_game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maze_game/classes/gridobj.py" beforeDir="false" afterPath="$PROJECT_DIR$/maze_game/classes/gridobj.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maze_game/classes/inventory.py" beforeDir="false" afterPath="$PROJECT_DIR$/maze_game/classes/inventory.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maze_game/classes/mapView.py" beforeDir="false" afterPath="$PROJECT_DIR$/maze_game/classes/mapView.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maze_game/classes/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/maze_game/classes/player.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maze_game/maze_game.py" beforeDir="false" afterPath="$PROJECT_DIR$/maze_game/maze_game.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sort.py" beforeDir="false" afterPath="$PROJECT_DIR$/sort.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quizQuestions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/quizQuestions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +103,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="fileGet" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="little_runmo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="ywviktor" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -126,32 +111,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/LittleRunmo" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fileGet.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="shoping" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="ywviktor" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/shoping.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/LittleRunmo/little_runmo.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -181,13 +145,34 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="ywviktor" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.advancedQuiz" />
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.little_runmo" />
         <item itemvalue="Python.RadialButtons(TK)" />
         <item itemvalue="Python.shopingmainfile" />
-        <item itemvalue="Python.fileGet" />
-        <item itemvalue="Python.shoping" />
       </list>
     </recent_temporary>
   </component>
@@ -209,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593999453599</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="weee">
+      <created>1595811790634</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1595811790635</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -233,46 +225,58 @@
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="174" y="83" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.797@0.23.1440.797" timestamp="1593389113522" />
-    <state x="428" y="231" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1595788899339">
+    <state x="428" y="231" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1599358369350">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state x="428" y="231" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.797@0.23.1440.797" timestamp="1595788899339" />
-    <state width="1399" height="226" key="GridCell.Tab.0.bottom" timestamp="1595809684950">
+    <state x="428" y="231" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.797@0.23.1440.797" timestamp="1599358369350" />
+    <state width="1419" height="229" key="GridCell.Tab.0.bottom" timestamp="1599710195181">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1399" height="226" key="GridCell.Tab.0.bottom/0.23.1440.797@0.23.1440.797" timestamp="1595809684950" />
-    <state width="1399" height="226" key="GridCell.Tab.0.center" timestamp="1595809684949">
+    <state width="1419" height="226" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1598134971167" />
+    <state width="1419" height="229" key="GridCell.Tab.0.bottom/0.23.1440.797@0.23.1440.797" timestamp="1599710195181" />
+    <state width="1419" height="229" key="GridCell.Tab.0.bottom/0.23.1440.798@0.23.1440.798" timestamp="1599709940681" />
+    <state width="1419" height="229" key="GridCell.Tab.0.center" timestamp="1599710195179">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1399" height="226" key="GridCell.Tab.0.center/0.23.1440.797@0.23.1440.797" timestamp="1595809684949" />
-    <state width="1399" height="226" key="GridCell.Tab.0.left" timestamp="1595809684949">
+    <state width="1419" height="226" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1598134971165" />
+    <state width="1419" height="229" key="GridCell.Tab.0.center/0.23.1440.797@0.23.1440.797" timestamp="1599710195179" />
+    <state width="1419" height="229" key="GridCell.Tab.0.center/0.23.1440.798@0.23.1440.798" timestamp="1599709940639" />
+    <state width="1419" height="229" key="GridCell.Tab.0.left" timestamp="1599710195178">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1399" height="226" key="GridCell.Tab.0.left/0.23.1440.797@0.23.1440.797" timestamp="1595809684949" />
-    <state width="1399" height="226" key="GridCell.Tab.0.right" timestamp="1595809684950">
+    <state width="1419" height="226" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1598134971163" />
+    <state width="1419" height="229" key="GridCell.Tab.0.left/0.23.1440.797@0.23.1440.797" timestamp="1599710195178" />
+    <state width="1419" height="229" key="GridCell.Tab.0.left/0.23.1440.798@0.23.1440.798" timestamp="1599709940634" />
+    <state width="1419" height="229" key="GridCell.Tab.0.right" timestamp="1599710195180">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1399" height="226" key="GridCell.Tab.0.right/0.23.1440.797@0.23.1440.797" timestamp="1595809684950" />
-    <state width="1399" height="253" key="GridCell.Tab.1.bottom" timestamp="1595809506948">
+    <state width="1419" height="226" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1598134971166" />
+    <state width="1419" height="229" key="GridCell.Tab.0.right/0.23.1440.797@0.23.1440.797" timestamp="1599710195180" />
+    <state width="1419" height="229" key="GridCell.Tab.0.right/0.23.1440.798@0.23.1440.798" timestamp="1599709940680" />
+    <state width="1419" height="253" key="GridCell.Tab.1.bottom" timestamp="1598226831269">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1399" height="253" key="GridCell.Tab.1.bottom/0.23.1440.797@0.23.1440.797" timestamp="1595809506948" />
-    <state width="1399" height="253" key="GridCell.Tab.1.center" timestamp="1595809506946">
+    <state width="1419" height="253" key="GridCell.Tab.1.bottom/0.23.1440.797@0.23.1440.797" timestamp="1598226831269" />
+    <state width="1419" height="253" key="GridCell.Tab.1.center" timestamp="1598226831262">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1399" height="253" key="GridCell.Tab.1.center/0.23.1440.797@0.23.1440.797" timestamp="1595809506946" />
-    <state width="1399" height="253" key="GridCell.Tab.1.left" timestamp="1595809506945">
+    <state width="1419" height="253" key="GridCell.Tab.1.center/0.23.1440.797@0.23.1440.797" timestamp="1598226831262" />
+    <state width="1419" height="253" key="GridCell.Tab.1.left" timestamp="1598226831260">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1399" height="253" key="GridCell.Tab.1.left/0.23.1440.797@0.23.1440.797" timestamp="1595809506945" />
-    <state width="1399" height="253" key="GridCell.Tab.1.right" timestamp="1595809506947">
+    <state width="1419" height="253" key="GridCell.Tab.1.left/0.23.1440.797@0.23.1440.797" timestamp="1598226831260" />
+    <state width="1419" height="253" key="GridCell.Tab.1.right" timestamp="1598226831267">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1399" height="253" key="GridCell.Tab.1.right/0.23.1440.797@0.23.1440.797" timestamp="1595809506947" />
-    <state x="501" y="342" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1593387221322">
+    <state width="1419" height="253" key="GridCell.Tab.1.right/0.23.1440.797@0.23.1440.797" timestamp="1598226831267" />
+    <state x="501" y="342" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597704381616">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state x="501" y="342" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.797@0.23.1440.797" timestamp="1593387221322" />
+    <state x="501" y="342" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.797@0.23.1440.797" timestamp="1597704381616" />
+    <state x="411" y="54" width="598" height="735" key="find.popup" timestamp="1598132217880">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state x="411" y="54" width="598" height="735" key="find.popup/0.23.1440.797@0.23.1440.797" timestamp="1598132217880" />
     <state x="375" y="144" width="670" height="676" key="search.everywhere.popup" timestamp="1593997357900">
       <screen x="0" y="23" width="1440" height="797" />
     </state>

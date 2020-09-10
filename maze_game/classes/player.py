@@ -63,14 +63,14 @@ class PlayerView(GridObj): #Extends View
             if self.inventoryNum>=len(self.inventory):
                 self.inventoryNum=0
 
-                # pocket = self.getGridPocket()
-                #
-                # if pocket == None:
-                #     pocket = Empty()
-                #
-                # if pocket.isInventory() and pocket.pickupable():
-                #     self.addInventory(pocket)
-                #     self.setGridPocket(Empty())
+                pocket = self.getGridPocket()
+
+                if pocket == None:
+                    pocket = Empty()
+
+                if pocket.isInventory() and pocket.pickupable():
+                    self.addInventory(pocket)
+                    self.setGridPocket(Empty())
 
 
             if self.activeCommand=='activate':

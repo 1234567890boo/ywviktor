@@ -5,6 +5,7 @@ from classes.playerSideView import *
 from classes.mapView import *
 from classes.context import *
 from classes.inventory import *
+import pygame
 
 width=520
 height=300
@@ -77,7 +78,7 @@ for p in playerDesc:
 
 sideView=SideView(players,gameContext)
 
-for n in range(1,1):
+for n in range(1,10):
         placeRandom(mainmap,EnemyView())
 
 
