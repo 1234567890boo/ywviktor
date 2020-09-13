@@ -9,21 +9,18 @@ print("Client found with ip:{}".format(address))
 
 
 while True:
-    print("send something to the client")
-    data=input()
+    msg=clientsocket.recv(1024).decode("utf-8")
+    msg=int(msg)
+    if msg%msg+1==1:
+        data='the number '+str(msg)+' is prime!'
+    elif msg%msg+1!=1:
+        data='the number '+str(msg)+' is not prime!'
+    else:
+        if data=='stop':
+            clientsocket.send('session ended'.encode("utf-8"))
+            s.close()
+            break
+
     clientsocket.send(data.encode("utf-8"))
 
-    msg=clientsocket.recv(1024).decode("utf-8")
-    print(msg)
-
-    if data=="stop"or msg=="stop":
-        print("Session ended")
-        s.close()
-        break
-
-    
-    
-        
-    
-    
-    
+#hw=fix problems and then do multithreading and do data type,data type conversion,data type veriables

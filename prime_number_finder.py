@@ -6,6 +6,7 @@ def even():
         l['text']=a1+' is even'
     else:
         l['text']=a1+' is not even'
+
 def prime():
     a1=a.get()
     p=int(int(a1)**0.5)
@@ -19,6 +20,7 @@ def prime():
             break
         else:
             l['text']=a1+' is prime'
+
 window=tkinter.Tk()
 window.title('Prime Number Finder!!!!!!!')
 a=tkinter.Entry(window)
