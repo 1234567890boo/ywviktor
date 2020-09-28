@@ -20,10 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43673420-802e-452e-b72a-1e56917803c1" name="Default Changelist" comment="weee">
+      <change afterPath="$PROJECT_DIR$/multithreading.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prime_number_finder.py" beforeDir="false" afterPath="$PROJECT_DIR$/prime_number_finder.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +51,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Python.client">
+  <component name="RunManager" selected="Python.server">
     <configuration name="advancedQuiz" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="ywviktor" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -93,7 +94,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="little_runmo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="multithreading" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="ywviktor" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -101,11 +102,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/LittleRunmo" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/LittleRunmo/little_runmo.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/multithreading.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -158,11 +159,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.client" />
         <item itemvalue="Python.server" />
-        <item itemvalue="Python.advancedQuiz" />
+        <item itemvalue="Python.client" />
+        <item itemvalue="Python.multithreading" />
         <item itemvalue="Python.test" />
-        <item itemvalue="Python.little_runmo" />
+        <item itemvalue="Python.advancedQuiz" />
       </list>
     </recent_temporary>
   </component>
@@ -198,7 +199,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599710374613</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="weee">
+      <created>1600025640863</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1600025640864</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -226,46 +234,50 @@
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="428" y="231" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.797@0.23.1440.797" timestamp="1599358369350" />
-    <state width="1419" height="229" key="GridCell.Tab.0.bottom" timestamp="1599711454069">
-      <screen x="0" y="23" width="1440" height="797" />
+    <state width="1419" height="229" key="GridCell.Tab.0.bottom" timestamp="1601252257307">
+      <screen x="0" y="23" width="1440" height="808" />
     </state>
     <state width="1419" height="226" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1598134971167" />
-    <state width="1419" height="229" key="GridCell.Tab.0.bottom/0.23.1440.797@0.23.1440.797" timestamp="1599711454069" />
+    <state width="1419" height="229" key="GridCell.Tab.0.bottom/0.23.1440.797@0.23.1440.797" timestamp="1600647280928" />
     <state width="1419" height="229" key="GridCell.Tab.0.bottom/0.23.1440.798@0.23.1440.798" timestamp="1599709940681" />
-    <state width="1419" height="229" key="GridCell.Tab.0.center" timestamp="1599711454067">
-      <screen x="0" y="23" width="1440" height="797" />
+    <state width="1419" height="229" key="GridCell.Tab.0.bottom/0.23.1440.808@0.23.1440.808" timestamp="1601252257307" />
+    <state width="1419" height="229" key="GridCell.Tab.0.center" timestamp="1601252257302">
+      <screen x="0" y="23" width="1440" height="808" />
     </state>
     <state width="1419" height="226" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1598134971165" />
-    <state width="1419" height="229" key="GridCell.Tab.0.center/0.23.1440.797@0.23.1440.797" timestamp="1599711454067" />
+    <state width="1419" height="229" key="GridCell.Tab.0.center/0.23.1440.797@0.23.1440.797" timestamp="1600647280924" />
     <state width="1419" height="229" key="GridCell.Tab.0.center/0.23.1440.798@0.23.1440.798" timestamp="1599709940639" />
-    <state width="1419" height="229" key="GridCell.Tab.0.left" timestamp="1599711454066">
-      <screen x="0" y="23" width="1440" height="797" />
+    <state width="1419" height="229" key="GridCell.Tab.0.center/0.23.1440.808@0.23.1440.808" timestamp="1601252257302" />
+    <state width="1419" height="229" key="GridCell.Tab.0.left" timestamp="1601252257297">
+      <screen x="0" y="23" width="1440" height="808" />
     </state>
     <state width="1419" height="226" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1598134971163" />
-    <state width="1419" height="229" key="GridCell.Tab.0.left/0.23.1440.797@0.23.1440.797" timestamp="1599711454066" />
+    <state width="1419" height="229" key="GridCell.Tab.0.left/0.23.1440.797@0.23.1440.797" timestamp="1600647280921" />
     <state width="1419" height="229" key="GridCell.Tab.0.left/0.23.1440.798@0.23.1440.798" timestamp="1599709940634" />
-    <state width="1419" height="229" key="GridCell.Tab.0.right" timestamp="1599711454068">
-      <screen x="0" y="23" width="1440" height="797" />
+    <state width="1419" height="229" key="GridCell.Tab.0.left/0.23.1440.808@0.23.1440.808" timestamp="1601252257297" />
+    <state width="1419" height="229" key="GridCell.Tab.0.right" timestamp="1601252257306">
+      <screen x="0" y="23" width="1440" height="808" />
     </state>
     <state width="1419" height="226" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1598134971166" />
-    <state width="1419" height="229" key="GridCell.Tab.0.right/0.23.1440.797@0.23.1440.797" timestamp="1599711454068" />
+    <state width="1419" height="229" key="GridCell.Tab.0.right/0.23.1440.797@0.23.1440.797" timestamp="1600647280925" />
     <state width="1419" height="229" key="GridCell.Tab.0.right/0.23.1440.798@0.23.1440.798" timestamp="1599709940680" />
-    <state width="1419" height="253" key="GridCell.Tab.1.bottom" timestamp="1598226831269">
+    <state width="1419" height="229" key="GridCell.Tab.0.right/0.23.1440.808@0.23.1440.808" timestamp="1601252257306" />
+    <state width="1419" height="253" key="GridCell.Tab.1.bottom" timestamp="1600645618612">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1419" height="253" key="GridCell.Tab.1.bottom/0.23.1440.797@0.23.1440.797" timestamp="1598226831269" />
-    <state width="1419" height="253" key="GridCell.Tab.1.center" timestamp="1598226831262">
+    <state width="1419" height="253" key="GridCell.Tab.1.bottom/0.23.1440.797@0.23.1440.797" timestamp="1600645618612" />
+    <state width="1419" height="253" key="GridCell.Tab.1.center" timestamp="1600645618611">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1419" height="253" key="GridCell.Tab.1.center/0.23.1440.797@0.23.1440.797" timestamp="1598226831262" />
-    <state width="1419" height="253" key="GridCell.Tab.1.left" timestamp="1598226831260">
+    <state width="1419" height="253" key="GridCell.Tab.1.center/0.23.1440.797@0.23.1440.797" timestamp="1600645618611" />
+    <state width="1419" height="253" key="GridCell.Tab.1.left" timestamp="1600645618611">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1419" height="253" key="GridCell.Tab.1.left/0.23.1440.797@0.23.1440.797" timestamp="1598226831260" />
-    <state width="1419" height="253" key="GridCell.Tab.1.right" timestamp="1598226831267">
+    <state width="1419" height="253" key="GridCell.Tab.1.left/0.23.1440.797@0.23.1440.797" timestamp="1600645618611" />
+    <state width="1419" height="253" key="GridCell.Tab.1.right" timestamp="1600645618612">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1419" height="253" key="GridCell.Tab.1.right/0.23.1440.797@0.23.1440.797" timestamp="1598226831267" />
+    <state width="1419" height="253" key="GridCell.Tab.1.right/0.23.1440.797@0.23.1440.797" timestamp="1600645618612" />
     <state x="501" y="342" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597704381616">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
