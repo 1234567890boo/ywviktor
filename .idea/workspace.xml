@@ -20,6 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43673420-802e-452e-b72a-1e56917803c1" name="Default Changelist" comment="weee">
+      <change afterPath="$PROJECT_DIR$/MovieReviewPage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FanPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/FanPage.html" afterDir="false" />
     </list>
@@ -219,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603065637124</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="weee">
+      <created>1603066789740</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1603066789741</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
