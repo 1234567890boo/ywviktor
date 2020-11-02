@@ -20,9 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43673420-802e-452e-b72a-1e56917803c1" name="Default Changelist" comment="weee">
-      <change afterPath="$PROJECT_DIR$/MovieReviewPage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SignUpForm.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FanPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/FanPage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MovieReviewPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/MovieReviewPage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603066789741</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="weee">
+      <created>1603069727143</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1603069727143</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -247,10 +254,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="weee" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="174" y="83" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593389113522">
-      <screen x="0" y="23" width="1440" height="797" />
-    </state>
-    <state x="174" y="83" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.797@0.23.1440.797" timestamp="1593389113522" />
     <state x="428" y="231" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1599358369350">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
@@ -307,10 +310,10 @@
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="411" y="54" width="598" height="735" key="find.popup/0.23.1440.797@0.23.1440.797" timestamp="1598132217880" />
-    <state x="375" y="144" width="670" height="676" key="search.everywhere.popup" timestamp="1593997357900">
-      <screen x="0" y="23" width="1440" height="797" />
+    <state x="385" y="155" width="670" height="676" key="search.everywhere.popup" timestamp="1603669813876">
+      <screen x="0" y="23" width="1440" height="808" />
     </state>
-    <state x="375" y="144" width="670" height="676" key="search.everywhere.popup/0.23.1440.797@0.23.1440.797" timestamp="1593997357900" />
+    <state x="385" y="155" width="670" height="676" key="search.everywhere.popup/0.23.1440.808@0.23.1440.808" timestamp="1603669813876" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
