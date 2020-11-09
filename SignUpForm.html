@@ -4,10 +4,41 @@
     <meta charset="UTF-8">
     <title>Sign Up Form</title>
     <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@200&display=swap" rel="stylesheet">
+    <style>
+        h1.first_heading{
+        color:green;
+        text-align: center;
+        font-family: "Times new roman", Times, serif;
+        font-size: 20px;
+        font-size: 5vw;
+        }
+        a:link{
+        color:red;
+        }
+        a:visited{
+        color:green;
+        }
+        a:hover{
+        color:hotpink;
+        }
+        a:active{
+        color:blue;
+        }
+        #youtube{
+        color:red;
+        }
+        a#youtube:hover{
+        color:black;
+        }
+
+    </style>
 </head>
-<body style="font-family:'Grenze Gotisch',cursive;">
+<body style="font-family:cursive;">
 <form method='post'>
-    <h1>Welcome to the Sign up Page!</h1>
+    <h1 class="first_heading">Welcome to the Sign up Page!</h1>
+    <a href="https://www.google.com">google.com</a><br>
+    <a href="https:///www.youtube.com" id="youtube">youtube.com</a><br>
+    <a href="https://www.bing.com">bing.com</a><br>
     <label for="Username">Username:</label><br>
     <input name="username" type="text" placeholder="Username" required id="Username"><br>
     <label>Password:</label><br>
@@ -23,11 +54,11 @@
     <label>Gender:</label><br>
     <input name="gender" type="radio" id="Male"><label for="Male">Male</label><br>
     <input name="gender" type="radio" id="Female"><label for="Female">Female</label>
-    <h4 style="border:1px solid red"> this is a break </h4>
+    <p style="border:1px solid red;margin-left:50px;margin-right:50px" class="first_heading"> this is a break </p>
     <input name="I Love YoungWonks" type="checkbox" id="I Love YW"><label for="I Love YW">I Love YoungWonks</label><br>
     <input type="submit">
 </form>
 </body>
 </html>
 
-HW: How to make Form eliments reqired. Once done, figure out role of label tag. Finish forms and do CSS basics
+HW: Complete lesson 6,7 CSS
