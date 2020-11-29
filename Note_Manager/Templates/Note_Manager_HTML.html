@@ -1,0 +1,28 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+
+Note Manager
+
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron text-center">
+<h1>{{head}}</h1>
+</div>
+<form method="POST" class="text-center">
+    <div class="input-group container-fluid">
+        <input type="text" name="new-note" class="form-control">
+        <div class="input-group-btn">
+            <button type="submit" class="btn btn-primary ">save</button>
+        </div>
+    </div>
+</form>
+<div class="text-center">
+    {% for n in docs %}
+    <p><code>{{n.note}}</code></p>
+    {% endfor %}
+</div>
+{% endblock %}
+
+HW= start working on my address book

@@ -1,0 +1,27 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+
+Adressbook
+
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron text-center">
+<h1>{{head}}</h1>
+</div>
+<form method="POST" class="text-center">
+    <div class="input-group container-fluid">
+        <input type="text" name="Name" class="name">
+        <input type="PHONE NUMBER" name="Phone" class="Phone">
+        <button type="submit" class="btn btn-primary ">save</button>
+    </div>
+</form>
+<div class="text-center">
+    {% for n in docs %}
+    <p><code><b>Name:</b>{{contact['name']}}</code></p>
+    <p><code><b>phone:</b>{{contact['phone']}}</code></p>
+    <a href="/delete/{{contact['_id']}}"></a>
+    {% endfor %}
+</div>
+{% endblock %}
