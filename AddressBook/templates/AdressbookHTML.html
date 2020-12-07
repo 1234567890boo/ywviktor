@@ -7,21 +7,45 @@ Adressbook
 {% endblock %}
 
 {% block content %}
-<div class="jumbotron text-center">
-<h1>{{head}}</h1>
+<div class="text-center bg-primary" style="padding:2rem; margin-bottom:1rem">
+    <h1 style="font-size:10rem">{{head}}</h1>
 </div>
-<form method="POST" class="text-center">
-    <div class="input-group container-fluid">
-        <input type="text" name="Name" class="name">
-        <input type="PHONE NUMBER" name="Phone" class="Phone">
+<div class="container-fluid">
+    <form method="POST" class="text-center form-inline">
+        <input type="text" name="name" class="form-control">
+        <input type="number" name="phone" class="form-control" style="margin:0.7rem">
         <button type="submit" class="btn btn-primary ">save</button>
+    </form>
+</div>
+<div class="text-center container">
+    <div class="row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-10">
+            <table class="table table-bordered table-striped" style="margin:1rem">
+                <thead>
+                    <tr class="bg-primary text-center">
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for contact in docs %}
+                        <tr class="text-primary">
+                            <td>{{contact['name']}}</td>
+                            <td>{{contact['phone']}}</td>
+                            <td><a href="/delete/{{contact['_id']}}" class="btn btn-danger">Delete</a></td>
+                        </tr>
+                        {% else %}
+                            <tr>
+                                <td>No name</td>
+                                <td>No Phone Number</td>
+                                <td>No Action</td>
+                            </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
-</form>
-<div class="text-center">
-    {% for n in docs %}
-    <p><code><b>Name:</b>{{contact['name']}}</code></p>
-    <p><code><b>phone:</b>{{contact['phone']}}</code></p>
-    <a href="/delete/{{contact['_id']}}"></a>
-    {% endfor %}
 </div>
 {% endblock %}
