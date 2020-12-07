@@ -1,0 +1,20 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+
+Jumbled Words
+
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+    <div class="container">
+        <h1>Jumble a Word</h1>
+        <p>Please enter the word in the empty box and click on Add button</p>
+    </div>
+</div>
+<form  method="POST" class="text-center form-inline">
+    <input type="text" name="word" class="form-control">
+    <button type="submit" class="btn btn-warning">Add</button>
+</form>
+{% endblock %}

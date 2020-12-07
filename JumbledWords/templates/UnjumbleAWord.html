@@ -1,0 +1,29 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+
+Jumbled Words
+
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+    <div class="container">
+        <h1>Unjumble the Words</h1>
+        <p>Once you have filled all the boxes, clock on Finish to see your score</p>
+    </div>
+</div>
+<div>
+    {% for words in docs%}
+        <tr class="text-primary">
+            <td>{{words['word']}}</td>
+            <input type="text" name="figureout" class="form-control">
+        </tr>
+    {% endfor %}
+</div>
+<div>
+    <form method="POST">
+        <button type="submit" class="btn btn-primary">Finish</button>
+    </form>
+</div>
+{% endblock %}
