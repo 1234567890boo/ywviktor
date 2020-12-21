@@ -13,16 +13,18 @@ Jumbled Words
         <p>Once you have filled all the boxes, clock on Finish to see your score</p>
     </div>
 </div>
-<div>
+<div class="container">
+    <form method="POST" action="/score">
+    <table class="table">
     {% for words in docs%}
         <tr class="text-primary">
             <td>{{words['word']}}</td>
-            <input type="text" name="figureout" class="form-control">
+        </tr>
+        <tr>
+            <td><input type="text" name="{{words['_id']}}" class="form-control"></td>
         </tr>
     {% endfor %}
-</div>
-<div>
-    <form method="POST">
+    </table>
         <button type="submit" class="btn btn-primary">Finish</button>
     </form>
 </div>

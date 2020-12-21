@@ -9,10 +9,8 @@ Jumbled Words
 {% block content %}
 <div class="jumbotron">
     <div class="container">
-        <form method="POST">
-            <h1>You scored 1</h1>
-            <button type="submit" class="btn btn-warning">Back</button>
-        </form>
+            <h1>You scored {{score}}</h1>
+            <a href='/' class="btn btn-warning">Back</a>
     </div>
 </div>
 {% endblock %}

@@ -3,9 +3,10 @@ from flask_bootstrap import Bootstrap
 from flask_pymongo import PyMongo
 from datetime import datetime
 from bson.objectid import ObjectId
+import random
 
 app = Flask("Jumbled Words Python")
-app.config['MONGO_URI']='mongodb://127.0.0.1:27017/data'
+app.config['MONGO_URI']='mongodb://127.0.0.1:27017/Jumbledata'
 Bootstrap(app)
 mongo=PyMongo(app)
 
@@ -25,20 +26,29 @@ def JumbleAWord():
         return redirect('/')
 
 
-@app.route('/unjumbleaword',methods=['GET','POST'])
+@app.route('/unjumbleaword',methods=['GET'])
 def UnJumbleAWord():
+    dataThings = list(mongo.db.jumbledwords.find().sort('time', -1))
     if request.method == 'GET':
-        dataThings = list(mongo.db.jumbledwords.find().sort('time', -1))
+        for doc in dataThings:
+            JumbledWord=list(doc['word'])
+            random.shuffle(JumbledWord)
+            JumbledWord=''.join(JumbledWord)
+            doc['word']=JumbledWord
         return render_template('UnjumbleAWord.html',docs=dataThings)
-    if request.method=='POST':
-        return redirect('/score')
 
-@app.route('/score')
+@app.route('/score',methods=['POST'])
 def score():
-    if request.method=='GET':
-        return render_template('Score.html')
-    elif request.method=='POST':
-        return redirect('/')
+    score=0
+    dataThings = list(mongo.db.jumbledwords.find().sort('time', -1))
+    userAnswer=list(request.form.to_dict().values())
+    correctAnswer=[]
+    for n in range(0, len(dataThings),1):
+        correctAnswer.append(dataThings[n]['word'])
+    for s in range(0,len(correctAnswer),1):
+        if userAnswer[s].upper()==correctAnswer[s]:
+            score+=1
+    return render_template('score.html',score=score)
 
 
 
@@ -46,4 +56,4 @@ def score():
 if __name__ == '__main__':
     app.run(debug=True)
 
-#hw=do the jumble a word and show in unbumble a word
+#hw=add new word only if old one doesnt exist
