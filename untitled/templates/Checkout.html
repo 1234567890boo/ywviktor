@@ -1,0 +1,65 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+
+Untidled Shop
+
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid" style="background-color:orangered; color:white; font-family:comic-sans; padding:1.5rem;">
+    <h1 style="font-size:8rem">Your Cart</h1>
+    <input type="submit" value="Empty Cart?" class="btn btn-primary">
+    <a href="/" class="btn btn-primary">Back</a>
+</div>
+<div>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td>
+                Name
+            </td>
+            <td>
+                Description
+            </td>
+            <td>
+                Price
+            </td>
+            <td>
+                Quantity
+            </td>
+            <td>
+                Total
+            </td>
+        </tr>
+        </thead>
+            {%for items in session['userCart']%}
+                <tr>
+                    <td>
+                        {{items['ProductName']}}
+                    </td>
+                    <td>
+                        {{items['Description']}}
+                    </td>
+                    <td>
+                        ${{items['Price']}}/{{items['Unit']}}
+                    </td>
+                    <td>
+                        {{items['Quantity']}}
+                    </td>
+                    <td>
+                        ${{items['Quantity']|int*items['Price']|int}}
+                    </td>
+                </tr>
+            {%endfor%}
+            <tr>
+                <td>
+                    Grand Total
+                </td>
+                <td>
+
+                </td>
+            </tr>
+    </table>
+</div>
+{% endblock %}

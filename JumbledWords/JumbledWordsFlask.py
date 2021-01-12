@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, flash
 from flask_bootstrap import Bootstrap
 from flask_pymongo import PyMongo
 from datetime import datetime
@@ -7,6 +7,7 @@ import random
 
 app = Flask("Jumbled Words Python")
 app.config['MONGO_URI']='mongodb://127.0.0.1:27017/Jumbledata'
+app.config['SECRET_KEY']='poopy'
 Bootstrap(app)
 mongo=PyMongo(app)
 
@@ -22,8 +23,15 @@ def JumbleAWord():
         document={}
         document['word']=request.form['word'].strip().upper()
         document['time']=datetime.utcnow()
-        mongo.db.jumbledwords.insert_one(document)
-        return redirect('/')
+        samewordfinder=mongo.db.jumbledwords.find_one({'word':document['word']})
+        if samewordfinder is None:
+            mongo.db.jumbledwords.insert_one(document)
+            return redirect('/')
+        else:
+            flash('That word already exists')
+            flash('Try another word')
+            return redirect('/jumbleaword')
+
 
 
 @app.route('/unjumbleaword',methods=['GET'])

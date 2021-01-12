@@ -1,0 +1,28 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+
+Add Products
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid" style="background-color:orangered; color:white; font-family:comic-sans; padding:1.5rem;">
+    <h1 style="font-size:8rem">Add a Product</h1>
+    <a href="/" class="btn btn-primary">Go Back</a>
+</div>
+
+<div style="margin:3rem;">
+    <form class="form-inline" method="POST">
+        <input type="text" name="ProductName" placeholder="Product Name" class="form-control" required>
+        <input type="text" name="Description" placeholder="Description" class="form-control" required>
+        <input type="number" name="Price" placeholder="Price" class="form-control" required>
+        <input type="text" name="Unit" placeholder="Unit of Measurement" class="form-control" required>
+        <input type="number" name="QuantityLimit" placeholder="Quantity Limit" class="form-control" required>
+        <input type="text" name="ImageLink" placeholder="ImageLink" class="form-control" required>
+        <input type="submit" value="Add" class="btn btn-primary">
+    </form>
+</div>
+
+{% endblock %}

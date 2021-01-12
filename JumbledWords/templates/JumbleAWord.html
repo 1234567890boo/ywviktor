@@ -17,4 +17,9 @@ Jumbled Words
     <input type="text" name="word" class="form-control">
     <button type="submit" class="btn btn-warning">Add</button>
 </form>
+<div>
+    {% for message in get_flashed_messages() %}
+        <h2 class="text-center jumbotron" style="margin:0rem">{{message}}</h2>
+    {% endfor %}
+</div>
 {% endblock %}

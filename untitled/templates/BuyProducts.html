@@ -1,0 +1,49 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+
+Untidled Shop
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid" style="background-color:orangered; color:white; font-family:comic-sans; padding:1.5rem;">
+    <h1 style="font-size:8rem">Buy Products</h1>
+    <a href="/" class="btn btn-primary">Go Back</a>
+<!--    <a href="/Checkout" class="btn btn-primary">My Cart</a>-->
+</div>
+
+<div>
+    <style>
+        .mystyle
+        {
+            margin: 2em;
+            border: 1px solid black;
+            padding: 2em;
+        }
+    </style>
+    <form method="POST">
+        <div style="display: flex; flex-wrap: wrap;">
+            {%for product in products%}
+                <div class="mystyle">
+                    <img src="{{product['ImageLink']}}">
+                    <h4>{{product['ProductName']}}</h4>
+                    <p>{{product['Description']}}</p>
+                    <p>${{product['Price']}}/{{product['Unit']}}</p>
+                    <select name="{{product['_id']}}">
+                            {%for number in range(0,product['QuantityLimit']|int+1,1)%}
+                                <option>
+                                    {{number}}
+                                </option>
+                            {%endfor%}
+                    </select>
+                </div>
+            {%endfor%}
+        </div>
+        <div>
+            <input type="submit" value="Add to cart" class="btn btn-primary" style="margin:3rem">
+        </div>
+    </form>
+</div>
+{% endblock %}
