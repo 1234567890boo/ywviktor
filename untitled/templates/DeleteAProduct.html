@@ -1,0 +1,35 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+
+Untidled Shop
+
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid" style="background-color:orangered; color:white; font-family:comic-sans; padding:1.5rem;">
+    <h1 style="font-size:8rem">Delete A product</h1>
+    <a href="/" class="btn btn-primary">Back</a>
+</div>
+<style>
+    .mystyle
+    {
+        margin: 2em;
+        border: 1px solid black;
+        padding: 2em;
+    }
+</style>
+<div style="display: flex; flex-wrap: wrap;">
+    {%for product in allProducts%}
+        <div class="mystyle">
+            <img src="{{product['ImageLink']}}">
+            <h4>{{product['ProductName']}}</h4>
+            <p>{{product['Description']}}</p>
+            <p>${{product['Price']}}/{{product['Unit']}}</p>
+            <a href="/RealDelete/{{product['_id']}}" class="btn btn-primary">Delete Item?</a>
+        </div>
+        {%else%}
+        <h2>There is nothing to see here, begone!</h2>
+    {%endfor%}
+</div>
+{% endblock %}

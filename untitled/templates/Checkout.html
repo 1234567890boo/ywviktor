@@ -9,10 +9,10 @@ Untidled Shop
 {% block content %}
 <div class="container-fluid" style="background-color:orangered; color:white; font-family:comic-sans; padding:1.5rem;">
     <h1 style="font-size:8rem">Your Cart</h1>
-    <input type="submit" value="Empty Cart?" class="btn btn-primary">
+    <a href="/EmptyCart" class="btn btn-primary">Empty Cart?</a>
     <a href="/" class="btn btn-primary">Back</a>
 </div>
-<div>
+<div style="margin:3rem">
     <table class="table table-bordered">
         <thead>
         <tr>
@@ -53,11 +53,11 @@ Untidled Shop
                 </tr>
             {%endfor%}
             <tr>
-                <td>
+                <td colspan="4" class="text-right">
                     Grand Total
                 </td>
                 <td>
-
+                    ${{total}}
                 </td>
             </tr>
     </table>

@@ -29,20 +29,37 @@ def AddProduct():
 @app.route('/BuyProducts',methods=['GET','POST'])
 def BuyProducts():
     if request.method=='GET':
-        Products=mongo.db.FoodCollection.find()
-        return render_template('BuyProducts.html', products=Products)
+        Products=list(mongo.db.FoodCollection.find())
+        return render_template('BuyProducts.html', products=Products, listlength=len(Products))
     else:
         MyCart=request.form.to_dict()
         cartItems=[]
+        Total=0
         for cart in MyCart:
             things=mongo.db.FoodCollection.find_one({'_id':ObjectId(cart)})
-            things['_id']='this is no an obeject id'
+            things['_id']='this is not an obeject id'
             things['Quantity']=MyCart[cart]
-            cartItems.append(things)
+            if int(things['Quantity'])>=1:
+                cartItems.append(things)
+            Total=int(things['Price'])*int(things['Quantity'])+Total
         session['userCart']=cartItems
-        print(session)
+        return render_template('/Checkout.html',total=Total)
 
-        return render_template('/Checkout.html')
+@app.route('/EmptyCart')
+def Empty():
+    session.clear()
+    return redirect('/')
+
+@app.route('/DeleteProducts')
+def delete():
+    AllProducts=mongo.db.FoodCollection.find()
+    return render_template('DeleteAProduct.html',allProducts=AllProducts)
+
+@app.route("/RealDelete/<id>")
+def Realdelete(id):
+    deleteable=mongo.db.FoodCollection.find_one({'_id':ObjectId(id)})
+    mongo.db.FoodCollection.delete_one(deleteable)
+    return redirect('/DeleteProducts')
 
 if __name__ == '__main__':
     app.run(debug=True)

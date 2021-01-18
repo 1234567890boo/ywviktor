@@ -39,11 +39,17 @@ Untidled Shop
                             {%endfor%}
                     </select>
                 </div>
+                {%else%}
+                <h2>There is nothing to see here, begone!</h2>
             {%endfor%}
         </div>
-        <div>
-            <input type="submit" value="Add to cart" class="btn btn-primary" style="margin:3rem">
-        </div>
+        {%if listlength<=0%}
+            <p> </p>
+            {%else%}
+                <div>
+                    <input type="submit" value="Add to cart" class="btn btn-primary" style="margin:3rem">
+                </div>
+        {%endif%}
     </form>
 </div>
 {% endblock %}
