@@ -13,12 +13,14 @@ Jumbled Words
         <p>Already have an account?<a href="/Loginpage">Click Here</a></p>
     </div>
 </div>
-<div style="margin:3rem;">
-    <form class="form-inline" method="POST">
-        <input type="text" name="FirstName" placeholder="First Name" class="form-control" required>
-        <input type="text" name="LastName" placeholder="Last Name" class="form-control" required>
-        <input type="text" name="Email" placeholder="Email" class="form-control" required>
-        <input type="text" name="Password" placeholder="Password" class="form-control" required>
+<div class="text-center">
+    <p>{{Message}}</p>
+    <form style="margin:3rem; border-style: solid; width:18rem; margin: auto;" class="form-inline" method="POST">
+        <input type="text" name="FirstName" placeholder="First Name" class="form-control" required><br>
+        <input type="text" name="LastName" placeholder="Last Name" class="form-control" required><br>
+        <input type="email" name="Email" placeholder="Email" class="form-control" required><br>
+        <input type="password" name="Password" placeholder="Password" class="form-control" required><br>
+        <input type="submit" name="Signup" class="form-control"><br>
     </form>
 </div>
 {% endblock %}
