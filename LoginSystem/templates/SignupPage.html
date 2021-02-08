@@ -1,20 +1,26 @@
-{% extends 'bootstrap/base.html' %}
+{% extends 'Bootstrap/base.html' %}
 
 {% block title %}
 
-Jumbled Words
+Signup
 
 {% endblock %}
 
-{% block content %}
+{%block content%}
 <div class="jumbotron">
-    <div class="container">
-        <h1>Signup</h1>
-        <p>Already have an account?<a href="/Loginpage">Click Here</a></p>
+        <div class="container">
+            <h1>Signup</h1>
+            <p>Have an account?<a href="/LoginPage">Click Here</a></p>
+        </div>
     </div>
+<div>
+    {% for flashed in get_flashed_messages()%}
+        <div class="text-center">
+            {{flashed}}
+        </div>
+    {%endfor%}
 </div>
-<div class="text-center">
-    <p>{{Message}}</p>
+<div>
     <form style="margin:3rem; border-style: solid; width:18rem; margin: auto;" class="form-inline" method="POST">
         <input type="text" name="FirstName" placeholder="First Name" class="form-control" required><br>
         <input type="text" name="LastName" placeholder="Last Name" class="form-control" required><br>

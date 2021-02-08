@@ -1,11 +1,31 @@
-{% extends 'bootstrap/base.html' %}
+{% extends 'common.html' %}
 
 {% block title %}
-
-Jumbled Words
-
+Realpage
 {% endblock %}
 
-{% block content %}
-<p>placeholder</p>
-{% endblock %}
+{%block header%}
+Welcome {{User[0]}}
+{%endblock%}
+
+{%block subheader%}
+{%endblock%}
+
+{%block link%}
+<a href="/Logout">Logout</a>
+{%endblock%}
+
+{%block pageContent%}
+<div>
+    {% for flashed in get_flashed_messages()%}
+        <div class="text-center">
+            {{flashed}}
+        </div>
+    {%endfor%}
+</div>
+<div style="border-style: solid; width: 50%; margin: auto; padding: 2rem;">
+    <h3>First Name: {{User[0]}}</h3>
+    <h3>Last Name: {{User[1]}}</h3>
+    <h3>Email: {{User[2]}}</h3>
+</div>
+{%endblock%}
