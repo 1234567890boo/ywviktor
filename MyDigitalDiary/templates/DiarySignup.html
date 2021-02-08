@@ -1,0 +1,32 @@
+{% extends 'Bootstrap/base.html' %}
+
+{% block title %}
+
+Signup
+
+{% endblock %}
+
+{%block content%}
+<div class="jumbotron">
+        <div class="container">
+            <h1>DiarySignup</h1>
+            <p>Have an account?<a href="/DiaryLogin">Click Here</a></p>
+        </div>
+    </div>
+<div>
+    {% for flashed in get_flashed_messages()%}
+        <div class="text-center">
+            {{flashed}}
+        </div>
+    {%endfor%}
+</div>
+<div>
+    <form style="margin:3rem; border-style: solid; width:18rem; margin: auto;" class="form-inline" method="POST">
+        <input type="text" name="FirstName" placeholder="First Name" class="form-control" required><br>
+        <input type="text" name="LastName" placeholder="Last Name" class="form-control" required><br>
+        <input type="email" name="Email" placeholder="Email" class="form-control" required><br>
+        <input type="password" name="Password" placeholder="Password" class="form-control" required><br>
+        <input type="submit" name="Signup" class="form-control"><br>
+    </form>
+</div>
+{% endblock %}
