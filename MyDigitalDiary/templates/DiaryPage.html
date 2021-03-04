@@ -1,0 +1,42 @@
+{% extends 'Bootstrap/base.html' %}
+
+{% block title %}
+
+Diary
+
+{%endblock%}
+
+{% block scripts %}
+    {{super()}}
+    {{moment.include_moment()}}
+{% endblock%}
+
+{%block content%}
+<div class="jumbotron" style="padding:4rem; display:flex; justify-content:space-between; align-items:center;">
+    <div>
+        <h1>{{session['userContent'][0]}}</h1>
+        <h3>{{session['userContent'][1]}}'s Diary</h3>
+    </div>
+
+    <div class="text">
+        <p>Login Time={{moment(session['userContent'][3]).fromNow(refresh=True)}}</p>
+        <a href="/Logout">Not you? logout</a>
+    </div>
+</div>
+
+<div class="container">
+    <form method="POST">
+        <textarea name="textArea" rows="3" class="form-control" style="resize:none; margin-bottom:1rem;"></textarea>
+        <input type="submit" value="Save" class="btn btn-sucsess" style="margin-bottom:1rem;">
+    </form>
+    {% for diaryText in text %}
+        <h4>{{moment(diaryText['time']).format('LLL')}}</h4>
+        <p>{{diaryText['text']}}</p>
+        <a href="/delete/{{diaryText['_id']}}">delete</a>
+        {% else %}
+            <h1>There is no diary here. :( Please start.</h1>
+    {%endfor%}
+</div>
+{%endblock%}
+
+Homework=make a delete button and social network
