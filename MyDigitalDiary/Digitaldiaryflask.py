@@ -6,7 +6,7 @@ from datetime import datetime
 from bson.objectid import ObjectId
 
 app = Flask("My Digital Diary")
-app.config['MONGO_URI']='mongodb+srv://TestUser1:emMfEhAK9LnMxrD@viktors-yw-database.hgfpy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+app.config['MONGO_URI']='mongodb+srv://TestUser1:test@viktors-yw-database.hgfpy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 app.config['SECRET_KEY']='e'
 Bootstrap(app)
 moment=Moment(app)
@@ -76,4 +76,4 @@ def delete(id):
 if __name__ == '__main__':
     app.run(debug=True)
 
-#mongodb user password for TestUser1:emMfEhAK9LnMxrD
+#HW= Make account admin and download heroku. if not able to do this, work on social network.
