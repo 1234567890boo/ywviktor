@@ -6,6 +6,11 @@ Contact Page
 
 {% block content %}
 <div class="bg-secondary min-vh-100" style="background:url('../static/hexwallpaper.jpeg')">
-
+    <form method="POST" class="text-center">
+        <input type="email" name="Email" placeholder="Email" class="form-control" required>
+        <input type="text" name="Subject" placeholder="Subject" class="form-control" required>
+        <input type="text" name="Message" placeholder="Message" class="form-control" required>
+        <input type="submit" name="Email" class="btn btn-outline-dark btn-sm">
+    </form>
 </div>
 {% endblock %}
