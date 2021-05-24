@@ -5,12 +5,17 @@ Contact Page
 {% endblock %}
 
 {% block content %}
-<div class="bg-secondary min-vh-100" style="background:url('../static/hexwallpaper.jpeg')">
-    <form method="POST" class="text-center">
+<div class="bg-secondary flex-fill d-flex flex-column justify-content-around" style="background:url('../static/hexwallpaper.jpeg')">
+    <div class="bg-secondary"></div>
+    <div class="text-center text-light">
+        <h3 class="display-4">Contact me</h3>
+        <h5>if you have any questions or comments!</h5>
+    </div>
+    <form method="POST" class="text-center w-75 mx-auto">
         <input type="email" name="Email" placeholder="Email" class="form-control" required>
         <input type="text" name="Subject" placeholder="Subject" class="form-control" required>
         <input type="text" name="Message" placeholder="Message" class="form-control" required>
-        <input type="submit" name="Email" class="btn btn-outline-dark btn-sm">
+        <input type="submit" class="btn btn-secondary btn-sm">
     </form>
 </div>
 {% endblock %}
