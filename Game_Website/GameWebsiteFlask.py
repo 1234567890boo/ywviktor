@@ -20,6 +20,10 @@ def contact():
         mongo.db.GameWebsiteEmails.insert_one(user)
     return render_template('contact.html')
 
+@app.route('/ActualGame')
+def ActualGame():
+    return render_template('ActualGameSite.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
 
