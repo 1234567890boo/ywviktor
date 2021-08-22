@@ -42,11 +42,35 @@ num=np.max(array)
 #mean finds average
 #median finds visual middle value
 
-array=np.array([1,2,3])
-array1=np.array([4,5,6])
-array2=np.concatenate((array,array1))
-print(array2)
-#concatenate to merge 2 arrays
+array=np.array([[1,2,3],[4,5,6]])
+array1=np.array([[7,8,9],[10,11,12]])
+array2=np.concatenate((array,array1),axis=1) #concatenate to merge 2 arrays, axis stacks across rows
+array2=np.vstack((array,array1)) #vstack stack across colums
+array2=np.dstack((array,array1)) #dstack stacks across the depth
+
+
+array=np.array([1,2,3,4,5,6])
+array=np.array_split(array,7) #array_split splits a array into a number of parts
+array=np.array([[1,2,3],[4,5,6]])
+array=np.array_split(array,3,axis=1) #array_split can also use axis
+
+
+array=np.array([1,2,3,4,5,6])
+#array=np.where(array==5) #the where functions locates a item in the list and gives us the postions of it
+array=np.where(array%2==0) #the where function also does math in the perenthesis
+
+
+array=np.array([6,7,8,9])
+array=np.searchsorted(array,7,side='right') #searches sorted arrays for a numbers and returnds the position of it
+
+
+array=np.array([1,4,2,6,8,1])
+array=np.sort(array) #sorts the array
+
+
+print(array)
+
+
 
 
 #Homework: do bargraph slide 5
