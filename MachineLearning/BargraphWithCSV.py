@@ -14,7 +14,6 @@ ylen2=[]#for the ints so the graph works
 for u in ylen:
     ylen2.append(int(u))
 
-
 bar_indexes = np.arange(len(xlen))
 bar_heights = np.array(ylen2)
 plt.bar(bar_indexes,bar_heights)
