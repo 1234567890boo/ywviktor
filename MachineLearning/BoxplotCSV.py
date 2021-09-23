@@ -21,5 +21,5 @@ print(Boxplot_name)
 figure=plt.figure(1,figsize=(9,6)) #makes the boxplot
 axes=figure.add_subplot(111, title="CSV Boxplot") #adds name
 axes.boxplot(Boxplot_name)#shows the axes each list in the list is 1 box plot
-axes.set_xticklabels(Column_names)
+axes.set_xticklabels(Column_names)#Names Each boxplot
 plt.show()
