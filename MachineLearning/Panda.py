@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 
+
 array=np.array(["A","B","C","D","E","F"])#makes 1d array into series
 a=pd.Series(array)
 
@@ -41,8 +42,12 @@ df1=df1.append(df2,ignore_index=True)#merges 2 dataframes together lists have to
 df=pd.DataFrame([[1,2,3],[4,5,6],[7,8,9]],columns=['x','y','z'])
 #print(df.agg(["sum","min","max"]))#has built infucntions to use to make looking up values easear
 
-df=pd.DataFrame()
-df['id']=[1,2,3,4,5]
-df1['age']=[]
-df.assign(df1)
-print(df)
+data={'a':[1,2,3,4,5],'b':[6,7,8,9,10]}
+df=pd.DataFrame(data)
+#print(df.assign(c=lambda x:x.b+1, d=lambda x:x.c+1, e=lambda x:x.a+1))#makes it realy easy to add columbs using lambda
+#print(df.assign(c=[11,12,13,14,15]))#adds a nother column
+
+data1=pd.DataFrame({'a':[1,2,3,4,5],'b':[6,7,8,9,10]})
+data2=pd.DataFrame({'a':[11,12,13,14,15],'b':[16,17,18,19,20]})
+take_smaller = lambda s1, s2: s1 if s1.sum() < s2.sum() else s2
+print(data1.combine(data2,func=take_smaller))
