@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 import numpy as np
 
 
@@ -47,7 +48,22 @@ df=pd.DataFrame(data)
 #print(df.assign(c=lambda x:x.b+1, d=lambda x:x.c+1, e=lambda x:x.a+1))#makes it realy easy to add columbs using lambda
 #print(df.assign(c=[11,12,13,14,15]))#adds a nother column
 
-data1=pd.DataFrame({'a':[1,2,3,4,5],'b':[6,7,8,9,10]})
-data2=pd.DataFrame({'a':[11,12,13,14,15],'b':[16,17,18,19,20]})
-take_smaller = lambda s1, s2: s1 if s1.sum() < s2.sum() else s2
-print(data1.combine(data2,func=take_smaller))
+data1=pd.DataFrame([[1,2,3,4],[5,6,7,8]])
+data2=pd.DataFrame([[11,12],[13,14],[15,16],[17,18]])
+data3=data1.copy()
+#take_smaller = lambda s1, s2: s1 if s1.sum() < s2.sum() else s2
+#print(data1.combine(data2,func=take_smaller))
+#print(data1.compare(data2,align_axis=1))
+#print(data3)
+#print(data1.count())
+#print(data1.dot(data2))
+#print(data2.drop(2))
+
+dict=pd.DataFrame({'a':[1,2,3,5,6,27,5],'b':[3,68,9,1,3,5,8]},index=[1,2,3,4,5,6,7])
+group=dict.groupby('a')
+#print(dict.keys())
+print(dict.lt(10))
+#print(group.groups)
+#print(dict.head())
+#print(dict.hist())
+#plt.show()
