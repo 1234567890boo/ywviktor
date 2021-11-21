@@ -1,1 +1,0 @@
-web: gunicorn GameWebsiteFlask:app --log-file=-
