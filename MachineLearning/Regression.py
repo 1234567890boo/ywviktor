@@ -5,20 +5,35 @@ from mpl_toolkits import mplot3d
 import random
 import pandas as pd
 from sklearn import linear_model
+from sklearn.model_selection import train_test_split
 
-x=np.outer(np.linspace(-1,1,15),np.ones(15))
+data=pd.read_csv('regressionWithCSVBank.csv')
+
+x=data.iloc[:,[2,3]].values
+y=data.iloc[:,[4]].values
+
+xtrain,xtest,ytrain,ytest=train_test_split(x,y,test_size=0.20,random_state=0)
+print(xtrain,xtest,ytrain,ytest)
+
+#=========================================================================================================
+
+'''x=np.outer(np.linspace(-1,1,25),np.ones(25))
 y=x.copy().T
 z=np.sin(x*3-y*2)
 
 fig=plt.figure()
 tdproj=plt.axes(projection="3d")
 
-tdproj.plot_surface(x,y,z,cmap="viridis",edgecolor="blue") #contour3D can replace the plot_surface
+#tdproj.plot_surface(x,y,z,cmap="viridis",edgecolor="blue") #Terrain
+#tdproj.plot_wireframe(x,y,z,color="blue") #Wireframe
+#tdproj.contour3D(x,y,z,cmap="viridis") #Contour
+tdproj.scatter3D(x,y,z,color="blue") #Scatter Plot
+
 plt.show()
 
 #=========================================================================================================
 
-'''def wf(x,y):
+def wf(x,y):
     return np.sin(np.sqrt(x**2++y**2))
 
 x=np.linspace(-1,5,10)
@@ -38,8 +53,8 @@ fig=plt.figure()
 tdproj=plt.axes(projection="3d")
 
 z=np.linspace(0,1,100)
-x=z*np.tan(z)
-y=x*np.cos(x)
+x=z*np.sin(z) #can be sin tas or cos
+y=x*np.tan(x) #can be sin tas or cos
 c=x+y
 
 tdproj.plot3D(x,y,z,"c")
