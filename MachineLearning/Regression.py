@@ -5,19 +5,57 @@ from mpl_toolkits import mplot3d
 import random
 import pandas as pd
 from sklearn import linear_model
+from sklearn.linear_model import LogisticRegression as lr
 from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler as sc
+from sklearn.metrics import confusion_matrix as cmd
+from sklearn.metrics import accuracy_score as AS
 
-data=pd.read_csv('regressionWithCSVBank.csv')
+barwidth=0.25
+subject1=[40,1,25,10,27]
+subject2=[25,12,13,18,19]
+subject3=[23,36,18,15,14]
+
+bar1=np.arange(len(subject1))
+bar2=[x+barwidth for x in bar1]
+bar3=[x+barwidth for x in bar2]
+
+plt.bar(bar1,subject1,color="blue",width=barwidth,label="subject1")
+plt.bar(bar2,subject2,color="green",width=barwidth,label="subject2")
+plt.bar(bar3,subject3,color="red",width=barwidth,label="subject3")
+plt.xticks([y+barwidth for y in range(0,len(subject1),1)],['2010','2011','2012','2013','2014'])
+plt.xlabel("Subjects",fontweight="bold",fontsize=17)
+plt.ylabel("Percentage",fontweight="bold",fontsize=17)
+plt.legend()
+plt.show()
+
+#=========================================================================================================
+
+'''data=pd.read_csv('RegressionWithCSVBank.csv')
 
 x=data.iloc[:,[2,3]].values
 y=data.iloc[:,[4]].values
 
 xtrain,xtest,ytrain,ytest=train_test_split(x,y,test_size=0.20,random_state=0)
-print(xtrain,xtest,ytrain,ytest)
+
+sc_x=sc()
+sc_y=sc()
+
+xtrain=sc_x.fit_transform(xtrain)
+xtest=sc_x.fit_transform(xtest)
+
+lr_xy=lr(random_state=0)
+lr_xy.fit(xtrain,ytrain)
+
+y_pred=lr_xy.predict(xtest)
+cm=cmd(ytest,y_pred)
+#[[true positive,false positive][true negative,false negative]]
+print(AS(ytest,y_pred))
+
 
 #=========================================================================================================
 
-'''x=np.outer(np.linspace(-1,1,25),np.ones(25))
+x=np.outer(np.linspace(-1,1,25),np.ones(25))
 y=x.copy().T
 z=np.sin(x*3-y*2)
 
