@@ -4,14 +4,44 @@ from sklearn.metrics import r2_score
 from mpl_toolkits import mplot3d
 import random
 import pandas as pd
+from sklearn.datasets import load_iris as li
 from sklearn import linear_model
+from sklearn import metrics
 from sklearn.linear_model import LogisticRegression as lr
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler as sc
 from sklearn.metrics import confusion_matrix as cmd
 from sklearn.metrics import accuracy_score as AS
+from sklearn.naive_bayes import GaussianNB
+from sklearn.datasets._samples_generator import make_blobs
 
-barwidth=0.25
+
+#=========================================================================================================
+
+'''x,y=make_blobs(n_samples=500,centers=5,random_state=0,cluster_std=0.40)
+
+plt.scatter(x[:,0],x[:, 1],c=y,s=50,cmap='Accent')
+plt.show()
+
+#=========================================================================================================
+
+li=li()
+
+x=li.data
+y=li.target
+
+xtrain,xtest,ytrain,ytest=train_test_split(x,y,test_size=.4,random_state=1)
+gnb=GaussianNB()
+gnb.fit(xtrain,ytrain)
+
+ypredict=gnb.predict(xtest)
+
+print(metrics.accuracy_score(ytest,ypredict)*100)
+print(ypredict)
+
+#=========================================================================================================
+
+'barwidth=0.25
 subject1=[40,1,25,10,27]
 subject2=[25,12,13,18,19]
 subject3=[23,36,18,15,14]
@@ -31,7 +61,7 @@ plt.show()
 
 #=========================================================================================================
 
-'''data=pd.read_csv('RegressionWithCSVBank.csv')
+data=pd.read_csv('RegressionWithCSVBank.csv')
 
 x=data.iloc[:,[2,3]].values
 y=data.iloc[:,[4]].values
