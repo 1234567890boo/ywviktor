@@ -14,7 +14,13 @@ from sklearn.metrics import confusion_matrix as cmd
 from sklearn.metrics import accuracy_score as AS
 from sklearn.naive_bayes import GaussianNB
 from sklearn.datasets._samples_generator import make_blobs
+import cv2
 
+
+catt=cv2.imread("cat.jpeg",cv2.IMREAD_COLOR)
+cv2.imshow(catt)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 
 #=========================================================================================================
 
