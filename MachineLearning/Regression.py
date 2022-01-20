@@ -14,11 +14,24 @@ from sklearn.metrics import confusion_matrix as cmd
 from sklearn.metrics import accuracy_score as AS
 from sklearn.naive_bayes import GaussianNB
 from sklearn.datasets._samples_generator import make_blobs
+
+red=(0,0,255)
+green=(0,255,0)
+blue=(255,0,0)
+
 import cv2
-
-
-catt=cv2.imread("cat.jpeg",cv2.IMREAD_COLOR)
-cv2.imshow(catt)
+from google.colab.patches import cv2_imshow
+img=cv2.imread("rgb.jpeg",cv2.IMREAD_COLOR)
+line=cv2.line(img,(0,100),(75,100),green,5)
+arrow=cv2.arrowedLine(img,(0,50),(75,50),green,5,tipLength=0.1) #tipLenght can be 0-1
+ellipe=cv2.ellipse(img,(150,150),(25,5),30,360,0,red,2)
+circle=cv2.circle(img,(150,100),25,red,2)
+rect=cv2.rectangle(img,(150,10),(100,50),red,2)
+text=cv2.putText(img,'CV',(250,50),cv2.FONT_HERSHEY_SIMPLEX,1,blue,3)
+r,g,b=cv2.split(img)
+cv2_imshow(b)
+#cv2.imwrite("newimg.jpeg",g)
+#use r,g,b for img for single color/grayscale or full img
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
