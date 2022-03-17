@@ -50,4 +50,12 @@ Some of them can't work and there will be new, better ones in the future
 An iteration is called an epoch, and thousands of epochs can be made in a neuran network
 Ex: Opitmizer=tf.train.AdamOptimizer(0.1)
     train=opimizer.minimize(loss)
+    
+Regression formula for a,b: s=ax+by+c
+for a,b,c,d: s=ax+by+cz+d
+a,b,c,d are the coeficiants
+x,y,z are the indipended variables
+s is the dependent variable
+
+KNN(K-Nearest Neigbors)
 '''
