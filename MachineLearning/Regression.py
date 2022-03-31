@@ -19,22 +19,151 @@ red=(0,0,255)
 green=(0,255,0)
 blue=(255,0,0)
 
+from numpy.lib.npyio import recfromtxt
+red=(0,0,255)
+green=(0,255,0)
+blue=(255,0,0)
+
 import cv2
+import numpy as np
 from google.colab.patches import cv2_imshow
-img=cv2.imread("rgb.jpeg",cv2.IMREAD_COLOR)
-line=cv2.line(img,(0,100),(75,100),green,5)
-arrow=cv2.arrowedLine(img,(0,50),(75,50),green,5,tipLength=0.1) #tipLenght can be 0-1
-ellipe=cv2.ellipse(img,(150,150),(25,5),30,360,0,red,2)
-circle=cv2.circle(img,(150,100),25,red,2)
-rect=cv2.rectangle(img,(150,10),(100,50),red,2)
-text=cv2.putText(img,'CV',(250,50),cv2.FONT_HERSHEY_SIMPLEX,1,blue,3)
-r,g,b=cv2.split(img)
-cv2_imshow(b)
-#cv2.imwrite("newimg.jpeg",g)
+
+img1=cv2.imread("test.jpeg",cv2.IMREAD_COLOR)
+'''img2=cv2.imread("Bluewall.jpeg",cv2.IMREAD_COLOR)
+
+erodemesh=np.ones((10,10))
+erode=cv2.erode(img1,erodemesh)
+
+colorbar=np.zeros((500,500,3),np.uint8)
+cbarwinname="color palate"
+cv2.namedWindow(cbarwinname)
+def cbar():
+  pass
+
+cv2.createTrackbar("blue",cbarwinname,0,255,cbar)
+cv2.createTrackbar("green",cbarwinname,0,255,cbar)
+cv2.createTrackbar("red",cbarwinname,0,255,cbar)
+
+while True:
+  cv2_imshow(cbar,colorbar)
+  if cv2.waitKey(1)==27:
+      break
+  blue=cv2.getTrackbarPos("blue",cbarwinname)
+  green=cv2.getTrackbarPos("green",cbarwinname)
+  red=cv2.getTrackbarPos("red",cbarwinname)
+  colorbar[:]=[blue,green,red]
+  print(blue,green,red)
+
+border=cv2.copyMakeBorder(img1,10,10,10,10,cv2.BORDER_CONSTANT)
+
+(rows,columns)=(img1.shape[:2])
+rotate=cv2.getRotationMatrix2D((columns/2,rows/2),90,1)
+rotateimg=cv2.warpAffine(img1,rotate,(rows,columns))
+
+edges=cv2.Canny(img2,100,200)
+
+resize1=cv2.resize(img1,(250,250))
+resize2=cv2.resize(img2,(250,250))
+
+#cv2.imwrite("cat2.jpeg",resize1)
+#cv2.imwrite("Bluewall2.jpeg",resize2)
+
+subtracted=cv2.subtract(img1,img2,0)
+added=cv2.add(img1,img2,0)
+
+#contours,htable=cv2.findContours(edges,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_NONE)
+#cv2.drawContours(img1,contours,-1,blue,5)
+
+cap=cv2.VideoCapture("sample-mp4-file.mp4")
+seperate=cv2.createBackgroundSubtractorMOG2()
+while True:
+  ret,frame=cap.read()
+  fgmask=seperate.apply(frame)
+  cv2.waitKey("w")
+  cv2_imshow(fgmask)
+
+mask=np.zeros(img1.shape[:2],np.uint8)
+bgmodel=np.zeros((1,65),np.float64)
+fgmodel=np.zeros((1,65),np.float64)
+rec=(100,100,100,100)
+cv2.grabCut(img1,mask,rec,bgmodel,fgmodel,3,cv2.GC_INIT_WITH_RECT)
+mask2=np.where((mask==2)|(mask==0),0,1).astype("uint8")
+newimg=img1*mask2[:,:,np.newaxis]
+cv2_imshow(newimg)
+
+
+if __name__ == '__main__' :
+  img1=cv2.imread("cat.jpeg",cv2.IMREAD_COLOR)
+  r = cv2.selectROI(img1)
+  imCrop = img1[int(r[1]):int(r[1]+r[3]), int(r[0]):int(r[0]+r[2])]
+  cv2.imshow("r",imCrop)
+  cv2.waitKey(0)
+
+height=350
+width=350
+#img=np.zeros((height,width,3))
+
+line=cv2.line(img1,(0,100),(75,100),green,5)
+
+arrow=cv2.arrowedLine(img1,(0,50),(75,50),green,5,tipLength=0.1) #tipLenght can be 0-1
+
+ellipe=cv2.ellipse(img1,(150,150),(25,5),30,360,0,red,2)
+
+circle=cv2.circle(img1,(150,100),25,red,2)
+
+rect=cv2.rectangle(img1,(150,10),(100,50),red,2)
+
+text=cv2.putText(img1,'CV',(250,50),cv2.FONT_HERSHEY_SIMPLEX,1,red,3)
+
+centroid1=(350,200)
+centroid2=(300,250)
+centroid3=(250,150)
+centroid=((centroid1[0]+centroid2[0]+centroid3[0])//3,(centroid1[1]+centroid2[1]+centroid3[1])//3)
+
+centroidline1=cv2.line(img1,centroid1,centroid2,red,2)
+centroidline2=cv2.line(img1,centroid2,centroid3,red,2)
+centroidline3=cv2.line(img1,centroid3,centroid1,red,2)
+centroidDraw=cv2.circle(img1,centroid,5,red,2)
+
+
+r,g,b=cv2.split(img1)
+gray=cv2.cvtColor(img1,cv2.COLOR_BGR2GRAY)
+hsv=cv2.cvtColor(img1,cv2.COLOR_BGR2HSV)
+
+lowerhsv=np.array([60,35,140])
+upperhsv=np.array([180,255,255])
+hsvmask=cv2.inRange(hsv,lowerhsv,upperhsv)
+final=cv2.bitwise_and(img1,hsvmask,mask=hsvmask)
+
+edges=cv2.Canny(gray,width,height)
+cv2.waitKey(0)
+
+cv2_imshow(erode)
+cv2.imwrite("newimg.jpeg",g)
 #use r,g,b for img for single color/grayscale or full img
+
+
+shrink=img1.copy()
+for n in range(0,4,1):
+  shrink=cv2.pyrDown(shrink)
+  cv2_imshow(shrink)
+  cv2.waitKey(0)'''
+
+
+hsv = cv2.cvtColor(img1, cv2.COLOR_BGR2HSV)
+min_color = np.array([0, 0, 0])
+max_color = np.array([100, 100, 255])
+mask = cv2.inRange(hsv, min_color, max_color)
+res = cv2.bitwise_and(img1, hsv, mask)
+
+cv2_imshow(img1)
+cv2_imshow(hsv)
+cv2_imshow(mask)
+cv2_imshow(res)
+
+
 cv2.waitKey(0)
 cv2.destroyAllWindows()
-
 #=========================================================================================================
 
 '''x,y=make_blobs(n_samples=500,centers=5,random_state=0,cluster_std=0.40)
