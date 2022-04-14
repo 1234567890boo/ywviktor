@@ -19,6 +19,7 @@ red=(0,0,255)
 green=(0,255,0)
 blue=(255,0,0)
 
+#-------------------------------------------------------------------------------------------------------------------
 from numpy.lib.npyio import recfromtxt
 red=(0,0,255)
 green=(0,255,0)
@@ -161,6 +162,50 @@ cv2_imshow(hsv)
 cv2_imshow(mask)
 cv2_imshow(res)
 
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+#-------------------------------------------------------------------------------------------------------------------
+red=(0,0,255)
+green=(0,255,0)
+blue=(255,0,0)
+
+import cv2
+import numpy as np
+from google.colab.patches import cv2_imshow
+
+img1=cv2.imread("Blue.png",cv2.IMREAD_COLOR)
+#-------------------------------------------------------------------------------------------------------------------
+'''hsv = cv2.cvtColor(img1, cv2.COLOR_BGR2HSV)
+min_color = np.array([111, 111, 138])
+max_color = np.array([113, 179, 156])
+mask = cv2.inRange(hsv, min_color, max_color)
+res = cv2.bitwise_and(img1, img1, mask)
+contour_frame=mask.copy()
+contours,hierachy=cv2.findContours(contour_frame,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
+sorted_contours=sorted(contours, key=cv2.contourArea, reverse=True)
+edges=cv2.Canny(img1,30,200)
+cv2.drawContours(contour_frame,contours,-1,(0,0,0))
+cv2_imshow(contour_frame)
+cv2_imshow(mask)'''
+#-------------------------------------------------------------------------------------------------------------------
+'''
+gray=cv2.cvtColor(img1,cv2.COLOR_BGR2GRAY)
+sift=cv2.xfeatures2d.SIFT_create
+kp=sift.detect(gray)
+kp,des=sift.compute(gray)
+cv2.drawKeypoints'''
+#-------------------------------------------------------------------------------------------------------------------
+'''
+cv2_imshow(img1)
+gray=cv2.cvtColor(img1,cv2.COLOR_BGR2GRAY)
+fast=cv2.FastFeatureDetector_create()
+brief=cv2.xfeatures2d.BriefDescriptorExtractor_create()
+kp=fast.detect(img1)
+kp,des=brief.compute(img1,None)
+keypoints_img=cv2.drawKeypoints(gray,kp,img1,flags=cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
+cv2_imshow(keypoints_img)'''
+#-------------------------------------------------------------------------------------------------------------------
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
