@@ -175,6 +175,12 @@ import numpy as np
 from google.colab.patches import cv2_imshow
 
 img1=cv2.imread("Blue.png",cv2.IMREAD_COLOR)
+img2=cv2.imread("Red.png",cv2.IMREAD_COLOR)
+
+grayimg1=cv2.imread("Blue.png",cv2.IMREAD_GRAYSCALE)
+grayimg2=cv2.imread("Red.png",cv2.IMREAD_GRAYSCALE)
+
+
 #-------------------------------------------------------------------------------------------------------------------
 '''hsv = cv2.cvtColor(img1, cv2.COLOR_BGR2HSV)
 min_color = np.array([111, 111, 138])
@@ -202,9 +208,32 @@ gray=cv2.cvtColor(img1,cv2.COLOR_BGR2GRAY)
 fast=cv2.FastFeatureDetector_create()
 brief=cv2.xfeatures2d.BriefDescriptorExtractor_create()
 kp=fast.detect(img1)
-kp,des=brief.compute(img1,None)
+kp1,des=brief.compute(img1,None)
 keypoints_img=cv2.drawKeypoints(gray,kp,img1,flags=cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
 cv2_imshow(keypoints_img)'''
+#-------------------------------------------------------------------------------------------------------------------
+'''detect=cv2.ORB_create()
+kp1,des1=detect.detectAndCompute(img1,None)
+kp2,des2=detect.detectAndCompute(img2,None)
+bf_matcher=cv2.BFMatcher(cv2.NORM_HAMMING,crossCheck=True)
+num_of_matches=bf_matcher.match(des1,des2)
+
+def drawMach(kp1,kp2,matches):
+  outputimg=cv2.drawMatches(img1,kp1,img2,kp2,matches,None,flags=2)
+  coords = [kp2[match.trainIdx].pt for match in matches]
+  trueaveragex=0
+  trueaveragey=0
+  for n in range(0,len(coords),1):
+    averagex=coords[n][0]
+    averagey=coords[n][1]
+    trueaveragex+=averagex
+    trueaveragey+=averagey
+  trueaveragex/=len(coords)
+  trueaveragey/=len(coords)
+  print(trueaveragex,trueaveragey)
+  cv2_imshow(outputimg)
+  print(len(num_of_matches))
+drawMach(kp1,kp2,num_of_matches)'''
 #-------------------------------------------------------------------------------------------------------------------
 
 cv2.waitKey(0)
