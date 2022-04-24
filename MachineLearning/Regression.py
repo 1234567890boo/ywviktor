@@ -170,18 +170,23 @@ red=(0,0,255)
 green=(0,255,0)
 blue=(255,0,0)
 
+red = (0, 0, 255)
+green = (0, 255, 0)
+blue = (255, 0, 0)
+
 import cv2
 import numpy as np
 from google.colab.patches import cv2_imshow
 
-img1=cv2.imread("Blue.png",cv2.IMREAD_COLOR)
-img2=cv2.imread("Red.png",cv2.IMREAD_COLOR)
+img1 = cv2.imread("Blue.png", cv2.IMREAD_COLOR)
+img2 = cv2.imread("Red.png", cv2.IMREAD_COLOR)
 
-grayimg1=cv2.imread("Blue.png",cv2.IMREAD_GRAYSCALE)
-grayimg2=cv2.imread("Red.png",cv2.IMREAD_GRAYSCALE)
+grayimg1 = cv2.imread("Blue.png", cv2.IMREAD_GRAYSCALE)
+grayimg2 = cv2.imread("Red.png", cv2.IMREAD_GRAYSCALE)
 
+grayface = cv2.imread("Face.png", cv2.IMREAD_GRAYSCALE)
 
-#-------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------------------
 '''hsv = cv2.cvtColor(img1, cv2.COLOR_BGR2HSV)
 min_color = np.array([111, 111, 138])
 max_color = np.array([113, 179, 156])
@@ -194,14 +199,14 @@ edges=cv2.Canny(img1,30,200)
 cv2.drawContours(contour_frame,contours,-1,(0,0,0))
 cv2_imshow(contour_frame)
 cv2_imshow(mask)'''
-#-------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------------------
 '''
 gray=cv2.cvtColor(img1,cv2.COLOR_BGR2GRAY)
 sift=cv2.xfeatures2d.SIFT_create
 kp=sift.detect(gray)
 kp,des=sift.compute(gray)
 cv2.drawKeypoints'''
-#-------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------------------
 '''
 cv2_imshow(img1)
 gray=cv2.cvtColor(img1,cv2.COLOR_BGR2GRAY)
@@ -211,7 +216,8 @@ kp=fast.detect(img1)
 kp1,des=brief.compute(img1,None)
 keypoints_img=cv2.drawKeypoints(gray,kp,img1,flags=cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
 cv2_imshow(keypoints_img)'''
-#-------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------------------
+
 '''detect=cv2.ORB_create()
 kp1,des1=detect.detectAndCompute(img1,None)
 kp2,des2=detect.detectAndCompute(img2,None)
@@ -220,21 +226,35 @@ num_of_matches=bf_matcher.match(des1,des2)
 
 def drawMach(kp1,kp2,matches):
   outputimg=cv2.drawMatches(img1,kp1,img2,kp2,matches,None,flags=2)
-  coords = [kp2[match.trainIdx].pt for match in matches]
+  #outputimg2=cv2.drawMatches(img2,kp1,img1,kp2,matches,None,flags=2)
+
+  coords2 = [kp2[match2.trainIdx].pt for match2 in matches]
   trueaveragex=0
   trueaveragey=0
-  for n in range(0,len(coords),1):
-    averagex=coords[n][0]
-    averagey=coords[n][1]
+  for n in range(0,len(coords2),1):
+    averagex=coords2[n][0]
+    averagey=coords2[n][1]
     trueaveragex+=averagex
     trueaveragey+=averagey
-  trueaveragex/=len(coords)
-  trueaveragey/=len(coords)
-  print(trueaveragex,trueaveragey)
-  cv2_imshow(outputimg)
-  print(len(num_of_matches))
+  trueaveragex/=len(coords2)
+  trueaveragey/=len(coords2)
+
+  circleimg=cv2.circle(outputimg,(int(trueaveragex),int(trueaveragey)),10,red,2)
+  #circleimg2=cv2.circle(outputimg2,(int(trueaveragex),int(trueaveragey)),10,red,2)
+
+  #trueoutimg=circleimg2+circleimg
+
+  cv2_imshow(circleimg)
+
 drawMach(kp1,kp2,num_of_matches)'''
-#-------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------------------
+
+face_cascades = cv2.CascadeClassifier(cv2.data.haarcascades + "Haar_Cascades.xml")
+
+faces = face_cascades.detectMultiScale(grayface, 1.3, 5)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
