@@ -166,10 +166,6 @@ cv2_imshow(res)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 #-------------------------------------------------------------------------------------------------------------------
-red=(0,0,255)
-green=(0,255,0)
-blue=(255,0,0)
-
 red = (0, 0, 255)
 green = (0, 255, 0)
 blue = (255, 0, 0)
@@ -178,13 +174,20 @@ import cv2
 import numpy as np
 from google.colab.patches import cv2_imshow
 
-img1 = cv2.imread("Blue.png", cv2.IMREAD_COLOR)
-img2 = cv2.imread("Red.png", cv2.IMREAD_COLOR)
+# img1=cv2.imread("Blue.png",cv2.IMREAD_UNCHANGED)
+# img2=cv2.imread("Red.png",cv2.IMREAD_UNCHANGED)
 
 grayimg1 = cv2.imread("Blue.png", cv2.IMREAD_GRAYSCALE)
 grayimg2 = cv2.imread("Red.png", cv2.IMREAD_GRAYSCALE)
 
-grayface = cv2.imread("Face.png", cv2.IMREAD_GRAYSCALE)
+colorface = cv2.imread("soccer.png", cv2.IMREAD_UNCHANGED)
+grayface = cv2.cvtColor(colorface, cv2.COLOR_BGR2GRAY)
+
+colorsmile = cv2.imread("smile.png", cv2.IMREAD_UNCHANGED)
+graysmile = cv2.cvtColor(colorsmile, cv2.COLOR_BGR2GRAY)
+
+colorcat = cv2.imread("cat.png", cv2.IMREAD_UNCHANGED)
+graycat = cv2.cvtColor(colorcat, cv2.COLOR_BGR2GRAY)
 
 # -------------------------------------------------------------------------------------------------------------------
 '''hsv = cv2.cvtColor(img1, cv2.COLOR_BGR2HSV)
@@ -248,13 +251,25 @@ def drawMach(kp1,kp2,matches):
 
 drawMach(kp1,kp2,num_of_matches)'''
 # -------------------------------------------------------------------------------------------------------------------
-
-face_cascades = cv2.CascadeClassifier(cv2.data.haarcascades + "Haar_Cascades.xml")
+face_cascades = cv2.CascadeClassifier("Haar_Cascades.xml")
+smile_cascades = cv2.CascadeClassifier("Haar_Cascades_Smile.xml")
+cat_cascades = cv2.CascadeClassifier("Haar_Cascades_Cat.xml")
 
 faces = face_cascades.detectMultiScale(grayface, 1.3, 5)
+smiles = smile_cascades.detectMultiScale(graysmile, 1.7, 5)
+cats = cat_cascades.detectMultiScale(graycat, 1.3, 5)
 
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+for face in faces:
+    faceRect = cv2.rectangle(colorface, (face[0], face[1]), (face[2] + face[0], face[3] + face[1]), green, )
+cv2_imshow(faceRect)
+
+for smile in smiles:
+    smileRect = cv2.rectangle(colorsmile, (smile[0], smile[1]), (smile[2] + smile[0], smile[3] + smile[1]), green, 2)
+cv2_imshow(smileRect)
+
+for cat in cats:
+    catRect = cv2.rectangle(colorcat, (cat[0], cat[1]), (cat[2] + cat[0], cat[3] + cat[1]), green, 2)
+cv2_imshow(catRect)
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
