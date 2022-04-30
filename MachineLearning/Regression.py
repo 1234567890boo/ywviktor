@@ -165,7 +165,9 @@ cv2_imshow(res)
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
-#-------------------------------------------------------------------------------------------------------------------
+
+#----------------------------------------------------------------------------------------------------------------------
+
 red = (0, 0, 255)
 green = (0, 255, 0)
 blue = (255, 0, 0)
@@ -174,23 +176,21 @@ import cv2
 import numpy as np
 from google.colab.patches import cv2_imshow
 
-# img1=cv2.imread("Blue.png",cv2.IMREAD_UNCHANGED)
-# img2=cv2.imread("Red.png",cv2.IMREAD_UNCHANGED)
+img1 = cv2.imread("Blue.png", cv2.IMREAD_UNCHANGED)
+img2 = cv2.imread("Red.png", cv2.IMREAD_UNCHANGED)
 
 grayimg1 = cv2.imread("Blue.png", cv2.IMREAD_GRAYSCALE)
 grayimg2 = cv2.imread("Red.png", cv2.IMREAD_GRAYSCALE)
 
-colorface = cv2.imread("soccer.png", cv2.IMREAD_UNCHANGED)
+colorface = cv2.imread("Face.jpeg", cv2.IMREAD_UNCHANGED)
 grayface = cv2.cvtColor(colorface, cv2.COLOR_BGR2GRAY)
 
 colorsmile = cv2.imread("smile.png", cv2.IMREAD_UNCHANGED)
 graysmile = cv2.cvtColor(colorsmile, cv2.COLOR_BGR2GRAY)
 
-colorcat = cv2.imread("cat.png", cv2.IMREAD_UNCHANGED)
-graycat = cv2.cvtColor(colorcat, cv2.COLOR_BGR2GRAY)
-
 # -------------------------------------------------------------------------------------------------------------------
-'''hsv = cv2.cvtColor(img1, cv2.COLOR_BGR2HSV)
+'''
+hsv = cv2.cvtColor(img1, cv2.COLOR_BGR2HSV)
 min_color = np.array([111, 111, 138])
 max_color = np.array([113, 179, 156])
 mask = cv2.inRange(hsv, min_color, max_color)
@@ -201,7 +201,8 @@ sorted_contours=sorted(contours, key=cv2.contourArea, reverse=True)
 edges=cv2.Canny(img1,30,200)
 cv2.drawContours(contour_frame,contours,-1,(0,0,0))
 cv2_imshow(contour_frame)
-cv2_imshow(mask)'''
+cv2_imshow(mask)
+'''
 # -------------------------------------------------------------------------------------------------------------------
 '''
 gray=cv2.cvtColor(img1,cv2.COLOR_BGR2GRAY)
@@ -218,10 +219,11 @@ brief=cv2.xfeatures2d.BriefDescriptorExtractor_create()
 kp=fast.detect(img1)
 kp1,des=brief.compute(img1,None)
 keypoints_img=cv2.drawKeypoints(gray,kp,img1,flags=cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
-cv2_imshow(keypoints_img)'''
+cv2_imshow(keypoints_img)
+'''
 # -------------------------------------------------------------------------------------------------------------------
-
-'''detect=cv2.ORB_create()
+'''
+detect=cv2.ORB_create()
 kp1,des1=detect.detectAndCompute(img1,None)
 kp2,des2=detect.detectAndCompute(img2,None)
 bf_matcher=cv2.BFMatcher(cv2.NORM_HAMMING,crossCheck=True)
@@ -249,27 +251,28 @@ def drawMach(kp1,kp2,matches):
 
   cv2_imshow(circleimg)
 
-drawMach(kp1,kp2,num_of_matches)'''
+drawMach(kp1,kp2,num_of_matches)
+'''
 # -------------------------------------------------------------------------------------------------------------------
-face_cascades = cv2.CascadeClassifier("Haar_Cascades.xml")
-smile_cascades = cv2.CascadeClassifier("Haar_Cascades_Smile.xml")
-cat_cascades = cv2.CascadeClassifier("Haar_Cascades_Cat.xml")
+'''
+face_cascades=cv2.CascadeClassifier("Haar_Cascades.xml")
+smile_cascades=cv2.CascadeClassifier("Haar_Cascades_Smile.xml")
+cat_cascades=cv2.CascadeClassifier("Haar_Cascades_Cat.xml")
 
-faces = face_cascades.detectMultiScale(grayface, 1.3, 5)
-smiles = smile_cascades.detectMultiScale(graysmile, 1.7, 5)
-cats = cat_cascades.detectMultiScale(graycat, 1.3, 5)
+faces=face_cascades.detectMultiScale(colorface,1.3,5)
+smiles=smile_cascades.detectMultiScale(graysmile,1.7,5)
+cats=cat_cascades.detectMultiScale(graycat,1.3,5)
+
 
 for face in faces:
-    faceRect = cv2.rectangle(colorface, (face[0], face[1]), (face[2] + face[0], face[3] + face[1]), green, )
+  faceRect=cv2.rectangle(colorface,(face[0],face[1]),(face[2]+face[0],face[3]+face[1]),green,2)
 cv2_imshow(faceRect)
 
 for smile in smiles:
-    smileRect = cv2.rectangle(colorsmile, (smile[0], smile[1]), (smile[2] + smile[0], smile[3] + smile[1]), green, 2)
+  smileRect=cv2.rectangle(colorsmile,(smile[0],smile[1]),(smile[2]+smile[0],smile[3]+smile[1]),green,2)
 cv2_imshow(smileRect)
-
-for cat in cats:
-    catRect = cv2.rectangle(colorcat, (cat[0], cat[1]), (cat[2] + cat[0], cat[3] + cat[1]), green, 2)
-cv2_imshow(catRect)
+'''
+# -------------------------------------------------------------------------------------------------------------------
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
